@@ -1,6 +1,5 @@
 import 'package:blackrock_go/models/const_model.dart';
 import 'package:blackrock_go/models/event_model.dart';
-import 'package:blackrock_go/models/user_model.dart';
 import 'package:blackrock_go/views/widgets/location_time_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';

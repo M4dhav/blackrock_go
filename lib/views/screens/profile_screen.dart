@@ -123,6 +123,7 @@ class _ProfilePageState extends State<ProfilePage> {
         body: Padding(
           padding: EdgeInsets.all(2.h),
           child: Container(
+            padding: EdgeInsets.all(8),
             decoration: const BoxDecoration(
               color: Colors.black,
               border: Border(
@@ -135,116 +136,40 @@ class _ProfilePageState extends State<ProfilePage> {
                 topRight: Radius.circular(20),
               ),
             ),
-            child: DefaultTabController(
-              length: 3,
-              child: Column(
-                children: [
-                  ButtonsTabBar(
-                    backgroundColor: Colors.transparent,
-                    unselectedBackgroundColor: Colors.transparent,
-                    contentPadding:
-                        EdgeInsets.only(top: 1.h, left: 5.w, right: 5.w),
-                    labelStyle: const TextStyle(
-                      fontFamily: 'Cinzel',
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xffb4914b),
-                      decoration: TextDecoration.underline,
-                      decorationColor: Color(0xffb4914b),
-                      decorationThickness: 4,
-                      fontSize: 16,
-                    ),
-                    unselectedLabelStyle: TextStyle(
-                      fontFamily: 'Cinzel',
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w100,
-                      color: const Color(0xffb4914b),
-                    ),
-                    tabs: const [
-                      Tab(text: "TIMELINE"),
-                      Tab(text: "TOKENS"),
-                      Tab(text: "NFTS"),
-                    ],
+            child: Column(
+              children: [
+                Text(
+                  'Timeline',
+                  style: TextStyle(
+                    fontFamily: 'Cinzel',
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xffb4914b),
+                    fontSize: 22,
                   ),
-                  Expanded(
-                    child: TabBarView(
-                      children: <Widget>[
-                        Obx(
-                          () => ListView.builder(
-                            shrinkWrap: true,
-                            // reverse: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: postController.posts.length,
-                            itemBuilder: (context, index) {
-                              final post = postController.posts[index];
-                              final date = DateTime.fromMillisecondsSinceEpoch(
-                                  post.timestamp);
-                              final formattedDate =
-                                  "${date.day}/${date.month}/${date.year}";
-                              return TimelineItem(
-                                index: index,
-                                imageUrl: post.imageUrl,
-                                timestamp: formattedDate,
-                              );
-                            },
-                          ),
-                        ),
-                        Container(),
-                        Container()
-                        // ListView.builder(
-                        //   itemCount: 0,
-                        //   itemBuilder: (context, index) {
-                        //     final token =
-                        //         controller.runes.values.elementAt(index);
-                        //     return InkWell(
-                        //       onTap: () {
-                        //         context.push('token', extra: token);
-                        //       },
-                        //       child: ListTile(
-                        //         titleTextStyle:
-                        //             const TextStyle(color: Colors.white),
-                        //         title: Text(token['name']),
-                        //         subtitle: Text(
-                        //             "Balance: ${token['balance'] ?? 0} ${token['symbol'] ?? ""}"),
-                        //       ),
-                        //     );
-                        //   },
-                        // ),
-                        // ListView.builder(
-                        //   itemCount: controller.ordinals.length,
-                        //   itemBuilder: (context, index) {
-                        //     final token =
-                        //         controller.ordinals.values.elementAt(index);
-                        //     String type = token['info']['content_type'];
-                        //     if (type.contains('image')) {
-                        //       return Image.network(
-                        //           token['info']['content_url']);
-                        //     } else if (type.contains("text")) {
-                        //       return GestureDetector(
-                        //         onTap: () async {
-                        //           log("tranc a tsrating                         ");
-                        //           await controller
-                        //               .sellerCreateAndStoreTransactionWithBip49(
-                        //             listingId: "jbhkdjcbc",
-                        //             ordinalUtxo: token['utxos'][0],
-                        //             sellerReceiveAddress:
-                        //                 userController.user.walletAddress,
-                        //           );
-                        //         },
-                        //         child: Text(
-                        //           token['info']['contents'],
-                        //           textAlign: TextAlign.center,
-                        //         ),
-                        //       );
-                        //     } else {
-                        //       return Container();
-                        //     }
-                        //   },
-                        // ),
-                      ],
+                ),
+                Expanded(
+                  child: Obx(
+                    () => ListView.builder(
+                      shrinkWrap: true,
+                      // reverse: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: postController.posts.length,
+                      itemBuilder: (context, index) {
+                        final post = postController.posts[index];
+                        final date =
+                            DateTime.fromMillisecondsSinceEpoch(post.timestamp);
+                        final formattedDate =
+                            "${date.day}/${date.month}/${date.year}";
+                        return TimelineItem(
+                          index: index,
+                          imageUrl: post.imageUrl,
+                          timestamp: formattedDate,
+                        );
+                      },
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),

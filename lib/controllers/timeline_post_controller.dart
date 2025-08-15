@@ -1,5 +1,4 @@
 import 'dart:developer';
-import 'dart:typed_data';
 import 'package:blackrock_go/models/timeline_post_model.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';

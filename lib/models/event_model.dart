@@ -1,5 +1,3 @@
-import 'package:blackrock_go/models/user_model.dart';
-import 'package:latlong2/latlong.dart';
 
 class EventModel {
   final String imageUrl;

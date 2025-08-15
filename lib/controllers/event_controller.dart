@@ -1,7 +1,5 @@
 import 'package:blackrock_go/models/event_model.dart';
-import 'package:blackrock_go/models/user_model.dart';
 import 'package:get/get.dart';
-import 'package:latlong2/latlong.dart';
 
 class EventController extends GetxController {
   final List<EventModel> events = [];

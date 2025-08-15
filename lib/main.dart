@@ -156,6 +156,7 @@ class MyApp extends StatelessWidget {
                       timelineController.addPostToTimeline(uri);
                       context.pop();
                     },
+                    // onDoneButtonStyle: Icon(Icons.done),
                     mediaPath: state.extra as String,
                     middleBottomWidget: Container(),
                     centerText: '')),
