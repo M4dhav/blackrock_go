@@ -12,6 +12,8 @@ import 'package:blackrock_go/views/screens/onboarding.dart';
 import 'package:blackrock_go/views/screens/search_screen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:go_router/go_router.dart';
+import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart';
 import 'package:vs_story_designer/vs_story_designer.dart';
 import 'package:blackrock_go/views/screens/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +24,37 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  final database = Get.put(await openDatabase(
+      // Set the path to the database. Note: Using the `join` function from the
+      // `path` package is best practice to ensure the path is correctly
+      // constructed for each platform.
+      join(await getDatabasesPath(), 'blackrock_database.db'),
+      onCreate: (db, version) async {
+    // Run the CREATE TABLE statement on the database.
+    await Future.wait([
+      db.execute(
+        'CREATE TABLE timeline_posts ('
+        'id INTEGER PRIMARY KEY AUTOINCREMENT, '
+        'imageUrl TEXT NOT NULL, '
+        'timestamp INTEGER NOT NULL'
+        ')',
+      ),
+      db.execute(
+        'CREATE TABLE events ('
+        'id INTEGER PRIMARY KEY AUTOINCREMENT, '
+        'imageUrl TEXT NOT NULL, '
+        'eventName TEXT NOT NULL, '
+        'description TEXT NOT NULL, '
+        'latitude REAL NOT NULL, '
+        'longitude REAL NOT NULL, '
+        'startTime TEXT NOT NULL, '
+        'endTime TEXT NOT NULL, '
+        'hostName TEXT NOT NULL, '
+        'locationName TEXT NOT NULL'
+        ')',
+      ),
+    ]);
+  }, version: 1));
   // Load environment variables
   await dotenv.load(fileName: ".env");
 
@@ -111,7 +144,9 @@ class MyApp extends StatelessWidget {
                     return element.eventName == eventName?.replaceAll('-', ' ');
                   },
                 );
-                return EventDetailsScreen(event: event, hosts: event.hosts);
+                return EventDetailsScreen(
+                  event: event,
+                );
               },
             ),
             GoRoute(
@@ -127,8 +162,8 @@ class MyApp extends StatelessWidget {
             GoRoute(
               path: 'eventDetails',
               builder: (context, state) => EventDetailsScreen(
-                  event: (state.extra as List)[0],
-                  hosts: (state.extra as List)[1]),
+                event: (state.extra as List)[0],
+              ),
             ),
           ],
         ),

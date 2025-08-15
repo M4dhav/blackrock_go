@@ -1,23 +1,20 @@
 class TimelinePosts {
   String imageUrl;
-  String uid;
+
   int timestamp;
 
   TimelinePosts({
     required this.imageUrl,
-    required this.uid,
     required this.timestamp,
   });
 
   TimelinePosts.fromJson(Map<String, dynamic> json)
-      : imageUrl = json['imageUrl'],
-        uid = json['uid'],
-        timestamp = json['timestamp'];
+      : imageUrl = json['imageUrl'] as String,
+        timestamp = json['timestamp'] as int;
 
-  Map<String, dynamic> toJson() {
+  Map<String, Object> toJson() {
     return {
       'imageUrl': imageUrl,
-      'uid': uid,
       'timestamp': timestamp,
     };
   }

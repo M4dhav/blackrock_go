@@ -3,23 +3,19 @@ import 'dart:typed_data';
 import 'package:blackrock_go/models/timeline_post_model.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:sqflite/sqflite.dart';
 
 class TimelinePostController extends GetxController {
-  List<TimelinePosts> posts = [];
+  RxList<TimelinePosts> posts = <TimelinePosts>[].obs;
+  final Database database = Get.find<Database>();
 
   Future<void> getPosts() async {
-    // try {
-    //   posts.clear();
-    //   await FirebaseUtils.timelinePosts.get().then((value) {
-    //     for (var post in value.docs.where((element) =>
-    //         element.data()['uid'] == FirebaseAuth.instance.currentUser!.uid)) {
-    //       posts.add(TimelinePosts.fromJson(post.data()));
-    //     }
-    //     log(posts.length.toString(), name: "getPostsLength");
-    //   });
-    // } catch (e) {
-    //   log(e.toString());
-    // }
+    posts.clear();
+    final List<Map<String, Object?>> postsMap =
+        await database.query('timeline_posts');
+    for (Map<String, Object?> post in postsMap) {
+      posts.insert(0, TimelinePosts.fromJson(post));
+    }
   }
 
   Future<String> takePicture() async {
@@ -35,26 +31,15 @@ class TimelinePostController extends GetxController {
   }
 
   Future<void> addPostToTimeline(String path) async {
-    XFile photo = XFile(path);
-    Uint8List file = await photo.readAsBytes();
-    // try {
-    //   await FirebaseUtils.timelinePics
-    //       .child('${DateTime.now().millisecondsSinceEpoch}.jpg')
-    //       .putData(file)
-    //       .then((onValue) async {
-    //     final String url = await onValue.ref.getDownloadURL();
-    //     final String uid = FirebaseAuth.instance.currentUser!.uid;
-    //     final TimelinePosts post = TimelinePosts(
-    //       uid: uid,
-    //       imageUrl: url,
-    //       timestamp: DateTime.now().millisecondsSinceEpoch,
-    //     );
-    //     posts.add(post);
-    //     await FirebaseUtils.timelinePosts.add(post.toJson());
-    //   });
-    //   log(posts.length.toString(), name: "addPostToTimelineLength");
-    // } catch (e) {
-    //   log(e.toString(), name: "addPostToTimelineError");
-    // }
+    try {
+      final newPost = TimelinePosts(
+          imageUrl: path, timestamp: DateTime.now().millisecondsSinceEpoch);
+      await database.insert('timeline_posts', newPost.toJson(),
+          conflictAlgorithm: ConflictAlgorithm.replace);
+      posts.insert(0, newPost);
+      log(posts.length.toString(), name: "addPostToTimelineLength");
+    } catch (e) {
+      log(e.toString(), name: "addPostToTimelineError");
+    }
   }
 }

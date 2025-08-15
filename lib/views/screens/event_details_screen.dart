@@ -3,13 +3,13 @@ import 'package:blackrock_go/models/user_model.dart';
 import 'package:blackrock_go/views/widgets/location_time_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class EventDetailsScreen extends StatefulWidget {
-  const EventDetailsScreen(
-      {super.key, required this.event, required this.hosts});
+  const EventDetailsScreen({super.key, required this.event});
   final EventModel event;
-  final List<User> hosts;
+
   @override
   State<EventDetailsScreen> createState() => _EventDetailsScreenState();
 }
@@ -59,7 +59,8 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                   EventLocationTimeWidget(
                       startTime: widget.event.startTime,
                       endTime: widget.event.endTime,
-                      location: widget.event.location,
+                      location:
+                          LatLng(widget.event.latitude, widget.event.longitude),
                       locationName: widget.event.locationName)
                 ],
               ),

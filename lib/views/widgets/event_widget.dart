@@ -2,16 +2,16 @@ import 'package:blackrock_go/models/const_model.dart';
 import 'package:blackrock_go/models/event_model.dart';
 import 'package:blackrock_go/models/user_model.dart';
 import 'package:blackrock_go/views/widgets/location_time_widget.dart';
-import 'package:avatar_stack/avatar_stack.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class EventWidget extends StatelessWidget {
   final EventModel event;
-  final List<User> hosts;
-  const EventWidget({super.key, required this.event, required this.hosts});
+  final String hostName;
+  const EventWidget({super.key, required this.event, required this.hostName});
 
   @override
   Widget build(BuildContext context) {
@@ -69,20 +69,20 @@ class EventWidget extends StatelessWidget {
                   children: [
                     SizedBox(
                       width: 10.w,
-                      child: AvatarStack(
-                        height: 2.5.h,
-                        borderWidth: 0.5,
-                        avatars: [
-                          for (var n = 0; n < event.hosts.length; n++)
-                            FileImage(hosts[n].pfpUrl),
-                        ],
+                      child: Text(
+                        hostName,
+                        style: TextStyle(
+                          fontSize: 12.px,
+                          fontFamily: 'Cinzel',
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                     SizedBox(
                       width: 2.w,
                     ),
                     Text(
-                      "Hosted by: ${hosts.map((e) => e.accountName).join(", ")}",
+                      "Hosted by: $hostName",
                       style: TextStyle(
                         fontSize: 10.px,
                         fontFamily: 'Cinzel',
@@ -95,7 +95,7 @@ class EventWidget extends StatelessWidget {
                   startTime: event.startTime,
                   endTime: event.endTime,
                   locationName: event.locationName,
-                  location: event.location,
+                  location: LatLng(event.latitude, event.longitude),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -103,7 +103,7 @@ class EventWidget extends StatelessWidget {
                     ElevatedButton(
                       style: Constants.buttonStyle,
                       onPressed: () {
-                        context.push('/eventDetails', extra: [event, hosts]);
+                        context.push('/eventDetails', extra: [event, hostName]);
                       },
                       child: Text(
                         "Details",

@@ -22,27 +22,16 @@ class EventController extends GetxController {
         imageUrl: '',
         eventName: 'New Event',
         description: 'Event Description',
-        location: LatLng(40.786984204692935, -119.20309919712876),
+        latitude: 40.786984204692935,
+        longitude: -119.20309919712876,
         startTime: DateTime.now(),
         endTime: DateTime.now().add(Duration(days: 1)),
-        hosts: [],
-        cost: 1,
+        hostName: 'Host Name',
         locationName: 'Blackrock'));
   }
 
   Future<void> addEvent(EventModel event) async {
     // await FirebaseUtils.events.add(event.toMap());
     // events.add(event);
-  }
-
-  Future<List<User>> getEventHosts(List<String> hostIds) async {
-    return List<User>.empty();
-    // List<WalletUser> hosts = [];
-    // for (var host in hostIds) {
-    //   await FirebaseUtils.users.doc(host).get().then((doc) {
-    //     hosts.add(WalletUser.fromMap(doc.data() as Map<String, dynamic>));
-    //   });
-    // }
-    // return hosts;
   }
 }

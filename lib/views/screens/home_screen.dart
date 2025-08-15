@@ -88,9 +88,8 @@ class _MapHomePageState extends State<MapHomePage> {
     for (EventModel event in events) {
       features.add(Feature(
           id: events.indexOf(event),
-          geometry: Point(
-              coordinates: mb.Position(
-                  event.location.longitude, event.location.latitude)),
+          geometry:
+              Point(coordinates: mb.Position(event.longitude, event.latitude)),
           properties: {
             'name': event.eventName,
             'location': event.locationName,
@@ -149,7 +148,7 @@ class _MapHomePageState extends State<MapHomePage> {
                 context: context,
                 builder: (context) => EventWidget(
                   event: event,
-                  hosts: event.hosts,
+                  hostName: event.hostName,
                 ),
               );
             }
