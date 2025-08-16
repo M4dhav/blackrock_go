@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo.png" width="140" alt="Blackrock GO logo"/>
+  <img src="public/logo.png" width="140" alt="Blackrock GO logo"/>
 </p>
 
 <h1 align="center">Blackrock GO</h1>
