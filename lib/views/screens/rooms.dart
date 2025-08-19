@@ -77,82 +77,118 @@ class _RoomsPageState extends State<RoomsPage> {
           ),
           child: Builder(
             builder: (context) {
-              if (meshtasticNodeController.nodes.isEmpty) {
-                return Container(
-                  alignment: Alignment.center,
-                  margin: EdgeInsets.only(
-                    top: 1.h,
-                    left: 2.w,
-                    right: 2.w,
-                    bottom: 1.h,
-                  ),
-                  child: const Text('No rooms'),
-                );
-              } else {
-                return ListView.builder(
-                  itemCount: meshtasticNodeController.nodes.length,
-                  itemBuilder: (context, index) {
-                    final room = meshtasticNodeController.nodes[
-                        meshtasticNodeController.nodes.keys.elementAt(index)];
-
-                    return GestureDetector(
-                      onTap: () {
-                        // Navigator.of(context).push(
-                        //   MaterialPageRoute(
-                        //     builder: (context) => ChatPage(
-                        //       room: room,
-                        //     ),
-                        //   ),
-                        // );
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.only(top: 0.5.h),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(20.sp),
-                            border: Border.all(
-                              width: 0.7,
-                              color: const Color(0xffb4914b),
-                            ),
-                          ),
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 2.h,
-                            vertical: 2.h,
-                          ),
-                          child: Row(
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    room?.displayName ?? '',
-                                    style: TextStyle(fontSize: 17.sp),
-                                  ),
-                                  Text(
-                                    room?.lastHeard.toString() ?? '',
-                                    style: TextStyle(
-                                        fontSize: 14.sp,
-                                        color: const Color.fromARGB(
-                                            255, 78, 78, 78)),
-                                  )
-                                ],
-                              ),
-                              const Spacer(),
-                              IconButton(
-                                  onPressed: () {},
-                                  icon: const Icon(
-                                    Icons.camera_alt_outlined,
-                                    color: Color.fromARGB(255, 78, 78, 78),
-                                  ))
-                            ],
+              return Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      // Navigator.of(context).push(
+                      //   MaterialPageRoute(
+                      //     builder: (context) => ChatPage(
+                      //       room: room,
+                      //     ),
+                      //   ),
+                      // );
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 0.5.h),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(20.sp),
+                          border: Border.all(
+                            width: 0.7,
+                            color: const Color(0xffb4914b),
                           ),
                         ),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 2.h,
+                          vertical: 2.h,
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              'All Chat',
+                              style: TextStyle(fontSize: 17.sp),
+                            ),
+                            const Spacer(),
+                            IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.camera_alt_outlined,
+                                  color: Color.fromARGB(255, 78, 78, 78),
+                                ))
+                          ],
+                        ),
                       ),
-                    );
-                  },
-                );
-              }
+                    ),
+                  ),
+                  if (meshtasticNodeController.activeRooms.isNotEmpty)
+                    ListView.builder(
+                      itemCount: meshtasticNodeController.activeRooms.length,
+                      itemBuilder: (context, index) {
+                        final room =
+                            meshtasticNodeController.activeRooms[index];
+
+                        return GestureDetector(
+                          onTap: () {
+                            // Navigator.of(context).push(
+                            //   MaterialPageRoute(
+                            //     builder: (context) => ChatPage(
+                            //       room: room,
+                            //     ),
+                            //   ),
+                            // );
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.only(top: 0.5.h),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(20.sp),
+                                border: Border.all(
+                                  width: 0.7,
+                                  color: const Color(0xffb4914b),
+                                ),
+                              ),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 2.h,
+                                vertical: 2.h,
+                              ),
+                              child: Row(
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        room?.displayName ?? '',
+                                        style: TextStyle(fontSize: 17.sp),
+                                      ),
+                                      Text(
+                                        room?.lastHeard.toString() ?? '',
+                                        style: TextStyle(
+                                            fontSize: 14.sp,
+                                            color: const Color.fromARGB(
+                                                255, 78, 78, 78)),
+                                      )
+                                    ],
+                                  ),
+                                  const Spacer(),
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: const Icon(
+                                        Icons.camera_alt_outlined,
+                                        color: Color.fromARGB(255, 78, 78, 78),
+                                      ))
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                ],
+              );
             },
           ),
         ),

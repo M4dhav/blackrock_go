@@ -11,6 +11,7 @@ class MeshtasticNodeController extends GetxController {
       .obs;
 
   RxMap<int, NodeInfoWrapper> nodes = <int, NodeInfoWrapper>{}.obs;
+  RxList<NodeInfoWrapper> activeRooms = <NodeInfoWrapper>[].obs;
 
   @override
   void onInit() async {
@@ -36,5 +37,13 @@ class MeshtasticNodeController extends GetxController {
     client.connectionStream.listen((event) {
       connectionStatus.value = event;
     });
+  }
+
+  Stream<MeshPacketWrapper> listenForTextMessages() async* {
+    await for (final packet in client.packetStream) {
+      if (packet.isTextMessage) {
+        yield packet;
+      }
+    }
   }
 }
