@@ -38,7 +38,7 @@ class _ConnectNodeScreenState extends State<ConnectNodeScreen> {
             ),
           ),
           actionWidgets: IconButton(
-              onPressed: () => meshtasticNodeController.findNodes,
+              onPressed: () => meshtasticNodeController.findNodes(),
               icon: Icon(
                 Icons.refresh,
                 color: Color(0xffb4914b),
@@ -56,8 +56,9 @@ class _ConnectNodeScreenState extends State<ConnectNodeScreen> {
                       onPressed: () async {
                         meshtasticNodeController.client.connectToDevice(node);
                         meshtasticNodeController.listenToConnectionStream();
-                        await Get.dialog(
-                          AlertDialog(
+                        await showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
                             title: Text('Connecting to ${node.platformName}'),
                             content: Obx(() {
                               final status = meshtasticNodeController

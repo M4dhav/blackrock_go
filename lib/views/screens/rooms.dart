@@ -5,13 +5,9 @@ import 'package:blackrock_go/views/screens/users.dart';
 import 'package:blackrock_go/views/widgets/appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:meshtastic_flutter/meshtastic_flutter.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
-// import 'chat.dart';
-// import 'login.dart';
-// import 'users.dart';
-// import 'util.dart';
 
 class RoomsPage extends StatefulWidget {
   const RoomsPage({super.key});
@@ -21,20 +17,10 @@ class RoomsPage extends StatefulWidget {
 }
 
 class _RoomsPageState extends State<RoomsPage> {
-  bool _error = false;
-  bool _initialized = false;
   final MeshtasticNodeController meshtasticNodeController = Get.find();
 
   @override
   Widget build(BuildContext context) {
-    if (_error) {
-      return Container();
-    }
-
-    if (!_initialized) {
-      return Container();
-    }
-
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -81,13 +67,7 @@ class _RoomsPageState extends State<RoomsPage> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      // Navigator.of(context).push(
-                      //   MaterialPageRoute(
-                      //     builder: (context) => ChatPage(
-                      //       room: room,
-                      //     ),
-                      //   ),
-                      // );
+                      context.go('/allChat');
                     },
                     child: Padding(
                       padding: EdgeInsets.only(top: 0.5.h),
