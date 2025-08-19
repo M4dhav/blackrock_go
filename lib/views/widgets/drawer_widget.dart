@@ -50,43 +50,23 @@ class CustomDrawer extends StatelessWidget {
               ],
             ),
           ),
-          InkWell(
-            onTap: () {
-              while (context.canPop()) {
-                context.pop();
-              }
-              context.pushReplacement('/home');
-            },
-            child: ListTile(
-              leading:
-                  Icon(Icons.home, color: const Color(0xffb4914b), size: 24.px),
-              title: Text(
-                'Home',
-                style: TextStyle(
-                  color: const Color(0xffb4914b),
-                  fontSize: 24.px,
-                ),
-              ),
-            ),
-          ),
           SizedBox(height: 1.h),
           InkWell(
             onTap: () {
-              Get.to(const ProfilePage());
+              context.push('/connectNode');
             },
             child: ListTile(
-              leading: Icon(Icons.settings,
+              leading: Icon(Icons.bluetooth,
                   color: const Color(0xffb4914b), size: 24.px),
               title: Text(
-                'Profile',
+                'Connect to Node',
                 style: TextStyle(
                   color: const Color(0xffb4914b),
-                  fontSize: 24.px,
+                  fontSize: 20.px,
                 ),
               ),
             ),
           ),
-          SizedBox(height: 1.h),
           InkWell(
             onTap: () {
               Navigator.pop(context);

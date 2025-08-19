@@ -1,7 +1,7 @@
 import 'package:blackrock_go/controllers/timeline_post_controller.dart';
 import 'package:blackrock_go/controllers/user_controller.dart';
 import 'package:blackrock_go/views/widgets/drawer_widget.dart';
-import 'package:blackrock_go/views/widgets/navbar_widget.dart';
+import 'package:blackrock_go/views/widgets/appbar_widget.dart';
 import 'package:blackrock_go/views/widgets/timeline_post_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,7 +25,7 @@ class _ProfilePageState extends State<ProfilePage> {
       key: _scaffoldKey,
       drawer: const CustomDrawer(),
       backgroundColor: Colors.transparent,
-      appBar: CustomNavBar(
+      appBar: CustomAppBar(
         leadingWidget: SizedBox(
           width: 50.w,
           child: Text(

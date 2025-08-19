@@ -1,4 +1,4 @@
-import 'package:blackrock_go/views/widgets/navbar_widget.dart';
+import 'package:blackrock_go/views/widgets/appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -50,7 +50,7 @@ class _TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomNavBar(
+      appBar: CustomAppBar(
           leadingWidget: IconButton(
               onPressed: () {},
               icon: const Icon(

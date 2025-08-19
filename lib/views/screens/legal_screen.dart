@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:blackrock_go/models/const_model.dart';
-import 'package:blackrock_go/views/widgets/navbar_widget.dart';
+import 'package:blackrock_go/views/widgets/appbar_widget.dart';
 import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -27,7 +27,7 @@ class LegalPageState extends State<LegalPage> {
               image: AssetImage("assets/bg.jpg"), fit: BoxFit.cover)),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: CustomNavBar(
+        appBar: CustomAppBar(
           leadingWidget: Padding(
             padding: EdgeInsets.all(1.w),
             child: IconButton(

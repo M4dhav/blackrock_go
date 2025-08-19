@@ -6,7 +6,7 @@ import 'package:blackrock_go/models/const_model.dart';
 import 'package:blackrock_go/models/event_model.dart';
 import 'package:blackrock_go/views/widgets/drawer_widget.dart';
 import 'package:blackrock_go/views/widgets/event_widget.dart';
-import 'package:blackrock_go/views/widgets/navbar_widget.dart';
+import 'package:blackrock_go/views/widgets/appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:geolocator/geolocator.dart' as geo;
@@ -171,7 +171,7 @@ class _MapHomePageState extends State<MapHomePage> {
         drawer: const CustomDrawer(),
         extendBodyBehindAppBar: true,
         backgroundColor: Colors.transparent,
-        appBar: CustomNavBar(
+        appBar: CustomAppBar(
             leadingWidget: Padding(
               padding: EdgeInsets.only(left: 3.w),
               child: Image.asset(

@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:blackrock_go/models/const_model.dart';
-import 'package:blackrock_go/views/widgets/navbar_widget.dart';
+import 'package:blackrock_go/views/widgets/appbar_widget.dart';
 import 'package:blackrock_go/controllers/user_controller.dart';
 import 'package:blackrock_go/models/user_model.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +36,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
               fit: BoxFit.cover)),
       child: Scaffold(
-        appBar: CustomNavBar(
+        appBar: CustomAppBar(
           leadingWidget: Padding(
             padding: EdgeInsets.all(1.w),
             child: IconButton(

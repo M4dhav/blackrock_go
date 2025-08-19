@@ -2,10 +2,12 @@ import 'dart:io';
 
 import 'package:blackrock_go/controllers/biometrics_controller.dart';
 import 'package:blackrock_go/controllers/event_controller.dart';
+import 'package:blackrock_go/controllers/meshtastic_node_controller.dart';
 import 'package:blackrock_go/controllers/timeline_post_controller.dart';
 import 'package:blackrock_go/controllers/user_controller.dart';
 import 'package:blackrock_go/models/user_model.dart';
 import 'package:blackrock_go/views/screens/base_view.dart';
+import 'package:blackrock_go/views/screens/connect_node_screen.dart';
 import 'package:blackrock_go/views/screens/event_details_screen.dart';
 import 'package:blackrock_go/views/screens/legal_screen.dart';
 import 'package:blackrock_go/views/screens/onboarding.dart';
@@ -69,6 +71,7 @@ void main() async {
       Get.put(TimelinePostController());
   final EventController eventController = Get.put(EventController());
   final BiometricsController auth = Get.put(BiometricsController());
+  Get.put(() => MeshtasticNodeController(), permanent: true);
   await eventController.getEvents();
   await timelineController.getPosts();
   await auth.initialize();
@@ -166,6 +169,9 @@ class MyApp extends StatelessWidget {
                 event: (state.extra as List)[0],
               ),
             ),
+            GoRoute(
+                path: 'connectNode',
+                builder: (context, state) => const ConnectNodeScreen()),
           ],
         ),
       ],

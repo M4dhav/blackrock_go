@@ -1,13 +1,12 @@
-
 import 'package:flutter/material.dart';
 
 class GoldenButton extends StatelessWidget {
-  final String text;
+  final Widget child;
   final VoidCallback onPressed;
 
   const GoldenButton({
-    super.key, 
-    required this.text,
+    super.key,
+    required this.child,
     required this.onPressed,
   });
 
@@ -15,13 +14,14 @@ class GoldenButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white, backgroundColor: const Color(0xffb4914b), 
+        foregroundColor: Colors.white,
+        backgroundColor: const Color(0xffb4914b),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0), // Rounded corners
         ),
       ),
       onPressed: onPressed,
-      child: Text(text),
+      child: child,
     );
   }
 }
