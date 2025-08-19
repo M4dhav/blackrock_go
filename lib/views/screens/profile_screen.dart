@@ -3,7 +3,6 @@ import 'package:blackrock_go/controllers/user_controller.dart';
 import 'package:blackrock_go/views/widgets/drawer_widget.dart';
 import 'package:blackrock_go/views/widgets/navbar_widget.dart';
 import 'package:blackrock_go/views/widgets/timeline_post_widget.dart';
-import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';

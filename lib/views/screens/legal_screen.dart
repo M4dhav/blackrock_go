@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class LegalPage extends StatefulWidget {
   const LegalPage({
@@ -76,7 +75,6 @@ class LegalPageState extends State<LegalPage> {
                       onPressed: () async {
                         final Uri url =
                             Uri.parse('https://alphaprotocol.network');
-                        await launchUrl(url);
                       },
                     ),
                   ],
@@ -95,7 +93,6 @@ class LegalPageState extends State<LegalPage> {
                       onPressed: () async {
                         final Uri url =
                             Uri.parse('https://alphaprotocol.network');
-                        await launchUrl(url);
                       },
                     ),
                   ],

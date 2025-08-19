@@ -1,7 +1,8 @@
+import 'dart:io';
+
 import 'package:blackrock_go/models/const_model.dart';
 import 'package:blackrock_go/models/event_model.dart';
 import 'package:blackrock_go/views/widgets/location_time_widget.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:latlong2/latlong.dart';
@@ -35,15 +36,10 @@ class EventWidget extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20),
-                  child: CachedNetworkImage(
-                    imageUrl: event.imageUrl,
+                  child: Image.file(
+                    File(event.imageUrl),
                     width: 80.w,
                     height: 38.h,
-                    placeholder: (context, url) => const Center(
-                      child: CircularProgressIndicator(
-                        color: Color(0xffb4914b),
-                      ),
-                    ),
                   ),
                 ),
                 Padding(

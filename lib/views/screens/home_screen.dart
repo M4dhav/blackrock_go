@@ -175,7 +175,7 @@ class _MapHomePageState extends State<MapHomePage> {
             leadingWidget: Padding(
               padding: EdgeInsets.only(left: 3.w),
               child: Image.asset(
-                'assets/alpha.jpg',
+                'assets/blackrock_logo.jpg',
                 fit: BoxFit.contain,
               ),
             ),

@@ -1,6 +1,7 @@
+import 'dart:io';
+
 import 'package:blackrock_go/models/event_model.dart';
 import 'package:blackrock_go/views/widgets/location_time_widget.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -33,14 +34,9 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                    child: CachedNetworkImage(
-                      imageUrl: widget.event.imageUrl,
+                    child: Image.file(
+                      File(widget.event.imageUrl),
                       width: 90.w,
-                      placeholder: (context, url) => const Center(
-                        child: CircularProgressIndicator(
-                          color: Color(0xffb4914b),
-                        ),
-                      ),
                     ),
                   ),
                   Padding(
