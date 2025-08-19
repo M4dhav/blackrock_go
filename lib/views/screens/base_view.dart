@@ -21,7 +21,6 @@ class _NavBarState extends State<NavBar> {
   TimelinePostController controller = Get.find();
   int _selectedIndex = 2;
   static final List<Widget> _widgetOptions = <Widget>[
-    ProfilePage(),
     const RoomsPage(),
     const ProfilePage(),
     const MapHomePage(),
