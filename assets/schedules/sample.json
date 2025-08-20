@@ -1,0 +1,16 @@
+{
+  "band": "Demo Band",
+  "events": [
+    {
+      "id": "lightning-lounge-1",
+      "title": "Lightning Lounge",
+      "start": "2025-08-28T18:00:00-07:00",
+      "end": "2025-08-28T20:00:00-07:00",
+      "lat": 40.7862,
+      "lng": -119.204,
+      "leadMinutes": 15,
+      "tailMinutes": 30,
+      "notes": "BYO cup"
+    }
+  ]
+}

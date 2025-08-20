@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final Widget leadingWidget;
-  final Widget actionWidgets;
+  final Widget? leadingWidget;
+  final Widget? actionWidgets;
   final Widget? titleWidget;
 
   const CustomAppBar({
     super.key,
-    required this.leadingWidget,
-    required this.actionWidgets,
+    this.leadingWidget,
+    this.actionWidgets,
     this.titleWidget,
   });
 
@@ -41,9 +41,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              leadingWidget,
+              leadingWidget ?? const SizedBox.shrink(),
               titleWidget ?? const SizedBox.shrink(),
-              actionWidgets,
+              actionWidgets ?? const SizedBox.shrink(),
             ],
           ),
         ),

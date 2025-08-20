@@ -1,17 +1,13 @@
 import 'dart:async';
 import 'dart:developer';
-import 'dart:io';
 
 import 'package:blackrock_go/controllers/meshtastic_node_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_chat_core/flutter_chat_core.dart' as Core;
+import 'package:flutter_chat_core/flutter_chat_core.dart' as chat;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 import 'package:meshtastic_flutter/meshtastic_flutter.dart';
-
-import 'package:path_provider/path_provider.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({
@@ -27,7 +23,7 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
   final MeshtasticNodeController meshtasticNodeController = Get.find();
-  final _chatController = Core.InMemoryChatController();
+  final _chatController = chat.InMemoryChatController();
   StreamSubscription<MeshPacketWrapper>? messageSubscription;
 
   @override
@@ -40,7 +36,7 @@ class _ChatPageState extends State<ChatPage> {
       (packet) {
         // Add the incoming message to the chat controller
         _chatController.insertMessage(
-          Core.Message.text(
+          chat.Message.text(
             id: DateTime.now().millisecondsSinceEpoch.toString(),
             authorId: packet.packet.from.toString(), // Use the sender's ID
             text: packet.textMessage ?? "", // The text of the message
@@ -64,7 +60,7 @@ class _ChatPageState extends State<ChatPage> {
 
   void _handleSendPressed(String text) async {
     await meshtasticNodeController.client.sendTextMessage(text);
-    await _chatController.insertMessage(Core.Message.text(
+    await _chatController.insertMessage(chat.Message.text(
       id: DateTime.now().millisecondsSinceEpoch.toString(),
       authorId: meshtasticNodeController.client.localUser?.id ?? "TempId",
       text: text,
@@ -97,7 +93,7 @@ class _ChatPageState extends State<ChatPage> {
               currentUserId:
                   meshtasticNodeController.client.localUser?.id ?? "TempId",
               resolveUser: (id) async {
-                return Core.User(id: id);
+                return chat.User(id: id);
               },
               chatController: _chatController,
               onMessageSend: _handleSendPressed,

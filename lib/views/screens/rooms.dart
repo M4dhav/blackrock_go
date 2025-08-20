@@ -1,12 +1,9 @@
 // import 'package:blackrock_go/views/screens/chat.dart';
 import 'package:blackrock_go/controllers/meshtastic_node_controller.dart';
-import 'package:blackrock_go/models/user_model.dart';
-import 'package:blackrock_go/views/screens/users.dart';
 import 'package:blackrock_go/views/widgets/appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
-import 'package:meshtastic_flutter/meshtastic_flutter.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class RoomsPage extends StatefulWidget {
@@ -45,12 +42,7 @@ class _RoomsPageState extends State<RoomsPage> {
               color: const Color(0xffb4914b),
             ),
             onPressed: () {
-              // Navigator.of(context).push(
-              //   MaterialPageRoute(
-              //     fullscreenDialog: true,
-              //     builder: (context) => const UsersPage(),
-              //   ),
-              // );
+              context.push('/users');
             },
           ),
         ),
@@ -141,11 +133,11 @@ class _RoomsPageState extends State<RoomsPage> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        room?.displayName ?? '',
+                                        room.displayName,
                                         style: TextStyle(fontSize: 17.sp),
                                       ),
                                       Text(
-                                        room?.lastHeard.toString() ?? '',
+                                        room.lastHeard.toString(),
                                         style: TextStyle(
                                             fontSize: 14.sp,
                                             color: const Color.fromARGB(

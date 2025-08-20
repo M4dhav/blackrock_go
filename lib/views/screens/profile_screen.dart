@@ -1,10 +1,11 @@
+import 'package:blackrock_go/controllers/meshtastic_node_controller.dart';
 import 'package:blackrock_go/controllers/timeline_post_controller.dart';
-import 'package:blackrock_go/controllers/user_controller.dart';
 import 'package:blackrock_go/views/widgets/drawer_widget.dart';
 import 'package:blackrock_go/views/widgets/appbar_widget.dart';
 import 'package:blackrock_go/views/widgets/timeline_post_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:meshtastic_flutter/meshtastic_flutter.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -15,9 +16,9 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final UserController userController = Get.find();
   final TimelinePostController postController = Get.find();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final MeshtasticNodeController meshtasticNodeController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class _ProfilePageState extends State<ProfilePage> {
         leadingWidget: SizedBox(
           width: 50.w,
           child: Text(
-            userController.user.accountName,
+            "Profile Page",
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
               fontSize: 18.sp,
@@ -61,58 +62,118 @@ class _ProfilePageState extends State<ProfilePage> {
           return [
             SliverToBoxAdapter(
               child: SizedBox(
-                // height: 50.1.h,
                 width: 80.w,
                 child: Padding(
                   padding: EdgeInsets.only(
                       left: 6.w, right: 6.w, top: 2.h, bottom: 1.h),
-                  child: Column(
-                    children: [
-                      Align(
-                        alignment: Alignment.topRight,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: const Color(0xffb4914b)),
-                          ),
-                          padding: const EdgeInsets.all(16),
-                          child: Column(
-                            children: [
-                              Stack(
-                                alignment: Alignment.center,
-                                children: [
-                                  Align(
-                                    alignment: Alignment.center,
-                                    child: CircleAvatar(
-                                      radius: 12.w,
-                                      backgroundImage:
-                                          FileImage(userController.user.pfpUrl),
-                                      backgroundColor: Colors.grey,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(color: const Color(0xffb4914b)),
+                    ),
+                    padding: EdgeInsets.all(3.h),
+                    child: Obx(
+                      () => meshtasticNodeController
+                                  .connectionStatus.value.state ==
+                              MeshtasticConnectionState.connected
+                          ? Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Column(
+                                  children: [
+                                    CircleAvatar(
+                                      backgroundColor: const Color(0xffb4914b),
+                                      radius: 9.w,
+                                      child: Text(
+                                        meshtasticNodeController
+                                                .client.localUser?.shortName ??
+                                            'JH',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 21.px,
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height: 1.h),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    userController.user.accountName,
-                                    style: TextStyle(
-                                      color: const Color(0xffb4914b),
-                                      fontSize: 19.sp,
-                                      fontWeight: FontWeight.bold,
+                                    Text(
+                                      '${meshtasticNodeController.client.connectedNodeBatteryLevel}%',
+                                      style: TextStyle(
+                                        color: const Color(0xffb4914b),
+                                        // fontSize: 19.sp,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      meshtasticNodeController
+                                              .client.localUser?.longName ??
+                                          'Jim Halpert',
+                                      style: TextStyle(
+                                        color: const Color(0xffb4914b),
+                                        fontSize: 19.sp,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
+                                    Text(
+                                      // meshtasticNodeController.client.myNodeInfo.??
+                                      'BLE Name: ${meshtasticNodeController.client.connectedDeviceName}',
+                                      style: TextStyle(
+                                        color: const Color(0xffb4914b),
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      // meshtasticNodeController.client.myNodeInfo.??
+                                      'Firmware Version: ${meshtasticNodeController.client.firmwareVersion}',
+                                      style: TextStyle(
+                                        color: const Color(0xffb4914b),
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Obx(
+                                      () => Text(
+                                        // meshtasticNodeController.client.myNodeInfo.??
+                                        meshtasticNodeController
+                                            .connectionStatus.value.state.name,
+                                        style: TextStyle(
+                                          color: meshtasticNodeController
+                                                      .connectionStatus
+                                                      .value
+                                                      .state ==
+                                                  MeshtasticConnectionState
+                                                      .connected
+                                              ? Colors.green
+                                              : Colors.red,
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            )
+                          : Row(
+                              children: [
+                                Icon(Icons.bluetooth_disabled,
+                                    color: Colors.redAccent, size: 22.px),
+                                Text(
+                                  'No Node Connected',
+                                  style: TextStyle(
+                                    color: const Color(0xffb4914b),
+                                    fontSize: 20.px,
                                   ),
-                                ],
-                              ),
-                              SizedBox(height: 3.h),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                    ),
                   ),
                 ),
               ),

@@ -55,3 +55,4 @@ app.*.map.json
 /linux/
 /macos/
 ios/build/
+lib/views/screens/temp

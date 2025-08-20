@@ -59,13 +59,15 @@ class _NavBarState extends State<NavBar> {
               ),
             ),
             onPressed: () async {
+              final goRouter = GoRouter.of(context);
+              final scaffoldMessenger = ScaffoldMessenger.of(context);
               if (_selectedIndex == 2) {
                 String path = await controller.takePicture();
                 log(path);
                 if (path != "") {
-                  context.push('/storyDesigner', extra: path);
+                  goRouter.push('/storyDesigner', extra: path);
                 } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
+                  scaffoldMessenger.showSnackBar(
                     const SnackBar(
                       content: Text("No Picture taken"),
                     ),

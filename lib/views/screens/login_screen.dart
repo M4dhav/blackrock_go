@@ -1,7 +1,9 @@
 import 'package:blackrock_go/models/const_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -11,6 +13,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final prefs = Get.find<SharedPreferencesWithCache>();
   @override
   Widget build(BuildContext context) {
     return PopScope(
@@ -23,14 +26,14 @@ class _LoginPageState extends State<LoginPage> {
           backgroundColor: Colors.transparent,
           body: Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Padding(
                   padding: EdgeInsets.only(top: 10.h),
                   child: Column(
                     children: [
                       Image.asset(
-                        "assets/blackrock_logo.jpg",
+                        "assets/blackrock_logo_transparent.png",
                         height: 32.h,
                       ),
                       Text(
@@ -50,43 +53,23 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-                Column(
-                  children: [
-                    SizedBox(
-                      width: 67.w,
-                      child: ElevatedButton(
-                          onPressed: () {
-                            context.push(
-                              '/legal',
-                            );
-                          },
-                          style: Constants.buttonStyle,
-                          child: Text(
-                            "Enter a new world",
-                            style: TextStyle(
-                                fontFamily: 'Cinzel',
-                                color: Colors.white,
-                                fontSize: 17.sp),
-                          )),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 3.h),
+                SizedBox(
+                  width: 67.w,
+                  child: ElevatedButton(
+                      onPressed: () async {
+                        await prefs.setBool('isEntered', true);
+                        context.push(
+                          '/home',
+                        );
+                      },
+                      style: Constants.buttonStyle,
                       child: Text(
-                        "POWERED BY BITCOIN",
+                        "Enter a new world",
                         style: TextStyle(
                             fontFamily: 'Cinzel',
                             color: Colors.white,
                             fontSize: 17.sp),
-                      ),
-                    ),
-                    Text(
-                      "MNEMONIC SEED PHRASE",
-                      style: TextStyle(
-                          fontFamily: 'Cinzel',
-                          color: Colors.white,
-                          fontSize: 15.sp),
-                    ),
-                  ],
+                      )),
                 ),
                 Image.asset(
                   'assets/pcg.jpg',

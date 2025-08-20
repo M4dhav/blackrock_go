@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:blackrock_go/controllers/event_controller.dart';
-import 'package:blackrock_go/controllers/user_controller.dart';
 import 'package:blackrock_go/models/const_model.dart';
 import 'package:blackrock_go/models/event_model.dart';
 import 'package:blackrock_go/views/widgets/drawer_widget.dart';
@@ -9,12 +8,9 @@ import 'package:blackrock_go/views/widgets/event_widget.dart';
 import 'package:blackrock_go/views/widgets/appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:geolocator/geolocator.dart' as geo;
 import 'package:go_router/go_router.dart';
-import 'package:latlong2/latlong.dart' as ltlng;
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart' as mb;
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MapHomePage extends StatefulWidget {
@@ -25,64 +21,11 @@ class MapHomePage extends StatefulWidget {
 }
 
 class _MapHomePageState extends State<MapHomePage> {
-  ltlng.LatLng? userPos;
-
   mb.MapboxMap? mapboxMap;
   final EventController eventController = Get.find();
-  final UserController userController = Get.find();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  Future<geo.Position> determinePosition() async {
-    bool serviceEnabled;
-    geo.LocationPermission permission;
-
-    serviceEnabled = await geo.Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      return Future.error('Location services are disabled.');
-    }
-
-    permission = await geo.Geolocator.checkPermission();
-    if (permission == geo.LocationPermission.denied) {
-      permission = await geo.Geolocator.requestPermission();
-      if (permission == geo.LocationPermission.denied) {
-        return Future.error('Location permissions are denied');
-      }
-    }
-
-    if (permission == geo.LocationPermission.deniedForever) {
-      return Future.error(
-          'Location permissions are permanently denied, we cannot request permissions.');
-    }
-
-    // When we reach here, permissions are granted and we can
-    // continue accessing the position of the device.
-    return await geo.Geolocator.getCurrentPosition(
-        desiredAccuracy: geo.LocationAccuracy.best);
-  }
-
-  Future<void> requestLocationPermission() async {
-    var status = await Permission.locationWhenInUse.status;
-    if (!status.isGranted) {
-      await Permission.location.request();
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-      await requestLocationPermission();
-      mb.MapboxOptions.setAccessToken(Constants.mapboxToken);
-      determinePosition().then((value) {
-        setState(() {
-          userPos = ltlng.LatLng(value.latitude, value.longitude);
-          log('userPos: $userPos');
-        });
-      });
-    });
-  }
-
-  addModelLayer(List<EventModel> events) async {
+  Future<void> addModelLayer(List<EventModel> events) async {
     List<Feature> features = [];
 
     for (EventModel event in events) {
@@ -115,7 +58,7 @@ class _MapHomePageState extends State<MapHomePage> {
     log('added modelLayer');
   }
 
-  _onMapCreated(mb.MapboxMap mapboxMap) {
+  void _onMapCreated(mb.MapboxMap mapboxMap) {
     this.mapboxMap = mapboxMap;
     mapboxMap.location.updateSettings(mb.LocationComponentSettings(
         enabled: true,
@@ -126,12 +69,11 @@ class _MapHomePageState extends State<MapHomePage> {
           modelUri:
               "https://github.com/M4dhav/alpha-go/raw/dev/assets/pointer.glb",
           modelScale: [2, 2, 2],
-          position: [userPos!.longitude, userPos!.latitude],
         ))));
     log('puck added');
   }
 
-  _onStyleLoaded(StyleLoadedEventData data) async {
+  Future<void> _onStyleLoaded(StyleLoadedEventData data) async {
     await addModelLayer(eventController.events);
     log('style loaded');
     mapboxMap!.addInteraction(
@@ -175,7 +117,7 @@ class _MapHomePageState extends State<MapHomePage> {
             leadingWidget: Padding(
               padding: EdgeInsets.only(left: 3.w),
               child: Image.asset(
-                'assets/blackrock_logo.jpg',
+                'assets/blackrock_logo_transparent.png',
                 fit: BoxFit.contain,
               ),
             ),
@@ -224,30 +166,24 @@ class _MapHomePageState extends State<MapHomePage> {
                 )
               ],
             )),
-        body: userPos == null
-            ? const Center(
-                child: CircularProgressIndicator(),
-              )
-            : mb.MapWidget(
-                // mapOptions: mb.MapOptions(
-                //     pixelRatio: 1.0, orientation: mb.NorthOrientation.UPWARDS),
-                key: const ValueKey("mapWidget"),
-                onMapCreated: _onMapCreated,
-                onStyleLoadedListener: _onStyleLoaded,
-                // onTapListener: _onTapListener,
-                styleUri: Constants.mapboxStyleUrl,
-                cameraOptions: mb.CameraOptions(
-                    pitch: 80,
-                    center: mb.Point(
-                        coordinates: mb.Position(
-                      -119.2113039478112,
-                      40.78114827014911,
-                    )),
-                    // center: mb.Point(
-                    //     coordinates: mb.Position(
-                    //         userPos!.longitude, userPos!.latitude + 0.0016)),
-                    zoom: 18.0),
-              ),
+        body: mb.MapWidget(
+          mapOptions: mb.MapOptions(
+            pixelRatio: 1.0,
+            orientation: mb.NorthOrientation.UPWARDS,
+          ),
+          key: const ValueKey("mapWidget"),
+          onMapCreated: _onMapCreated,
+          onStyleLoadedListener: _onStyleLoaded,
+          styleUri: Constants.mapboxStyleUrl,
+          cameraOptions: mb.CameraOptions(
+              pitch: 80,
+              center: mb.Point(
+                  coordinates: mb.Position(
+                -119.2113039478112,
+                40.78114827014911,
+              )),
+              zoom: 18.0),
+        ),
         // floatingActionButton: FloatingActionButton(
         //   onPressed: () {
         //     determinePosition().then((value) {

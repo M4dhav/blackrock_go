@@ -1,20 +1,16 @@
-import 'dart:io';
-
-import 'package:blackrock_go/controllers/biometrics_controller.dart';
 import 'package:blackrock_go/controllers/event_controller.dart';
 import 'package:blackrock_go/controllers/meshtastic_node_controller.dart';
 import 'package:blackrock_go/controllers/timeline_post_controller.dart';
-import 'package:blackrock_go/controllers/user_controller.dart';
-import 'package:blackrock_go/models/user_model.dart';
+import 'package:blackrock_go/models/const_model.dart';
 import 'package:blackrock_go/views/screens/base_view.dart';
 import 'package:blackrock_go/views/screens/chat.dart';
 import 'package:blackrock_go/views/screens/connect_node_screen.dart';
 import 'package:blackrock_go/views/screens/event_details_screen.dart';
-import 'package:blackrock_go/views/screens/legal_screen.dart';
-import 'package:blackrock_go/views/screens/onboarding.dart';
 import 'package:blackrock_go/views/screens/search_screen.dart';
+import 'package:blackrock_go/views/screens/users.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:vs_story_designer/vs_story_designer.dart';
@@ -66,21 +62,15 @@ void main() async {
     cacheOptions: const SharedPreferencesWithCacheOptions(),
   ));
 
-  final UserController userController = Get.put(UserController());
-
   final TimelinePostController timelineController =
       Get.put(TimelinePostController());
   final EventController eventController = Get.put(EventController());
-  final BiometricsController auth = Get.put(BiometricsController());
   Get.put(MeshtasticNodeController(), permanent: true);
   await eventController.getEvents();
   await timelineController.getPosts();
-  await auth.initialize();
-  if (prefs.containsKey('pfpUrl') && prefs.containsKey('accountName')) {
-    final String pfpUrl = prefs.getString('pfpUrl')!;
-    final String accountName = prefs.getString('accountName')!;
-    userController
-        .setUser(User(pfpUrl: File(pfpUrl), accountName: accountName));
+  MapboxOptions.setAccessToken(Constants.mapboxToken);
+
+  if (prefs.containsKey('isEntered') && prefs.getBool('isEntered') == true) {
     runApp(MyApp(initWidget: NavBar()));
   } else {
     runApp(MyApp(initWidget: const LoginPage()));
@@ -103,19 +93,9 @@ class MyApp extends StatelessWidget {
               builder: (context, state) => const NavBar(),
             ),
             GoRoute(
-                path: 'legal',
-                builder: (context, state) {
-                  return LegalPage();
-                }),
-            GoRoute(
                 path: 'login',
                 builder: (context, state) {
                   return const LoginPage();
-                }),
-            GoRoute(
-                path: 'onboarding',
-                builder: (context, state) {
-                  return const OnboardingScreen();
                 }),
             GoRoute(
                 path: 'search',
@@ -176,6 +156,8 @@ class MyApp extends StatelessWidget {
             GoRoute(
                 path: 'allChat',
                 builder: (context, state) => const ChatPage(title: 'All Chat')),
+            GoRoute(
+                path: 'users', builder: (context, state) => const UsersPage()),
           ],
         ),
       ],
