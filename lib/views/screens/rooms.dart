@@ -59,7 +59,7 @@ class _RoomsPageState extends State<RoomsPage> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      context.go('/allChat');
+                      context.push('/allChat');
                     },
                     child: Padding(
                       padding: EdgeInsets.only(top: 0.5.h),

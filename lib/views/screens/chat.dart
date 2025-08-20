@@ -13,9 +13,11 @@ class ChatPage extends StatefulWidget {
   const ChatPage({
     super.key,
     required this.title,
+    this.user,
   });
 
   final String title;
+  final NodeInfoWrapper? user;
 
   @override
   State<ChatPage> createState() => _ChatPageState();
@@ -34,6 +36,11 @@ class _ChatPageState extends State<ChatPage> {
     messageSubscription =
         meshtasticNodeController.listenForTextMessages().listen(
       (packet) {
+        if (widget.user != null) {
+          if (packet.packet.from != widget.user!.num) {
+            return; // Ignore messages not from the specified user
+          }
+        }
         // Add the incoming message to the chat controller
         _chatController.insertMessage(
           chat.Message.text(
@@ -59,7 +66,12 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   void _handleSendPressed(String text) async {
-    await meshtasticNodeController.client.sendTextMessage(text);
+    if (widget.user == null) {
+      await meshtasticNodeController.client.sendTextMessage(text);
+    } else {
+      await meshtasticNodeController.client
+          .sendTextMessage(text, destinationId: widget.user!.num);
+    }
     await _chatController.insertMessage(chat.Message.text(
       id: DateTime.now().millisecondsSinceEpoch.toString(),
       authorId: meshtasticNodeController.client.localUser?.id ?? "TempId",

@@ -58,9 +58,11 @@ class _LoginPageState extends State<LoginPage> {
                   child: ElevatedButton(
                       onPressed: () async {
                         await prefs.setBool('isEntered', true);
-                        context.push(
-                          '/home',
-                        );
+                        if (context.mounted) {
+                          context.pushReplacement(
+                            '/home',
+                          );
+                        }
                       },
                       style: Constants.buttonStyle,
                       child: Text(

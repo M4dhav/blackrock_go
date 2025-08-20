@@ -158,6 +158,15 @@ class MyApp extends StatelessWidget {
                 builder: (context, state) => const ChatPage(title: 'All Chat')),
             GoRoute(
                 path: 'users', builder: (context, state) => const UsersPage()),
+            GoRoute(
+                path: 'userChat',
+                builder: (context, state) {
+                  final args = state.extra as Map<String, dynamic>;
+                  return ChatPage(
+                    title: args['title'],
+                    user: args['user'],
+                  );
+                }),
           ],
         ),
       ],

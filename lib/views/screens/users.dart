@@ -33,14 +33,8 @@ class _UsersPageState extends State<UsersPage> {
   void _handlePressed(NodeInfoWrapper user, BuildContext context) async {
     final goRouter = GoRouter.of(context);
 
-    goRouter.pop();
-    // await navigator.push(
-    //   MaterialPageRoute(
-    //     builder: (context) => ChatPage(
-    //       room: room,
-    //     ),
-    //   ),
-    // );
+    goRouter.pushReplacement('/userChat',
+        extra: {'title': user.longName, 'user': user});
   }
 
   @override
@@ -60,6 +54,7 @@ class _UsersPageState extends State<UsersPage> {
             ),
           ),
           body: ListView.builder(
+            itemCount: meshtasticNodeController.nodes.length,
             itemBuilder: (context, index) {
               final user = meshtasticNodeController
                   .nodes[meshtasticNodeController.nodes.keys.elementAt(index)];
