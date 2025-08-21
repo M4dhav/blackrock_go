@@ -133,7 +133,7 @@ class _MapHomePageState extends State<MapHomePage> {
                     decoration: BoxDecoration(
                       border: Border(
                         bottom: BorderSide(
-                          color: const Color(0xffb4914b),
+                          color: Constants.primaryGold,
                           width: 0.4.sp,
                         ),
                       ),
@@ -141,7 +141,7 @@ class _MapHomePageState extends State<MapHomePage> {
                     child: Text(
                       'Search',
                       style: TextStyle(
-                        color: const Color(0xffb4914b),
+                        color: Constants.primaryGold,
                         fontSize: 16.sp,
                       ),
                     ),
@@ -159,7 +159,7 @@ class _MapHomePageState extends State<MapHomePage> {
                         },
                         icon: Icon(
                           Icons.menu,
-                          color: const Color(0xffb4914b),
+                          color: Constants.primaryGold,
                           size: 29.sp,
                         )),
                   ),

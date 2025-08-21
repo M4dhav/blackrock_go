@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:blackrock_go/controllers/timeline_post_controller.dart';
+import 'package:blackrock_go/models/const_model.dart';
 import 'package:blackrock_go/views/screens/home_screen.dart';
 import 'package:blackrock_go/views/screens/profile_screen.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
@@ -49,13 +50,12 @@ class _NavBarState extends State<NavBar> {
           ),
           floatingActionButton: FloatingActionButton(
             backgroundColor: Colors.black,
-            shape:
-                const CircleBorder(side: BorderSide(color: Color(0xffb4914b))),
+            shape: CircleBorder(side: BorderSide(color: Constants.primaryGold)),
             child: Center(
               child: Icon(
                 _selectedIndex == 2 ? Icons.camera : Icons.home,
                 size: 28.sp,
-                color: const Color(0xffb4914b),
+                color: Constants.primaryGold,
               ),
             ),
             onPressed: () async {
@@ -83,14 +83,14 @@ class _NavBarState extends State<NavBar> {
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: AnimatedBottomNavigationBar.builder(
-            borderColor: const Color(0xffb4914b),
+            borderColor: Constants.primaryGold,
             backgroundColor: Colors.black,
             itemCount: _widgetOptions.length - 1,
             tabBuilder: (int index, bool isActive) {
               return Icon(
                 iconList[index],
                 size: 26.sp,
-                color: const Color(0xffb4914b),
+                color: Constants.primaryGold,
               );
             },
             activeIndex: _selectedIndex,

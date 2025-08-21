@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
                         "BlackRock Go",
                         style: TextStyle(
                             fontFamily: 'Cinzel',
-                            color: const Color(0xffb4914b),
+                            color: Constants.primaryGold,
                             fontSize: 23.sp),
                       ),
                       Text(

@@ -6,6 +6,8 @@ import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../models/const_model.dart';
+
 class RoomsPage extends StatefulWidget {
   const RoomsPage({super.key});
 
@@ -30,16 +32,16 @@ class _RoomsPageState extends State<RoomsPage> {
         appBar: CustomAppBar(
           leadingWidget: Padding(
             padding: EdgeInsets.symmetric(horizontal: 2.w),
-            child: const Text(
+            child: Text(
               'Your Chats',
-              style: TextStyle(color: Color(0xffb4914b)),
+              style: TextStyle(color: Constants.primaryGold),
             ),
           ),
           actionWidgets: IconButton(
             icon: Icon(
               Icons.add,
               size: 35.px,
-              color: const Color(0xffb4914b),
+              color: Constants.primaryGold,
             ),
             onPressed: () {
               context.push('/users');
@@ -69,7 +71,7 @@ class _RoomsPageState extends State<RoomsPage> {
                           borderRadius: BorderRadius.circular(20.sp),
                           border: Border.all(
                             width: 0.7,
-                            color: const Color(0xffb4914b),
+                            color: Constants.primaryGold,
                           ),
                         ),
                         padding: EdgeInsets.symmetric(
@@ -82,83 +84,75 @@ class _RoomsPageState extends State<RoomsPage> {
                               'All Chat',
                               style: TextStyle(fontSize: 17.sp),
                             ),
-                            const Spacer(),
-                            IconButton(
-                                onPressed: () {},
-                                icon: const Icon(
-                                  Icons.camera_alt_outlined,
-                                  color: Color.fromARGB(255, 78, 78, 78),
-                                ))
                           ],
                         ),
                       ),
                     ),
                   ),
-                  if (meshtasticNodeController.activeRooms.isNotEmpty)
-                    ListView.builder(
-                      itemCount: meshtasticNodeController.activeRooms.length,
-                      itemBuilder: (context, index) {
-                        final room =
-                            meshtasticNodeController.activeRooms[index];
+                  Expanded(
+                    child: Obx(() {
+                      return meshtasticNodeController.activeRooms.isNotEmpty
+                          ? ListView.builder(
+                              itemCount:
+                                  meshtasticNodeController.activeRooms.length,
+                              itemBuilder: (context, index) {
+                                final room =
+                                    meshtasticNodeController.activeRooms[index];
 
-                        return GestureDetector(
-                          onTap: () {
-                            // Navigator.of(context).push(
-                            //   MaterialPageRoute(
-                            //     builder: (context) => ChatPage(
-                            //       room: room,
-                            //     ),
-                            //   ),
-                            // );
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.only(top: 0.5.h),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(20.sp),
-                                border: Border.all(
-                                  width: 0.7,
-                                  color: const Color(0xffb4914b),
-                                ),
-                              ),
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 2.h,
-                                vertical: 2.h,
-                              ),
-                              child: Row(
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        room.displayName,
-                                        style: TextStyle(fontSize: 17.sp),
+                                return GestureDetector(
+                                  onTap: () {
+                                    context.pushReplacement('/userChat',
+                                        extra: {
+                                          'title': room.longName,
+                                          'user': room
+                                        });
+                                  },
+                                  child: Padding(
+                                    padding: EdgeInsets.only(top: 0.5.h),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.black,
+                                        borderRadius:
+                                            BorderRadius.circular(20.sp),
+                                        border: Border.all(
+                                          width: 0.7,
+                                          color: Constants.primaryGold,
+                                        ),
                                       ),
-                                      Text(
-                                        room.lastHeard.toString(),
-                                        style: TextStyle(
-                                            fontSize: 14.sp,
-                                            color: const Color.fromARGB(
-                                                255, 78, 78, 78)),
-                                      )
-                                    ],
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 2.h,
+                                        vertical: 2.h,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                room.displayName,
+                                                style:
+                                                    TextStyle(fontSize: 17.sp),
+                                              ),
+                                              Text(
+                                                room.lastHeard.toString(),
+                                                style: TextStyle(
+                                                    fontSize: 14.sp,
+                                                    color: const Color.fromARGB(
+                                                        255, 78, 78, 78)),
+                                              )
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   ),
-                                  const Spacer(),
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(
-                                        Icons.camera_alt_outlined,
-                                        color: Color.fromARGB(255, 78, 78, 78),
-                                      ))
-                                ],
-                              ),
-                            ),
-                          ),
-                        );
-                      },
-                    ),
+                                );
+                              },
+                            )
+                          : SizedBox.shrink();
+                    }),
+                  ),
                 ],
               );
             },

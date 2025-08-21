@@ -34,6 +34,7 @@ final class Constants {
     filled: true,
     fillColor: Colors.black.withValues(alpha: 0.7),
   );
+  static final Color primaryGold = const Color(0xffb4914b);
   static final appBarBottom = PreferredSize(
       preferredSize: Size.fromHeight(2.h),
       child: Container(

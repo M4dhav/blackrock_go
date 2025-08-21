@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:meshtastic_flutter/meshtastic_flutter.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:blackrock_go/models/const_model.dart' as constants;
 
 class ConnectNodeScreen extends StatefulWidget {
   const ConnectNodeScreen({super.key});
@@ -28,12 +29,12 @@ class _ConnectNodeScreenState extends State<ConnectNodeScreen> {
         appBar: CustomAppBar(
           leadingWidget: BackButton(
             onPressed: () => context.pop(),
-            color: Color(0xffb4914b),
+            color: constants.Constants.primaryGold,
           ),
           titleWidget: Text(
             'Available Nodes',
             style: TextStyle(
-              color: const Color(0xffb4914b),
+              color: constants.Constants.primaryGold,
               fontSize: 20.px,
             ),
           ),
@@ -41,7 +42,7 @@ class _ConnectNodeScreenState extends State<ConnectNodeScreen> {
               onPressed: () => meshtasticNodeController.findNodes(),
               icon: Icon(
                 Icons.refresh,
-                color: Color(0xffb4914b),
+                color: constants.Constants.primaryGold,
               )),
         ),
         body: Obx(
@@ -63,28 +64,32 @@ class _ConnectNodeScreenState extends State<ConnectNodeScreen> {
                             content: Obx(() {
                               final status = meshtasticNodeController
                                   .connectionStatus.value;
-                              return Text(status.state.toString());
+                              return Text(
+                                status.state.toString(),
+                                style: TextStyle(color: Colors.black),
+                              );
                             }),
                             actions: [
-                              GoldenButton(
-                                  child: meshtasticNodeController
-                                              .connectionStatus.value.state ==
-                                          MeshtasticConnectionState.connected
-                                      ? Text(
-                                          'OK',
-                                          style: TextStyle(
-                                            color: const Color(0xffb4914b),
-                                            fontSize: 20.px,
-                                          ),
-                                        )
-                                      : CircularProgressIndicator(
-                                          color: Color(0xffb4914b),
-                                        ),
-                                  onPressed: () => meshtasticNodeController
-                                              .connectionStatus.value.state ==
-                                          MeshtasticConnectionState.connected
-                                      ? Get.back()
-                                      : null)
+                              Obx(
+                                () => GoldenButton(
+                                    child: meshtasticNodeController
+                                                .connectionStatus.value.state ==
+                                            MeshtasticConnectionState.connected
+                                        ? Text(
+                                            'OK',
+                                            style: TextStyle(
+                                              color: constants
+                                                  .Constants.primaryGold,
+                                              fontSize: 20.px,
+                                            ),
+                                          )
+                                        : CircularProgressIndicator(),
+                                    onPressed: () => meshtasticNodeController
+                                                .connectionStatus.value.state ==
+                                            MeshtasticConnectionState.connected
+                                        ? Get.back()
+                                        : null),
+                              )
                             ],
                           ),
                           barrierDismissible: false,

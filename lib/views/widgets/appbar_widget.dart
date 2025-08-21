@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../models/const_model.dart';
+
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? leadingWidget;
   final Widget? actionWidgets;
@@ -16,7 +18,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.black,
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20), // Only bottom-left is rounded
@@ -32,7 +34,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         // ],
 
         border: Border(
-          bottom: BorderSide(color: Color(0xffb4914b), width: 2),
+          bottom: BorderSide(color: Constants.primaryGold, width: 2),
         ),
       ),
       child: SafeArea(

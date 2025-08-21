@@ -8,6 +8,7 @@ import 'package:flutter_chat_core/flutter_chat_core.dart' as chat;
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:get/get.dart';
 import 'package:meshtastic_flutter/meshtastic_flutter.dart';
+import 'package:blackrock_go/models/const_model.dart' as constants;
 
 class ChatPage extends StatefulWidget {
   const ChatPage({
@@ -86,12 +87,14 @@ class _ChatPageState extends State<ChatPage> {
           systemOverlayStyle: SystemUiOverlayStyle.light,
           backgroundColor: Colors.black,
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back, color: Color(0xFFB4914B)),
+            icon:
+                Icon(Icons.arrow_back, color: constants.Constants.primaryGold),
             onPressed: () {
               Navigator.of(context).pop();
             },
           ),
-          title: Text(widget.title, style: TextStyle(color: Color(0xFFB4914B))),
+          title: Text(widget.title,
+              style: TextStyle(color: constants.Constants.primaryGold)),
         ),
         body: Stack(
           children: [
@@ -136,16 +139,16 @@ class _ChatPageState extends State<ChatPage> {
             //         userAvatarNameColors: const [Colors.blue, Colors.red],
             //         userAvatarTextStyle: const TextStyle(color: Colors.white),
             //         receivedMessageBodyTextStyle:
-            //             const TextStyle(color: Color(0xFFB4914B)),
+            //             const TextStyle(color: constants.Constants.primaryGold),
             //         sentMessageBodyTextStyle:
-            //             const TextStyle(color: Color(0xFFB4914B)),
-            //         // receivedMessageBorderColor: Color(0xFFB4914B),
-            //         // sentMessageBorderColor: Color(0xFFB4914B),
+            //             const TextStyle(color: constants.Constants.primaryGold),
+            //         // receivedMessageBorderColor: constants.Constants.primaryGold,
+            //         // sentMessageBorderColor: constants.Constants.primaryGold,
             //         inputTextColor: Colors.white,
             //         inputBackgroundColor: Colors.black,
             //         inputBorderRadius: BorderRadius.circular(10),
             //         inputTextStyle: const TextStyle(color: Colors.white),
-            //         // inputButtonIcon: Icon(Icons.send, color: Color(0xFFB4914B)),
+            //         // inputButtonIcon: Icon(Icons.send, color: constants.Constants.primaryGold),
             //       ),
             //     ),
             //   ),

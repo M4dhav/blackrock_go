@@ -3,8 +3,10 @@ import 'package:blackrock_go/views/widgets/appbar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
-import 'package:meshtastic_flutter/meshtastic_flutter.dart';
+import 'package:meshtastic_flutter/meshtastic_flutter.dart' hide Constants;
 import 'package:responsive_sizer/responsive_sizer.dart';
+
+import '../../models/const_model.dart';
 
 class UsersPage extends StatefulWidget {
   const UsersPage({super.key});
@@ -18,7 +20,7 @@ class _UsersPageState extends State<UsersPage> {
 
   Widget _buildAvatar(NodeInfoWrapper user) {
     return CircleAvatar(
-      backgroundColor: const Color(0xffb4914b),
+      backgroundColor: Constants.primaryGold,
       radius: 9.w,
       child: Text(
         user.shortName ?? 'JH',
@@ -30,10 +32,10 @@ class _UsersPageState extends State<UsersPage> {
     );
   }
 
-  void _handlePressed(NodeInfoWrapper user, BuildContext context) async {
-    final goRouter = GoRouter.of(context);
+  void _handlePressed(NodeInfoWrapper user, BuildContext context) {
+    meshtasticNodeController.activeRooms.add(user);
 
-    goRouter.pushReplacement('/userChat',
+    context.pushReplacement('/userChat',
         extra: {'title': user.longName, 'user': user});
   }
 
@@ -48,9 +50,9 @@ class _UsersPageState extends State<UsersPage> {
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: CustomAppBar(
-            titleWidget: const Text(
+            titleWidget: Text(
               'Users',
-              style: TextStyle(color: Color(0xffb4914b)),
+              style: TextStyle(color: Constants.primaryGold),
             ),
           ),
           body: ListView.builder(

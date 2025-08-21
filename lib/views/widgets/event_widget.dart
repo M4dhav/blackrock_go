@@ -25,7 +25,7 @@ class EventWidget extends StatelessWidget {
             color: Colors.black,
             borderRadius: BorderRadius.circular(28),
             border: Border.all(
-              color: const Color(0xffb4914b),
+              color: Constants.primaryGold,
             ),
           ),
           // color: Colors.white,
@@ -55,7 +55,7 @@ class EventWidget extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 22.px,
                         fontFamily: 'Cinzel',
-                        color: const Color(0xffb4914b),
+                        color: Constants.primaryGold,
                       ),
                     ),
                   ),

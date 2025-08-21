@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../models/const_model.dart';
+
 class GoldenButton extends StatelessWidget {
   final Widget child;
   final VoidCallback onPressed;
@@ -15,7 +17,7 @@ class GoldenButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         foregroundColor: Colors.white,
-        backgroundColor: const Color(0xffb4914b),
+        backgroundColor: Constants.primaryGold,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0), // Rounded corners
         ),

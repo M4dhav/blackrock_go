@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../models/const_model.dart';
+
 class EventDetailsScreen extends StatefulWidget {
   const EventDetailsScreen({super.key, required this.event});
   final EventModel event;
@@ -47,7 +49,7 @@ class _EventDetailsScreenState extends State<EventDetailsScreen> {
                       style: TextStyle(
                         fontSize: 25.px,
                         fontFamily: 'Cinzel',
-                        color: const Color(0xffb4914b),
+                        color: Constants.primaryGold,
                       ),
                     ),
                   ),

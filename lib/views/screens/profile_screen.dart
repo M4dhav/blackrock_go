@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:meshtastic_flutter/meshtastic_flutter.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:blackrock_go/models/const_model.dart' as constants;
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -35,7 +36,7 @@ class _ProfilePageState extends State<ProfilePage> {
             style: TextStyle(
               fontSize: 18.sp,
               fontWeight: FontWeight.bold,
-              color: const Color(0xffb4914b),
+              color: constants.Constants.primaryGold,
             ),
           ),
         ),
@@ -43,12 +44,12 @@ class _ProfilePageState extends State<ProfilePage> {
           children: [
             IconButton(
               icon: Icon(Icons.add_box,
-                  size: 26.px, color: const Color(0xffb4914b)),
+                  size: 26.px, color: constants.Constants.primaryGold),
               onPressed: () {},
             ),
             IconButton(
-              icon:
-                  Icon(Icons.menu, size: 29.px, color: const Color(0xffb4914b)),
+              icon: Icon(Icons.menu,
+                  size: 29.px, color: constants.Constants.primaryGold),
               onPressed: () {
                 _scaffoldKey.currentState?.openDrawer();
               },
@@ -70,7 +71,8 @@ class _ProfilePageState extends State<ProfilePage> {
                     decoration: BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: const Color(0xffb4914b)),
+                      border:
+                          Border.all(color: constants.Constants.primaryGold),
                     ),
                     padding: EdgeInsets.all(3.h),
                     child: Obx(
@@ -83,7 +85,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Column(
                                   children: [
                                     CircleAvatar(
-                                      backgroundColor: const Color(0xffb4914b),
+                                      backgroundColor:
+                                          constants.Constants.primaryGold,
                                       radius: 9.w,
                                       child: Text(
                                         meshtasticNodeController
@@ -98,7 +101,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     Text(
                                       '${meshtasticNodeController.client.connectedNodeBatteryLevel}%',
                                       style: TextStyle(
-                                        color: const Color(0xffb4914b),
+                                        color: constants.Constants.primaryGold,
                                         // fontSize: 19.sp,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -113,7 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                               .client.localUser?.longName ??
                                           'Jim Halpert',
                                       style: TextStyle(
-                                        color: const Color(0xffb4914b),
+                                        color: constants.Constants.primaryGold,
                                         fontSize: 19.sp,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -122,7 +125,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       // meshtasticNodeController.client.myNodeInfo.??
                                       'BLE Name: ${meshtasticNodeController.client.connectedDeviceName}',
                                       style: TextStyle(
-                                        color: const Color(0xffb4914b),
+                                        color: constants.Constants.primaryGold,
                                         fontSize: 15.sp,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -131,7 +134,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       // meshtasticNodeController.client.myNodeInfo.??
                                       'Firmware Version: ${meshtasticNodeController.client.firmwareVersion}',
                                       style: TextStyle(
-                                        color: const Color(0xffb4914b),
+                                        color: constants.Constants.primaryGold,
                                         fontSize: 15.sp,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -166,7 +169,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Text(
                                   'No Node Connected',
                                   style: TextStyle(
-                                    color: const Color(0xffb4914b),
+                                    color: constants.Constants.primaryGold,
                                     fontSize: 20.px,
                                   ),
                                   textAlign: TextAlign.center,
@@ -184,12 +187,12 @@ class _ProfilePageState extends State<ProfilePage> {
           padding: EdgeInsets.all(2.h),
           child: Container(
             padding: EdgeInsets.all(8),
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               color: Colors.black,
               border: Border(
-                top: BorderSide(color: Color(0xffb4914b)),
-                left: BorderSide(color: Color(0xffb4914b)),
-                right: BorderSide(color: Color(0xffb4914b)),
+                top: BorderSide(color: constants.Constants.primaryGold),
+                left: BorderSide(color: constants.Constants.primaryGold),
+                right: BorderSide(color: constants.Constants.primaryGold),
               ),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20),
@@ -203,7 +206,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   style: TextStyle(
                     fontFamily: 'Cinzel',
                     fontWeight: FontWeight.bold,
-                    color: Color(0xffb4914b),
+                    color: constants.Constants.primaryGold,
                     fontSize: 22,
                   ),
                 ),

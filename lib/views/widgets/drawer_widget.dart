@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:meshtastic_flutter/meshtastic_flutter.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:blackrock_go/models/const_model.dart' as constants;
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -14,7 +15,7 @@ class CustomDrawer extends StatelessWidget {
     final MeshtasticNodeController meshtasticNodeController = Get.find();
 
     return Drawer(
-      shadowColor: const Color(0xffb4914b),
+      shadowColor: constants.Constants.primaryGold,
       surfaceTintColor: const Color.fromARGB(255, 52, 52, 52),
       elevation: 10.w,
       backgroundColor: const Color.fromARGB(255, 0, 0, 0),
@@ -29,7 +30,7 @@ class CustomDrawer extends StatelessWidget {
                   ? Row(
                       children: [
                         CircleAvatar(
-                          backgroundColor: const Color(0xffb4914b),
+                          backgroundColor: constants.Constants.primaryGold,
                           radius: 9.w,
                           child: Text(
                             meshtasticNodeController
@@ -46,7 +47,7 @@ class CustomDrawer extends StatelessWidget {
                           meshtasticNodeController.client.localUser?.longName ??
                               'Jim Halpert',
                           style: TextStyle(
-                            color: const Color(0xffb4914b),
+                            color: constants.Constants.primaryGold,
                             fontSize: 21.px,
                           ),
                         ),
@@ -57,7 +58,7 @@ class CustomDrawer extends StatelessWidget {
                       child: Container(
                         decoration: BoxDecoration(
                             border: Border.all(
-                              color: const Color(0xffb4914b),
+                              color: constants.Constants.primaryGold,
                               width: 1.px,
                             ),
                             borderRadius: BorderRadius.circular(8)),
@@ -65,7 +66,7 @@ class CustomDrawer extends StatelessWidget {
                         child: Text(
                           'No Node Connected',
                           style: TextStyle(
-                            color: const Color(0xffb4914b),
+                            color: constants.Constants.primaryGold,
                             fontSize: 20.px,
                           ),
                           textAlign: TextAlign.center,
@@ -81,11 +82,11 @@ class CustomDrawer extends StatelessWidget {
             },
             child: ListTile(
               leading: Icon(Icons.bluetooth,
-                  color: const Color(0xffb4914b), size: 24.px),
+                  color: constants.Constants.primaryGold, size: 24.px),
               title: Text(
                 'Connect to Node',
                 style: TextStyle(
-                  color: const Color(0xffb4914b),
+                  color: constants.Constants.primaryGold,
                   fontSize: 20.px,
                 ),
               ),
@@ -97,11 +98,11 @@ class CustomDrawer extends StatelessWidget {
             },
             child: ListTile(
               leading: Icon(Icons.event,
-                  color: const Color(0xffb4914b), size: 24.px),
+                  color: constants.Constants.primaryGold, size: 24.px),
               title: Text(
                 'Events',
                 style: TextStyle(
-                  color: const Color(0xffb4914b),
+                  color: constants.Constants.primaryGold,
                   fontSize: 24.px,
                 ),
               ),
@@ -114,11 +115,11 @@ class CustomDrawer extends StatelessWidget {
             },
             child: ListTile(
               leading: Icon(Icons.settings,
-                  color: const Color(0xffb4914b), size: 24.px),
+                  color: constants.Constants.primaryGold, size: 24.px),
               title: Text(
                 'Settings',
                 style: TextStyle(
-                  color: const Color(0xffb4914b),
+                  color: constants.Constants.primaryGold,
                   fontSize: 24.px,
                 ),
               ),
@@ -131,11 +132,11 @@ class CustomDrawer extends StatelessWidget {
             },
             child: ListTile(
               leading: Icon(Icons.contacts,
-                  color: const Color(0xffb4914b), size: 24.px),
+                  color: constants.Constants.primaryGold, size: 24.px),
               title: Text(
                 'Contact Us',
                 style: TextStyle(
-                  color: const Color(0xffb4914b),
+                  color: constants.Constants.primaryGold,
                   fontSize: 20.px,
                 ),
               ),
@@ -147,11 +148,11 @@ class CustomDrawer extends StatelessWidget {
             },
             child: ListTile(
               leading: Icon(Icons.privacy_tip,
-                  color: const Color(0xffb4914b), size: 24.px),
+                  color: constants.Constants.primaryGold, size: 24.px),
               title: Text(
                 'Privacy Policy',
                 style: TextStyle(
-                  color: const Color(0xffb4914b),
+                  color: constants.Constants.primaryGold,
                   fontSize: 20.px,
                 ),
               ),
@@ -163,11 +164,11 @@ class CustomDrawer extends StatelessWidget {
             },
             child: ListTile(
               leading: Icon(Icons.edit_document,
-                  color: const Color(0xffb4914b), size: 24.px),
+                  color: constants.Constants.primaryGold, size: 24.px),
               title: Text(
                 'Terms of Service',
                 style: TextStyle(
-                  color: const Color(0xffb4914b),
+                  color: constants.Constants.primaryGold,
                   fontSize: 20.px,
                 ),
               ),
