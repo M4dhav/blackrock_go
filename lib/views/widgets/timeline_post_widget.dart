@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../models/const_model.dart';
+
 class TimelineItem extends StatelessWidget {
   final int index;
   final String imageUrl;
@@ -20,7 +22,7 @@ class TimelineItem extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 3.h, horizontal: 2.w),
       decoration: BoxDecoration(
-        border: Border.all(color: const Color(0xffb4914b), width: 1.sp),
+        border: Border.all(color: Constants.primaryGold, width: 1.sp),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Stack(
@@ -29,7 +31,7 @@ class TimelineItem extends StatelessWidget {
             width: double.infinity,
             height: 38.h,
             decoration: BoxDecoration(
-              border: Border.all(color: const Color(0xffb4914b)),
+              border: Border.all(color: Constants.primaryGold),
               borderRadius: BorderRadius.circular(10),
               image: DecorationImage(
                 image: FileImage(File(imageUrl)),
@@ -49,7 +51,7 @@ class TimelineItem extends StatelessWidget {
               child: Text(
                 timestamp,
                 style: TextStyle(
-                  color: const Color(0xffb4914b),
+                  color: Constants.primaryGold,
                   fontSize: 12.px,
                   fontWeight: FontWeight.bold,
                 ),

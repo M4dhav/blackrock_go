@@ -3,6 +3,8 @@ import 'package:blackrock_go/views/widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../models/const_model.dart';
+
 enum SearchType { user, place, event, nfts, tags }
 
 class SearchScreen extends StatefulWidget {
@@ -73,14 +75,14 @@ class _SearchScreenState extends State<SearchScreen> {
           color: Colors.transparent,
           borderRadius: BorderRadius.circular(16.sp),
           border: Border.all(
-            color: isSelected ? const Color(0xffb4914b) : Colors.white,
+            color: isSelected ? Constants.primaryGold : Colors.white,
             width: 1.sp,
           ),
         ),
         child: Text(
           type.name,
           style: TextStyle(
-            color: isSelected ? const Color(0xffb4914b) : Colors.white,
+            color: isSelected ? Constants.primaryGold : Colors.white,
             fontSize: 16.sp,
           ),
         ),
@@ -105,8 +107,8 @@ class _SearchScreenState extends State<SearchScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Search for?',
-                  style: TextStyle(
-                      color: const Color(0xffb4914b), fontSize: 16.sp)),
+                  style:
+                      TextStyle(color: Constants.primaryGold, fontSize: 16.sp)),
               Padding(
                 padding: EdgeInsets.only(
                     left: 3.w, right: 3.w, top: 1.h, bottom: 4.h),

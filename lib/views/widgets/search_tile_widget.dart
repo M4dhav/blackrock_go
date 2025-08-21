@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../models/const_model.dart';
+
 class SearchResultTile extends StatelessWidget {
   final String title;
   const SearchResultTile({super.key, required this.title});
@@ -16,14 +18,14 @@ class SearchResultTile extends StatelessWidget {
           color: Colors.black.withValues(alpha: 0.8),
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: const Color(0xffb4914b),
+            color: Constants.primaryGold,
             width: 0.3,
           ),
         ),
         child: ListTile(
           leading: CircleAvatar(
             radius: 5.7.w,
-            backgroundColor: const Color(0xffb4914b),
+            backgroundColor: Constants.primaryGold,
             child: CircleAvatar(
               backgroundImage: const AssetImage('assets/profile.jpg'),
               radius: 5.w,
@@ -43,7 +45,7 @@ class SearchResultTile extends StatelessWidget {
               ),
             ],
           ),
-          trailing: const Icon(Icons.more_vert, color: Color(0xffb4914b)),
+          trailing: Icon(Icons.more_vert, color: Constants.primaryGold),
         ),
       ),
     );

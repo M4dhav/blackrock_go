@@ -1,0 +1,49 @@
+import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:get/get.dart';
+import 'package:meshtastic_flutter/meshtastic_flutter.dart';
+
+class MeshtasticNodeController extends GetxController {
+  final client = MeshtasticClient();
+  RxList<BluetoothDevice> availableNodes = <BluetoothDevice>[].obs;
+  Rx<ConnectionStatus> connectionStatus = ConnectionStatus(
+          state: MeshtasticConnectionState.disconnected,
+          timestamp: DateTime.now())
+      .obs;
+
+  RxMap<int, NodeInfoWrapper> nodes = <int, NodeInfoWrapper>{}.obs;
+  RxList<NodeInfoWrapper> activeRooms = <NodeInfoWrapper>[].obs;
+
+  @override
+  void onInit() async {
+    super.onInit();
+    await client.initialize();
+  }
+
+  @override
+  void onClose() {
+    client.dispose();
+    super.onClose();
+  }
+
+  void findNodes() async {
+    client.scanForDevices().listen((event) {
+      if (!availableNodes.contains(event)) {
+        availableNodes.add(event);
+      }
+    });
+  }
+
+  void listenToConnectionStream() async {
+    client.connectionStream.listen((event) {
+      connectionStatus.value = event;
+    });
+  }
+
+  Stream<MeshPacketWrapper> listenForTextMessages() async* {
+    await for (final packet in client.packetStream) {
+      if (packet.isTextMessage) {
+        yield packet;
+      }
+    }
+  }
+}

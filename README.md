@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="assets/brg.png" width="140" alt="Blackrock GO logo"/>
+  <img src="assets/blackrock_logo.jpg" width="140" alt="Blackrock GO logo"/>
 </p>
 
-<h1 align="center">Blackrock GO</h1>
+
 <p align="center">
   Map-first, black-and-gold mesh communications for Black Rock City.<br/>
   Pair with <b>any Meshtastic device</b>, chat in encrypted camp channels, and overlay scheduled events.
@@ -24,13 +24,23 @@ Blackrock GO is a lightweight, Burning Mesh–compatible client focused on **rel
 > **Note:** We are not affiliated with Burning Man Project or Burningmesh Project. We respect the their IP and message etiquette and aim to be good mesh citizens.
 
 
+## Technical Architecture
+
+
+### Tech Stack
+- **Frontend**: Flutter
+- **Local Persistence**: SQFlite 3 (SQLite)
+- **State Management**: GetX
+- **Routing**: Go Router
+- **Secure Storage**: Shared Preferences
+- **Maps & Location**: MapBox integration
+
 
 ## Getting Started
 
+
 ### Prerequisites
 - Flutter SDK (latest version)
-- Firebase account and project setup
-- Environment configuration
 
 ### Installation
 1. Clone the repository
@@ -43,16 +53,16 @@ git clone https://github.com/yourusername/blackrock_go.git
 flutter pub get
 ```
 
-3. Create a `.env` file in the root directory with your environment variables
 
-4. Run the application
+3. Run the application
 ```bash
 flutter run
 ```
 
 ## Building for Different Platforms
 
-Alpha Go is a cross-platform application built with Flutter that supports:
+
+The Burning Man Companion App is a cross-platform application built with Flutter that supports:
 - Android
 - iOS
 
@@ -60,5 +70,7 @@ Alpha Go is a cross-platform application built with Flutter that supports:
 ## Acknowledgements
 
 - Flutter and Dart teams
-- Firebase platform
+
+- Meshtastic Team
+
 - All third-party libraries used in this project
