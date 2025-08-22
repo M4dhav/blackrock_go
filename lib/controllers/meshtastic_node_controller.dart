@@ -1,6 +1,6 @@
+
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:get/get.dart';
-import 'package:meshtastic_flutter/generated/channel.pb.dart';
 import 'package:meshtastic_flutter/meshtastic_flutter.dart';
 
 class MeshtasticNodeController extends GetxController {
@@ -28,6 +28,11 @@ class MeshtasticNodeController extends GetxController {
   }
 
   void findNodes() async {
+    // ChannelSet channel = ChannelSet.fromBuffer(base64Decode(
+    //         'Ci4SIDhLvMAdwCLRgb82uGEh4fuWty5Vv3Qifp1q-0jWTLGhGghFdmVyeW9uZToAEhMIARAIOAFABEgBUB5YH2gBwAYB')
+    //     .toList());
+
+    // log('Channel created: ${channel.settings[0].name}');
     client.scanForDevices().listen((event) {
       if (!availableNodes.contains(event)) {
         availableNodes.add(event);

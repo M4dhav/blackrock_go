@@ -29,7 +29,6 @@ class _ChatPageState extends State<ChatPage> {
   final MeshtasticNodeController meshtasticNodeController = Get.find();
   final _chatController = chat.InMemoryChatController();
   StreamSubscription<MeshPacketWrapper>? messageSubscription;
-  final TextEditingController _messageController = TextEditingController();
 
   @override
   void initState() {

@@ -8,6 +8,8 @@ import 'package:blackrock_go/views/screens/chat.dart';
 import 'package:blackrock_go/views/screens/chats_page.dart';
 import 'package:blackrock_go/views/screens/connect_node_screen.dart';
 import 'package:blackrock_go/views/screens/direct_messages.dart';
+import 'package:blackrock_go/views/screens/event_details_screen.dart';
+import 'package:blackrock_go/views/screens/events.dart';
 import 'package:blackrock_go/views/screens/search_screen.dart';
 import 'package:blackrock_go/views/screens/users.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -25,7 +27,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  final database = Get.put(await openDatabase(
+  Get.put(await openDatabase(
       // Set the path to the database. Note: Using the `join` function from the
       // `path` package is best practice to ensure the path is correctly
       // constructed for each platform.
@@ -38,20 +40,6 @@ void main() async {
         'id INTEGER PRIMARY KEY AUTOINCREMENT, '
         'imageUrl TEXT NOT NULL, '
         'timestamp INTEGER NOT NULL'
-        ')',
-      ),
-      db.execute(
-        'CREATE TABLE events ('
-        'id INTEGER PRIMARY KEY AUTOINCREMENT, '
-        'imageUrl TEXT NOT NULL, '
-        'eventName TEXT NOT NULL, '
-        'description TEXT NOT NULL, '
-        'latitude REAL NOT NULL, '
-        'longitude REAL NOT NULL, '
-        'startTime TEXT NOT NULL, '
-        'endTime TEXT NOT NULL, '
-        'hostName TEXT NOT NULL, '
-        'locationName TEXT NOT NULL'
         ')',
       ),
     ]);
@@ -146,12 +134,12 @@ class MyApp extends StatelessWidget {
                     mediaPath: state.extra as String,
                     middleBottomWidget: Container(),
                     centerText: '')),
-            // GoRoute(
-            //   path: 'eventDetails',
-            //   builder: (context, state) => EventDetailsScreen(
-            //     event: (state.extra as List)[0],
-            //   ),
-            // ),
+            GoRoute(
+              path: 'eventDetails',
+              builder: (context, state) => EventDetailsScreen(
+                event: (state.extra as List)[0],
+              ),
+            ),
             GoRoute(
                 path: 'connectNode',
                 builder: (context, state) => const ConnectNodeScreen()),
@@ -180,6 +168,10 @@ class MyApp extends StatelessWidget {
             GoRoute(
               path: 'directMessagesPage',
               builder: (context, state) => const DirectMessagesPage(),
+            ),
+            GoRoute(
+              path: 'eventsList',
+              builder: (context, state) => const EventsScreen(),
             ),
           ],
         ),

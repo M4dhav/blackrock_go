@@ -5,6 +5,7 @@ import 'package:blackrock_go/models/const_model.dart';
 import 'package:blackrock_go/models/event_model.dart';
 import 'package:blackrock_go/views/widgets/drawer_widget.dart';
 import 'package:blackrock_go/views/widgets/appbar_widget.dart';
+import 'package:blackrock_go/views/widgets/event_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
@@ -62,25 +63,25 @@ class _MapHomePageState extends State<MapHomePage> {
     modelLayer.modelScale = [10, 10, 10];
     modelLayer.modelType = ModelType.COMMON_3D;
     await mapboxMap?.style.addLayer(modelLayer);
-    await mapboxMap?.style.addLayer(
-      SymbolLayer(
-        id: 'event-labels',
-        sourceId: 'events',
-        textFieldExpression: [
-          'get',
-          'name'
-        ], // This will use the 'name' property for the label
-        textSize: 14,
-        textHaloColorExpression: [0xFFFFFFFF], // White halo
-        textHaloWidthExpression: [2.0],
-        symbolZOffset: 10.0,
-        textOcclusionOpacity: 1.0,
+    // await mapboxMap?.style.addLayer(
+    //   SymbolLayer(
+    //     id: 'event-labels',
+    //     sourceId: 'eventsLayer',
+    //     textFieldExpression: [
+    //       'get',
+    //       'name'
+    //     ], // This will use the 'name' property for the label
+    //     textSize: 14,
+    //     textHaloColorExpression: [0xFFFFFFFF], // White halo
+    //     textHaloWidthExpression: [2.0],
+    //     symbolZOffset: 10.0,
+    //     textOcclusionOpacity: 1.0,
 
-        // textColor: Colors.red.hashCode,
-        // textColorExpression: [Colors.red.hashCode, Colors.red.hashCode]
-        // You can add more styling properties as needed
-      ),
-    );
+    //     // textColor: Colors.red.hashCode,
+    //     // textColorExpression: [Colors.red.hashCode, Colors.red.hashCode]
+    //     // You can add more styling properties as needed
+    //   ),
+    // );
 
     log('added modelLayer');
   }
@@ -103,29 +104,29 @@ class _MapHomePageState extends State<MapHomePage> {
   Future<void> _onStyleLoaded(StyleLoadedEventData data) async {
     await addModelLayer(eventController.events);
     log('style loaded');
-    //TODO: Add interaction
-    // mapboxMap!.addInteraction(
-    //     TapInteraction(
-    //       FeaturesetDescriptor(
-    //         layerId: "eventsLayer",
-    //       ),
-    //       (feature, mapContext) async {
-    //         EventModel event =
-    //             eventController.events[feature.properties['index'] as int];
 
-    //         if (mounted) {
-    //           showDialog(
-    //             context: context,
-    //             builder: (context) => EventWidget(
-    //               event: event,
-    //               hostName: event.hostName,
-    //             ),
-    //           );
-    //         }
-    //       },
-    //       stopPropagation: false,
-    //     ),
-    //     interactionID: "eventTapInteraction");
+    mapboxMap!.addInteraction(
+        TapInteraction(
+          FeaturesetDescriptor(
+            layerId: "eventsLayer",
+          ),
+          (feature, mapContext) async {
+            log('Feature tapped: ${feature.properties}');
+            EventModel event =
+                eventController.events[feature.properties['index'] as int];
+
+            if (mounted) {
+              showDialog(
+                context: context,
+                builder: (context) => EventWidget(
+                  event: event,
+                ),
+              );
+            }
+          },
+          stopPropagation: true,
+        ),
+        interactionID: "eventTapInteraction");
 
     log('loaded interactions');
   }

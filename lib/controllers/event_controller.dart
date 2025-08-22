@@ -54,9 +54,4 @@ class EventController extends GetxController {
         event.endTime.isAfter(timeNow) && event.startTime.isBefore(timeNow)));
     log("events.length: ${events.length}");
   }
-
-  Future<void> addEvent(EventModel event) async {
-    // await FirebaseUtils.events.add(event.toMap());
-    // events.add(event);
-  }
 }

@@ -61,7 +61,7 @@ dependencies:
     git:
       url: https://github.com/M4dhav/meshtastic_flutter.git
       branch: dev
-      ref: 57bafb4
+      ref: 833af2b
   flutter_blue_plus: ^1.35.5
   url_launcher: ^6.3.2
 

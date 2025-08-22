@@ -94,7 +94,7 @@ class CustomDrawer extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.pop(context);
+              context.push('/eventsList');
             },
             child: ListTile(
               leading: Icon(Icons.event,
