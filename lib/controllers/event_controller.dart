@@ -1,31 +1,58 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:blackrock_go/models/event_model.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class EventController extends GetxController {
   final List<EventModel> events = [];
+  final List<EventModel> allEvents = [];
 
   Future<void> getEvents() async {
-    // await FirebaseUtils.events.get().then((querySnapshot) async {
-    //   for (var doc in querySnapshot.docs) {
-    //     Map<String, dynamic> data = doc.data();
-    //     List<String> hostIds = List<String>.from(data['hostId']);
-    //     final EventModel event = EventModel.fromMap(data);
-    //     event.hosts = await getEventHosts(hostIds);
-    //     events.add(event);
-    //   }
-    // });
-    // log(events.length.toString());
+    final eventsJsonString =
+        await rootBundle.loadString('assets/camp_events.json');
+    final campCoordsJsonString =
+        await rootBundle.loadString('assets/camp_coords.json');
 
-    events.add(EventModel(
-        imageUrl: '',
-        eventName: 'New Event',
-        description: 'Event Description',
-        latitude: 40.786984204692935,
-        longitude: -119.20309919712876,
-        startTime: DateTime.now(),
-        endTime: DateTime.now().add(Duration(days: 1)),
-        hostName: 'Host Name',
-        locationName: 'Blackrock'));
+    final List<dynamic> eventsJson = jsonDecode(eventsJsonString);
+    final List<dynamic> campCoordsJson = jsonDecode(campCoordsJsonString);
+    log("the length of campCoordsJson is ${campCoordsJson.length}");
+    for (var eventJson in eventsJson) {
+      try {
+        eventJson['camp_location']
+            .split("&")
+            .map((s) => s.trim())
+            .where((s) => campBlocks.contains(s.toLowerCase()))
+            .toList()
+            .first;
+      } catch (e) {
+        log(eventJson['camp_location']);
+        continue;
+      }
+      EventModel event = EventModel.fromMap(eventJson as Map<String, dynamic>);
+      log('The time is ${event.campTime} and block is ${event.campBlock}');
+      try {
+        event.latitude = campCoordsJson.firstWhere((c) =>
+            c['ring'] == event.campBlock &&
+            c['time'] == event.campTime)['latitude'];
+        event.longitude = campCoordsJson.firstWhere((c) =>
+            c['ring'] == event.campBlock &&
+            c['time'] == event.campTime)['longitude'];
+      } catch (e) {
+        log("Error occurred while fetching coordinates for event: ${event.id}");
+        continue;
+      }
+
+      allEvents.add(event);
+    }
+    log("allEvents.length: ${allEvents.length}");
+    log("allEvents[0].latitude: ${allEvents[0].latitude}");
+    // final timeNow = DateTime.now();
+    final timeNow = DateTime(2025, 8, 27, 12, 0, 0);
+    events.addAll(allEvents.where((event) =>
+        event.endTime.isAfter(timeNow) && event.startTime.isBefore(timeNow)));
+    log("events.length: ${events.length}");
   }
 
   Future<void> addEvent(EventModel event) async {

@@ -51,7 +51,10 @@ class _ConnectNodeScreenState extends State<ConnectNodeScreen> {
               itemBuilder: (context, index) {
                 final node = meshtasticNodeController.availableNodes[index];
                 return ListTile(
-                  title: Text(node.platformName),
+                  title: Text(
+                    node.platformName,
+                    style: TextStyle(color: Colors.white, fontSize: 22.px),
+                  ),
                   subtitle: Text(node.remoteId.toString()),
                   trailing: IconButton(
                       onPressed: () async {
@@ -100,7 +103,10 @@ class _ConnectNodeScreenState extends State<ConnectNodeScreen> {
                           context.pop();
                         }
                       },
-                      icon: Icon(Icons.bluetooth_connected)),
+                      icon: Icon(
+                        Icons.bluetooth_connected,
+                        color: constants.Constants.primaryGold,
+                      )),
                 );
               }),
         ),

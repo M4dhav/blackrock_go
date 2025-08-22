@@ -33,7 +33,7 @@ class _UsersPageState extends State<UsersPage> {
   }
 
   void _handlePressed(NodeInfoWrapper user, BuildContext context) {
-    meshtasticNodeController.activeRooms.add(user);
+    meshtasticNodeController.activeUserChats.add(user);
 
     context.pushReplacement('/userChat',
         extra: {'title': user.longName, 'user': user});

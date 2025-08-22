@@ -3,9 +3,11 @@ import 'package:blackrock_go/controllers/meshtastic_node_controller.dart';
 import 'package:blackrock_go/controllers/timeline_post_controller.dart';
 import 'package:blackrock_go/models/const_model.dart';
 import 'package:blackrock_go/views/screens/base_view.dart';
+import 'package:blackrock_go/views/screens/channels.dart';
 import 'package:blackrock_go/views/screens/chat.dart';
+import 'package:blackrock_go/views/screens/chats_page.dart';
 import 'package:blackrock_go/views/screens/connect_node_screen.dart';
-import 'package:blackrock_go/views/screens/event_details_screen.dart';
+import 'package:blackrock_go/views/screens/direct_messages.dart';
 import 'package:blackrock_go/views/screens/search_screen.dart';
 import 'package:blackrock_go/views/screens/users.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -117,22 +119,22 @@ class MyApp extends StatelessWidget {
                         child: child,
                       );
                     })),
-            GoRoute(
-              path: 'event',
-              builder: (context, state) {
-                final eventName = state.uri.queryParameters['event'];
-                final EventController eventController =
-                    Get.find<EventController>();
-                final event = eventController.events.firstWhere(
-                  (element) {
-                    return element.eventName == eventName?.replaceAll('-', ' ');
-                  },
-                );
-                return EventDetailsScreen(
-                  event: event,
-                );
-              },
-            ),
+            // GoRoute(
+            //   path: 'event',
+            //   builder: (context, state) {
+            //     final eventName = state.uri.queryParameters['event'];
+            //     final EventController eventController =
+            //         Get.find<EventController>();
+            //     final event = eventController.events.firstWhere(
+            //       (element) {
+            //         return element.eventName == eventName?.replaceAll('-', ' ');
+            //       },
+            //     );
+            //     return EventDetailsScreen(
+            //       event: event,
+            //     );
+            //   },
+            // ),
             GoRoute(
                 path: 'storyDesigner',
                 builder: (context, state) => VSStoryDesigner(
@@ -144,18 +146,18 @@ class MyApp extends StatelessWidget {
                     mediaPath: state.extra as String,
                     middleBottomWidget: Container(),
                     centerText: '')),
-            GoRoute(
-              path: 'eventDetails',
-              builder: (context, state) => EventDetailsScreen(
-                event: (state.extra as List)[0],
-              ),
-            ),
+            // GoRoute(
+            //   path: 'eventDetails',
+            //   builder: (context, state) => EventDetailsScreen(
+            //     event: (state.extra as List)[0],
+            //   ),
+            // ),
             GoRoute(
                 path: 'connectNode',
                 builder: (context, state) => const ConnectNodeScreen()),
             GoRoute(
                 path: 'allChat',
-                builder: (context, state) => const ChatPage(title: 'All Chat')),
+                builder: (context, state) => const ChatPage(title: 'Everyone')),
             GoRoute(
                 path: 'users', builder: (context, state) => const UsersPage()),
             GoRoute(
@@ -167,6 +169,18 @@ class MyApp extends StatelessWidget {
                     user: args['user'],
                   );
                 }),
+            GoRoute(
+              path: 'chatsPage',
+              builder: (context, state) => const ChatsPage(),
+            ),
+            GoRoute(
+              path: 'channelsPage',
+              builder: (context, state) => const ChannelsPage(),
+            ),
+            GoRoute(
+              path: 'directMessagesPage',
+              builder: (context, state) => const DirectMessagesPage(),
+            ),
           ],
         ),
       ],

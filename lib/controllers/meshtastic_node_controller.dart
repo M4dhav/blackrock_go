@@ -1,5 +1,6 @@
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:get/get.dart';
+import 'package:meshtastic_flutter/generated/channel.pb.dart';
 import 'package:meshtastic_flutter/meshtastic_flutter.dart';
 
 class MeshtasticNodeController extends GetxController {
@@ -11,7 +12,8 @@ class MeshtasticNodeController extends GetxController {
       .obs;
 
   RxMap<int, NodeInfoWrapper> nodes = <int, NodeInfoWrapper>{}.obs;
-  RxList<NodeInfoWrapper> activeRooms = <NodeInfoWrapper>[].obs;
+  RxList<NodeInfoWrapper> activeUserChats = <NodeInfoWrapper>[].obs;
+  RxList<Channel> activeChannels = <Channel>[].obs;
 
   @override
   void onInit() async {
@@ -44,6 +46,15 @@ class MeshtasticNodeController extends GetxController {
       if (packet.isTextMessage) {
         yield packet;
       }
+    }
+  }
+
+  void connectToNode(BluetoothDevice device) async {
+    try {
+      await client.connectToDevice(device);
+      activeChannels.value = client.config?.channels ?? [];
+    } catch (e) {
+      Get.snackbar('Error', 'Failed to connect to node: $e');
     }
   }
 }
