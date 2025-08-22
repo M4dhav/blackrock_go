@@ -1,11 +1,12 @@
+import 'package:blackrock_go/controllers/event_controller.dart';
+import 'package:blackrock_go/models/event_model.dart';
 import 'package:blackrock_go/views/widgets/search_tile_widget.dart';
 import 'package:blackrock_go/views/widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../models/const_model.dart';
-
-enum SearchType { user, place, event, nfts, tags }
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -15,80 +16,8 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  List<String> events = ['Music Concert', 'Art Exhibition', 'Tech Conference'];
-  List<String> filteredSuggestions = [];
-  List<String> nfts = ['CryptoPunk', 'Bored Ape', 'Azuki'];
-  List<String> places = ['Paris', 'New York', 'Tokyo'];
-  SearchType selectedSearchType = SearchType.user;
-
-  List<String> suggestions = [];
-  List<String> tags = ['Art', 'Technology', 'Music'];
-  List<String> users = [
-    'John Doe',
-    'Jane Smith',
-    'Tom Jones',
-    'Nischal Gautam'
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-    getSuggestions();
-  }
-
-  void getSuggestions() {
-    setState(() {
-      switch (selectedSearchType) {
-        case SearchType.user:
-          suggestions = users;
-          break;
-        case SearchType.place:
-          suggestions = places;
-          break;
-        case SearchType.event:
-          suggestions = events;
-          break;
-        case SearchType.nfts:
-          suggestions = nfts;
-          break;
-        case SearchType.tags:
-          suggestions = tags;
-          break;
-      }
-      filteredSuggestions = List.from(suggestions);
-    });
-  }
-
-  Widget _buildSearchOption(SearchType type) {
-    bool isSelected = selectedSearchType == type;
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          selectedSearchType = type;
-          getSuggestions();
-        });
-      },
-      child: Container(
-        margin: EdgeInsets.only(right: 4.w),
-        padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 4.w),
-        decoration: BoxDecoration(
-          color: Colors.transparent,
-          borderRadius: BorderRadius.circular(16.sp),
-          border: Border.all(
-            color: isSelected ? Constants.primaryGold : Colors.white,
-            width: 1.sp,
-          ),
-        ),
-        child: Text(
-          type.name,
-          style: TextStyle(
-            color: isSelected ? Constants.primaryGold : Colors.white,
-            fontSize: 16.sp,
-          ),
-        ),
-      ),
-    );
-  }
+  final EventController controller = Get.find();
+  List<EventModel> filteredSuggestions = [];
 
   @override
   Widget build(BuildContext context) {
@@ -102,34 +31,23 @@ class _SearchScreenState extends State<SearchScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 3.2.w, vertical: 10.h),
+          padding: EdgeInsets.only(left: 3.2.w, right: 3.2.w, top: 10.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Search for?',
                   style:
                       TextStyle(color: Constants.primaryGold, fontSize: 16.sp)),
-              Padding(
-                padding: EdgeInsets.only(
-                    left: 3.w, right: 3.w, top: 1.h, bottom: 4.h),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: SearchType.values.map((type) {
-                      return _buildSearchOption(type);
-                    }).toList(),
-                  ),
-                ),
-              ),
               SearchBarWidget(
                 onSearch: (query) {
                   setState(() {
                     if (query.isEmpty) {
-                      filteredSuggestions = List.from(suggestions);
+                      filteredSuggestions = List.from(controller.allEvents);
                     } else {
-                      filteredSuggestions = suggestions
-                          .where((item) =>
-                              item.toLowerCase().contains(query.toLowerCase()))
+                      filteredSuggestions = controller.allEvents
+                          .where((item) => item.eventName
+                              .toLowerCase()
+                              .contains(query.toLowerCase()))
                           .toList();
                     }
                   });
@@ -139,7 +57,9 @@ class _SearchScreenState extends State<SearchScreen> {
               Expanded(
                 child: ListView(
                   children: filteredSuggestions.map((suggestion) {
-                    return SearchResultTile(title: suggestion);
+                    return EventListTile(
+                      event: suggestion,
+                    );
                   }).toList(),
                 ),
               ),

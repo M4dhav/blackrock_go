@@ -1,0 +1,2116 @@
+[
+  {
+    "ring": "K",
+    "time": "4:30",
+    "key": "Kilgore@4:30",
+    "latitude": 40.77116689157316,
+    "longitude": -119.20300709371531
+  },
+  {
+    "ring": "K",
+    "time": "4:45",
+    "key": "Kilgore@4:45",
+    "latitude": 40.77130184585394,
+    "longitude": -119.20571921335761
+  },
+  {
+    "ring": "K",
+    "time": "4:15",
+    "key": "Kilgore@4:15",
+    "latitude": 40.771301984568595,
+    "longitude": -119.20029499804969
+  },
+  {
+    "ring": "K",
+    "time": "5:00",
+    "key": "Kilgore@5:00",
+    "latitude": 40.77170454969507,
+    "longitude": -119.20838507314869
+  },
+  {
+    "ring": "K",
+    "time": "4:00",
+    "key": "Kilgore@4:00",
+    "latitude": 40.77170482000844,
+    "longitude": -119.19762920937137
+  },
+  {
+    "ring": "J",
+    "time": "4:30",
+    "key": "Jemison@4:30",
+    "latitude": 40.77168833515992,
+    "longitude": -119.2030070937904
+  },
+  {
+    "ring": "J",
+    "time": "4:15",
+    "key": "Jemison@4:15",
+    "latitude": 40.771818941193146,
+    "longitude": -119.20038449887909
+  },
+  {
+    "ring": "J",
+    "time": "4:45",
+    "key": "Jemison@4:45",
+    "latitude": 40.771819024336764,
+    "longitude": -119.20562967426895
+  },
+  {
+    "ring": "J",
+    "time": "4:00",
+    "key": "Jemison@4:00",
+    "latitude": 40.77220861096782,
+    "longitude": -119.19780672901237
+  },
+  {
+    "ring": "J",
+    "time": "5:00",
+    "key": "Jemison@5:00",
+    "latitude": 40.77220877296122,
+    "longitude": -119.20820740133115
+  },
+  {
+    "ring": "I",
+    "time": "4:30",
+    "key": "Ishiguro@4:30",
+    "latitude": 40.77218250350654,
+    "longitude": -119.20300709386146
+  },
+  {
+    "ring": "I",
+    "time": "4:45",
+    "key": "Ishiguro@4:45",
+    "latitude": 40.772308859047484,
+    "longitude": -119.20554486790729
+  },
+  {
+    "ring": "I",
+    "time": "4:15",
+    "key": "Ishiguro@4:15",
+    "latitude": 40.772308970736844,
+    "longitude": -119.20046933911641
+  },
+  {
+    "ring": "K",
+    "time": "5:15",
+    "key": "Kilgore@5:15",
+    "latitude": 40.77236834793689,
+    "longitude": -119.21095906231335
+  },
+  {
+    "ring": "K",
+    "time": "3:45",
+    "key": "Kilgore@3:45",
+    "latitude": 40.7723685296516,
+    "longitude": -119.19505522372498
+  },
+  {
+    "ring": "I",
+    "time": "5:00",
+    "key": "Ishiguro@5:00",
+    "latitude": 40.772685879892606,
+    "longitude": -119.2080392818491
+  },
+  {
+    "ring": "I",
+    "time": "4:00",
+    "key": "Ishiguro@4:00",
+    "latitude": 40.77268609753844,
+    "longitude": -119.19797498241763
+  },
+  {
+    "ring": "J",
+    "time": "3:45",
+    "key": "Jemison@3:45",
+    "latitude": 40.77285068382861,
+    "longitude": -119.1953178591562
+  },
+  {
+    "ring": "J",
+    "time": "5:15",
+    "key": "Jemison@5:15",
+    "latitude": 40.772850916207176,
+    "longitude": -119.21069620148097
+  },
+  {
+    "ring": "H",
+    "time": "4:30",
+    "key": "Herbert@4:30",
+    "latitude": 40.77295080785166,
+    "longitude": -119.20300709397196
+  },
+  {
+    "ring": "H",
+    "time": "4:15",
+    "key": "Herbert@4:15",
+    "latitude": 40.77307022856337,
+    "longitude": -119.20060114039887
+  },
+  {
+    "ring": "H",
+    "time": "4:45",
+    "key": "Herbert@4:45",
+    "latitude": 40.77307097920931,
+    "longitude": -119.20541291754341
+  },
+  {
+    "ring": "K",
+    "time": "3:30",
+    "key": "Kilgore@3:30",
+    "latitude": 40.77328218492943,
+    "longitude": -119.19261727072967
+  },
+  {
+    "ring": "K",
+    "time": "5:30",
+    "key": "Kilgore@5:30",
+    "latitude": 40.77328247308327,
+    "longitude": -119.21339669721891
+  },
+  {
+    "ring": "I",
+    "time": "5:15",
+    "key": "Ishiguro@5:15",
+    "latitude": 40.77330712465687,
+    "longitude": -119.21044769535001
+  },
+  {
+    "ring": "I",
+    "time": "3:45",
+    "key": "Ishiguro@3:45",
+    "latitude": 40.77330743695745,
+    "longitude": -119.1955666621422
+  },
+  {
+    "ring": "H",
+    "time": "4:00",
+    "key": "Herbert@4:00",
+    "latitude": 40.7734283013213,
+    "longitude": -119.19823652001526
+  },
+  {
+    "ring": "H",
+    "time": "5:00",
+    "key": "Herbert@5:00",
+    "latitude": 40.773428463126834,
+    "longitude": -119.20777761076818
+  },
+  {
+    "ring": "J",
+    "time": "3:30",
+    "key": "Jemison@3:30",
+    "latitude": 40.7737341835479,
+    "longitude": -119.19296044769061
+  },
+  {
+    "ring": "J",
+    "time": "5:30",
+    "key": "Jemison@5:30",
+    "latitude": 40.77373447391881,
+    "longitude": -119.21305351874446
+  },
+  {
+    "ring": "G",
+    "time": "4:30",
+    "key": "Gibson@4:30",
+    "latitude": 40.77371953189714,
+    "longitude": -119.20300709408252
+  },
+  {
+    "ring": "G",
+    "time": "4:45",
+    "key": "Gibson@4:45",
+    "latitude": 40.773832535262045,
+    "longitude": -119.20528106179285
+  },
+  {
+    "ring": "G",
+    "time": "4:15",
+    "key": "Gibson@4:15",
+    "latitude": 40.77383297998472,
+    "longitude": -119.2007332033404
+  },
+  {
+    "ring": "H",
+    "time": "5:15",
+    "key": "Herbert@5:15",
+    "latitude": 40.77401717363682,
+    "longitude": -119.2100609096778
+  },
+  {
+    "ring": "H",
+    "time": "3:45",
+    "key": "Herbert@3:45",
+    "latitude": 40.77401756362036,
+    "longitude": -119.1959534903749
+  },
+  {
+    "ring": "I",
+    "time": "5:30",
+    "key": "Ishiguro@5:30",
+    "latitude": 40.77416197782878,
+    "longitude": -119.21272893437498
+  },
+  {
+    "ring": "I",
+    "time": "3:30",
+    "key": "Ishiguro@3:30",
+    "latitude": 40.774162368237,
+    "longitude": -119.19328554911488
+  },
+  {
+    "ring": "G",
+    "time": "4:00",
+    "key": "Gibson@4:00",
+    "latitude": 40.77417007082829,
+    "longitude": -119.1984979106382
+  },
+  {
+    "ring": "G",
+    "time": "5:00",
+    "key": "Gibson@5:00",
+    "latitude": 40.77417093591691,
+    "longitude": -119.20751597253854
+  },
+  {
+    "ring": "K",
+    "time": "3:15",
+    "key": "Kilgore@3:15",
+    "latitude": 40.77443029572663,
+    "longitude": -119.19035735015433
+  },
+  {
+    "ring": "K",
+    "time": "5:45",
+    "key": "Kilgore@5:45",
+    "latitude": 40.77443044853186,
+    "longitude": -119.21565668190186
+  },
+  {
+    "ring": "F",
+    "time": "4:30",
+    "key": "Farmer@4:30",
+    "latitude": 40.77448822606431,
+    "longitude": -119.20300709419308
+  },
+  {
+    "ring": "F",
+    "time": "4:45",
+    "key": "Farmer@4:45",
+    "latitude": 40.7745946390304,
+    "longitude": -119.20514910815314
+  },
+  {
+    "ring": "F",
+    "time": "4:15",
+    "key": "Farmer@4:15",
+    "latitude": 40.77459477816228,
+    "longitude": -119.20086510429218
+  },
+  {
+    "ring": "G",
+    "time": "5:15",
+    "key": "Gibson@5:15",
+    "latitude": 40.77472721419724,
+    "longitude": -119.20967411960396
+  },
+  {
+    "ring": "G",
+    "time": "3:45",
+    "key": "Gibson@3:45",
+    "latitude": 40.77472762937589,
+    "longitude": -119.19634029441835
+  },
+  {
+    "ring": "H",
+    "time": "5:30",
+    "key": "Herbert@5:30",
+    "latitude": 40.774827487392486,
+    "longitude": -119.21222363337745
+  },
+  {
+    "ring": "H",
+    "time": "3:30",
+    "key": "Herbert@3:30",
+    "latitude": 40.774827974896425,
+    "longitude": -119.19379092409798
+  },
+  {
+    "ring": "J",
+    "time": "3:15",
+    "key": "Jemison@3:15",
+    "latitude": 40.77484400558626,
+    "longitude": -119.19077481000147
+  },
+  {
+    "ring": "J",
+    "time": "5:45",
+    "key": "Jemison@5:45",
+    "latitude": 40.77484433798509,
+    "longitude": -119.21523904101707
+  },
+  {
+    "ring": "F",
+    "time": "4:00",
+    "key": "Farmer@4:00",
+    "latitude": 40.77491313723863,
+    "longitude": -119.19875976435333
+  },
+  {
+    "ring": "F",
+    "time": "5:00",
+    "key": "Farmer@5:00",
+    "latitude": 40.77491329831457,
+    "longitude": -119.2072543671419
+  },
+  {
+    "ring": "I",
+    "time": "5:45",
+    "key": "Ishiguro@5:45",
+    "latitude": 40.7752358307456,
+    "longitude": -119.21484399362811
+  },
+  {
+    "ring": "I",
+    "time": "3:15",
+    "key": "Ishiguro@3:15",
+    "latitude": 40.77523627794483,
+    "longitude": -119.19117064425512
+  },
+  {
+    "ring": "F",
+    "time": "5:15",
+    "key": "Farmer@5:15",
+    "latitude": 40.775437246995295,
+    "longitude": -119.20928732477176
+  },
+  {
+    "ring": "F",
+    "time": "3:45",
+    "key": "Farmer@3:45",
+    "latitude": 40.77543763526853,
+    "longitude": -119.19672707483528
+  },
+  {
+    "ring": "G",
+    "time": "5:30",
+    "key": "Gibson@5:30",
+    "latitude": 40.7754935526234,
+    "longitude": -119.2117178986378
+  },
+  {
+    "ring": "G",
+    "time": "3:30",
+    "key": "Gibson@3:30",
+    "latitude": 40.77549355407166,
+    "longitude": -119.19429629003696
+  },
+  {
+    "ring": "K",
+    "time": "3:00",
+    "key": "Kilgore@3:00",
+    "latitude": 40.77579263684032,
+    "longitude": -119.1883136960343
+  },
+  {
+    "ring": "K",
+    "time": "6:00",
+    "key": "Kilgore@6:00",
+    "latitude": 40.77579267384698,
+    "longitude": -119.21770044084911
+  },
+  {
+    "ring": "H",
+    "time": "3:15",
+    "key": "Herbert@3:15",
+    "latitude": 40.775845739509805,
+    "longitude": -119.19178565182301
+  },
+  {
+    "ring": "H",
+    "time": "5:45",
+    "key": "Herbert@5:45",
+    "latitude": 40.77584607154836,
+    "longitude": -119.21422820000242
+  },
+  {
+    "ring": "F",
+    "time": "3:30",
+    "key": "Farmer@3:30",
+    "latitude": 40.7761591061452,
+    "longitude": -119.19480164722472
+  },
+  {
+    "ring": "F",
+    "time": "5:30",
+    "key": "Farmer@5:30",
+    "latitude": 40.7761593948897,
+    "longitude": -119.21121232135357
+  },
+  {
+    "ring": "J",
+    "time": "3:00",
+    "key": "Jemison@3:00",
+    "latitude": 40.77616117483029,
+    "longitude": -119.18879833005013
+  },
+  {
+    "ring": "J",
+    "time": "6:00",
+    "key": "Jemison@6:00",
+    "latitude": 40.77616153018215,
+    "longitude": -119.21721538840848
+  },
+  {
+    "ring": "E",
+    "time": "4:30",
+    "key": "Ellison@4:30",
+    "latitude": 40.775819664622816,
+    "longitude": -119.20300709438459
+  },
+  {
+    "ring": "E",
+    "time": "5:00",
+    "key": "Ellison@5:00",
+    "latitude": 40.77619884336775,
+    "longitude": -119.20680133211516
+  },
+  {
+    "ring": "E",
+    "time": "4:00",
+    "key": "Ellison@4:00",
+    "latitude": 40.77619911495481,
+    "longitude": -119.1992129522531
+  },
+  {
+    "ring": "G",
+    "time": "3:15",
+    "key": "Gibson@3:15",
+    "latitude": 40.776455636904245,
+    "longitude": -119.1924011138189
+  },
+  {
+    "ring": "G",
+    "time": "5:45",
+    "key": "Gibson@5:45",
+    "latitude": 40.77645599072946,
+    "longitude": -119.2136127162915
+  },
+  {
+    "ring": "I",
+    "time": "6:00",
+    "key": "Ishiguro@6:00",
+    "latitude": 40.77651033069827,
+    "longitude": -119.216756702292
+  },
+  {
+    "ring": "I",
+    "time": "3:00",
+    "key": "Ishiguro@3:00",
+    "latitude": 40.77651080921538,
+    "longitude": -119.18925811294997
+  },
+  {
+    "ring": "D",
+    "time": "4:30",
+    "key": "Dick@4:30",
+    "latitude": 40.77660187689344,
+    "longitude": -119.20300709449714
+  },
+  {
+    "ring": "D",
+    "time": "4:00",
+    "key": "Dick@4:00",
+    "latitude": 40.776954790619584,
+    "longitude": -119.19947926634592
+  },
+  {
+    "ring": "D",
+    "time": "5:00",
+    "key": "Dick@5:00",
+    "latitude": 40.776954952814094,
+    "longitude": -119.20653486538151
+  },
+  {
+    "ring": "H",
+    "time": "3:00",
+    "key": "Herbert@3:00",
+    "latitude": 40.77705417481394,
+    "longitude": -119.18997267436953
+  },
+  {
+    "ring": "H",
+    "time": "6:00",
+    "key": "Herbert@6:00",
+    "latitude": 40.77705452978671,
+    "longitude": -119.21604104507992
+  },
+  {
+    "ring": "F",
+    "time": "5:45",
+    "key": "Farmer@5:45",
+    "latitude": 40.77706523475075,
+    "longitude": -119.21299789929907
+  },
+  {
+    "ring": "F",
+    "time": "3:15",
+    "key": "Farmer@3:15",
+    "latitude": 40.777065790363224,
+    "longitude": -119.19301684885329
+  },
+  {
+    "ring": "E",
+    "time": "3:30",
+    "key": "Ellison@3:30",
+    "latitude": 40.7773118346596,
+    "longitude": -119.1956769480106
+  },
+  {
+    "ring": "E",
+    "time": "5:30",
+    "key": "Ellison@5:30",
+    "latitude": 40.77731212497423,
+    "longitude": -119.21033701981065
+  },
+  {
+    "ring": "K",
+    "time": "6:15",
+    "key": "Kilgore@6:15",
+    "latitude": 40.77734589577835,
+    "longitude": -119.219493078923
+  },
+  {
+    "ring": "K",
+    "time": "2:45",
+    "key": "Kilgore@2:45",
+    "latitude": 40.777345949469066,
+    "longitude": -119.18652119759696
+  },
+  {
+    "ring": "G",
+    "time": "6:00",
+    "key": "Gibson@6:00",
+    "latitude": 40.777597454537215,
+    "longitude": -119.21532704620535
+  },
+  {
+    "ring": "G",
+    "time": "3:00",
+    "key": "Gibson@3:00",
+    "latitude": 40.77759809049553,
+    "longitude": -119.19068797674856
+  },
+  {
+    "ring": "J",
+    "time": "2:45",
+    "key": "Jemison@2:45",
+    "latitude": 40.7776631694436,
+    "longitude": -119.18706482161235
+  },
+  {
+    "ring": "J",
+    "time": "6:15",
+    "key": "Jemison@6:15",
+    "latitude": 40.777663526116555,
+    "longitude": -119.2189487518981
+  },
+  {
+    "ring": "C",
+    "time": "4:30",
+    "key": "Cherryh@4:30",
+    "latitude": 40.77737025050885,
+    "longitude": -119.2030070946077
+  },
+  {
+    "ring": "C",
+    "time": "4:00",
+    "key": "Cherryh@4:00",
+    "latitude": 40.77769720720363,
+    "longitude": -119.19974091381522
+  },
+  {
+    "ring": "C",
+    "time": "5:00",
+    "key": "Cherryh@5:00",
+    "latitude": 40.77769736942014,
+    "longitude": -119.20627321813214
+  },
+  {
+    "ring": "I",
+    "time": "6:15",
+    "key": "Ishiguro@6:15",
+    "latitude": 40.777963967307244,
+    "longitude": -119.21843387328465
+  },
+  {
+    "ring": "I",
+    "time": "2:45",
+    "key": "Ishiguro@2:45",
+    "latitude": 40.77796417488747,
+    "longitude": -119.18758066745067
+  },
+  {
+    "ring": "D",
+    "time": "3:30",
+    "key": "Dick@3:30",
+    "latitude": 40.777989670123816,
+    "longitude": -119.19619166505441
+  },
+  {
+    "ring": "D",
+    "time": "5:30",
+    "key": "Dick@5:30",
+    "latitude": 40.777989960890125,
+    "longitude": -119.20982230267884
+  },
+  {
+    "ring": "F",
+    "time": "3:00",
+    "key": "Farmer@3:00",
+    "latitude": 40.77814128806193,
+    "longitude": -119.19140235225751
+  },
+  {
+    "ring": "F",
+    "time": "6:00",
+    "key": "Farmer@6:00",
+    "latitude": 40.77814164147168,
+    "longitude": -119.21461136984584
+  },
+  {
+    "ring": "H",
+    "time": "6:15",
+    "key": "Herbert@6:15",
+    "latitude": 40.7784322786523,
+    "longitude": -119.21763129140925
+  },
+  {
+    "ring": "H",
+    "time": "2:45",
+    "key": "Herbert@2:45",
+    "latitude": 40.77843233233165,
+    "longitude": -119.18838298593994
+  },
+  {
+    "ring": "B",
+    "time": "4:30",
+    "key": "Bradbury@4:30",
+    "latitude": 40.77813851103264,
+    "longitude": -119.20300709471826
+  },
+  {
+    "ring": "B",
+    "time": "5:00",
+    "key": "Bradbury@5:00",
+    "latitude": 40.77843935008144,
+    "longitude": -119.20601171846016
+  },
+  {
+    "ring": "B",
+    "time": "4:00",
+    "key": "Bradbury@4:00",
+    "latitude": 40.778439620913844,
+    "longitude": -119.20000256633966
+  },
+  {
+    "ring": "C",
+    "time": "5:30",
+    "key": "Cherryh@5:30",
+    "latitude": 40.77865503141129,
+    "longitude": -119.20931726708034
+  },
+  {
+    "ring": "C",
+    "time": "3:30",
+    "key": "Cherryh@3:30",
+    "latitude": 40.7786555189154,
+    "longitude": -119.19669729191315
+  },
+  {
+    "ring": "G",
+    "time": "2:45",
+    "key": "Gibson@2:45",
+    "latitude": 40.77890006953919,
+    "longitude": -119.18918460508718
+  },
+  {
+    "ring": "G",
+    "time": "6:15",
+    "key": "Gibson@6:15",
+    "latitude": 40.778900340127734,
+    "longitude": -119.21682911687543
+  },
+  {
+    "ring": "K",
+    "time": "6:30",
+    "key": "Kilgore@6:30",
+    "latitude": 40.77906360355149,
+    "longitude": -119.221003975418
+  },
+  {
+    "ring": "K",
+    "time": "2:30",
+    "key": "Kilgore@2:30",
+    "latitude": 40.779063718153,
+    "longitude": -119.18501046846956
+  },
+  {
+    "ring": "E",
+    "time": "3:00",
+    "key": "Ellison@3:00",
+    "latitude": 40.779083111258444,
+    "longitude": -119.19264101388961
+  },
+  {
+    "ring": "E",
+    "time": "6:00",
+    "key": "Ellison@6:00",
+    "latitude": 40.77908314920728,
+    "longitude": -119.21337312364017
+  },
+  {
+    "ring": "A",
+    "time": "4:30",
+    "key": "Atwood@4:30",
+    "latitude": 40.77890710758686,
+    "longitude": -119.20300709482876
+  },
+  {
+    "ring": "A",
+    "time": "5:00",
+    "key": "Atwood@5:00",
+    "latitude": 40.779181762485166,
+    "longitude": -119.20575006055805
+  },
+  {
+    "ring": "A",
+    "time": "4:00",
+    "key": "Atwood@4:00",
+    "latitude": 40.779182031182586,
+    "longitude": -119.20026422372126
+  },
+  {
+    "ring": "B",
+    "time": "5:30",
+    "key": "Bradbury@5:30",
+    "latitude": 40.7793211676057,
+    "longitude": -119.20881141039257
+  },
+  {
+    "ring": "B",
+    "time": "3:30",
+    "key": "Bradbury@3:30",
+    "latitude": 40.77932126551707,
+    "longitude": -119.19720285300559
+  },
+  {
+    "ring": "J",
+    "time": "2:30",
+    "key": "Jemison@2:30",
+    "latitude": 40.77932430533559,
+    "longitude": -119.18560395005693
+  },
+  {
+    "ring": "J",
+    "time": "6:30",
+    "key": "Jemison@6:30",
+    "latitude": 40.77932463977561,
+    "longitude": -119.2204094714341
+  },
+  {
+    "ring": "F",
+    "time": "6:15",
+    "key": "Farmer@6:15",
+    "latitude": 40.77936788042791,
+    "longitude": -119.21602781471063
+  },
+  {
+    "ring": "F",
+    "time": "2:45",
+    "key": "Farmer@2:45",
+    "latitude": 40.779368341367615,
+    "longitude": -119.18998716136798
+  },
+  {
+    "ring": "I",
+    "time": "6:30",
+    "key": "Ishiguro@6:30",
+    "latitude": 40.77957152642858,
+    "longitude": -119.21984718205329
+  },
+  {
+    "ring": "I",
+    "time": "2:30",
+    "key": "Ishiguro@2:30",
+    "latitude": 40.779571529229884,
+    "longitude": -119.1861670077958
+  },
+  {
+    "ring": "D",
+    "time": "3:00",
+    "key": "Dick@3:00",
+    "latitude": 40.77963604316028,
+    "longitude": -119.193368240231
+  },
+  {
+    "ring": "D",
+    "time": "6:00",
+    "key": "Dick@6:00",
+    "latitude": 40.77963639908677,
+    "longitude": -119.21264547939506
+  },
+  {
+    "ring": "H",
+    "time": "6:30",
+    "key": "Herbert@6:30",
+    "latitude": 40.7799558587256,
+    "longitude": -119.21897183666783
+  },
+  {
+    "ring": "H",
+    "time": "2:30",
+    "key": "Herbert@2:30",
+    "latitude": 40.77995619816642,
+    "longitude": -119.18704312036783
+  },
+  {
+    "ring": "A",
+    "time": "5:30",
+    "key": "Atwood@5:30",
+    "latitude": 40.779986807449916,
+    "longitude": -119.20830590414198
+  },
+  {
+    "ring": "A",
+    "time": "3:30",
+    "key": "Atwood@3:30",
+    "latitude": 40.779986909301954,
+    "longitude": -119.19770834785442
+  },
+  {
+    "ring": "C",
+    "time": "3:00",
+    "key": "Cherryh@3:00",
+    "latitude": 40.78017958141504,
+    "longitude": -119.1940831295741
+  },
+  {
+    "ring": "C",
+    "time": "6:00",
+    "key": "Cherryh@6:00",
+    "latitude": 40.780179937412754,
+    "longitude": -119.21193059025978
+  },
+  {
+    "ring": "Esplanade",
+    "time": "4:30",
+    "key": "Esplanade@4:30",
+    "latitude": 40.78010180610016,
+    "longitude": -119.20300709500071
+  },
+  {
+    "ring": "Esplanade",
+    "time": "5:00",
+    "key": "Esplanade@5:00",
+    "latitude": 40.78033542635501,
+    "longitude": -119.20534344800103
+  },
+  {
+    "ring": "Esplanade",
+    "time": "4:00",
+    "key": "Esplanade@4:00",
+    "latitude": 40.780335641136446,
+    "longitude": -119.20067081763244
+  },
+  {
+    "ring": "G",
+    "time": "6:30",
+    "key": "Gibson@6:30",
+    "latitude": 40.78034050658266,
+    "longitude": -119.21809574725961
+  },
+  {
+    "ring": "G",
+    "time": "2:30",
+    "key": "Gibson@2:30",
+    "latitude": 40.78034050909105,
+    "longitude": -119.18791844280742
+  },
+  {
+    "ring": "B",
+    "time": "3:00",
+    "key": "Bradbury@3:00",
+    "latitude": 40.78072343091276,
+    "longitude": -119.19479844584583
+  },
+  {
+    "ring": "B",
+    "time": "6:00",
+    "key": "Bradbury@6:00",
+    "latitude": 40.78072346912768,
+    "longitude": -119.21121569227415
+  },
+  {
+    "ring": "F",
+    "time": "2:30",
+    "key": "Farmer@2:30",
+    "latitude": 40.78072468760632,
+    "longitude": -119.18879348891977
+  },
+  {
+    "ring": "F",
+    "time": "6:30",
+    "key": "Farmer@6:30",
+    "latitude": 40.78072502032279,
+    "longitude": -119.21721993801549
+  },
+  {
+    "ring": "K",
+    "time": "6:45",
+    "key": "Kilgore@6:45",
+    "latitude": 40.78091647958138,
+    "longitude": -119.22220730597928
+  },
+  {
+    "ring": "K",
+    "time": "2:15",
+    "key": "Kilgore@2:15",
+    "latitude": 40.78091662161847,
+    "longitude": -119.18380732495899
+  },
+  {
+    "ring": "Esplanade",
+    "time": "5:30",
+    "key": "Esplanade@5:30",
+    "latitude": 40.78102061800206,
+    "longitude": -119.20752081231655
+  },
+  {
+    "ring": "Esplanade",
+    "time": "3:30",
+    "key": "Esplanade@3:30",
+    "latitude": 40.781021004564536,
+    "longitude": -119.19849367095173
+  },
+  {
+    "ring": "J",
+    "time": "2:15",
+    "key": "Jemison@2:15",
+    "latitude": 40.78111617473172,
+    "longitude": -119.18444072453974
+  },
+  {
+    "ring": "J",
+    "time": "6:45",
+    "key": "Jemison@6:45",
+    "latitude": 40.78111646216206,
+    "longitude": -119.22157254360133
+  },
+  {
+    "ring": "Esplanade",
+    "time": "5:30",
+    "key": "Esplanade@5:30",
+    "latitude": 40.78117789777616,
+    "longitude": -119.2078609697337
+  },
+  {
+    "ring": "A",
+    "time": "3:00",
+    "key": "Atwood@3:00",
+    "latitude": 40.78126695564714,
+    "longitude": -119.19551335251282
+  },
+  {
+    "ring": "A",
+    "time": "6:00",
+    "key": "Atwood@6:00",
+    "latitude": 40.78126699367397,
+    "longitude": -119.21050078616554
+  },
+  {
+    "ring": "I",
+    "time": "2:15",
+    "key": "Ishiguro@2:15",
+    "latitude": 40.78130539195655,
+    "longitude": -119.18504133079995
+  },
+  {
+    "ring": "I",
+    "time": "6:45",
+    "key": "Ishiguro@6:45",
+    "latitude": 40.78130551788672,
+    "longitude": -119.22097245032768
+  },
+  {
+    "ring": "E",
+    "time": "6:30",
+    "key": "Ellison@6:30",
+    "latitude": 40.78139069169521,
+    "longitude": -119.21570367458514
+  },
+  {
+    "ring": "E",
+    "time": "2:30",
+    "key": "Ellison@2:30",
+    "latitude": 40.78139080603893,
+    "longitude": -119.19031077143865
+  },
+  {
+    "ring": "H",
+    "time": "6:45",
+    "key": "Herbert@6:45",
+    "latitude": 40.78159976103058,
+    "longitude": -119.2200384487603
+  },
+  {
+    "ring": "H",
+    "time": "2:15",
+    "key": "Herbert@2:15",
+    "latitude": 40.78159981757483,
+    "longitude": -119.1859759121715
+  },
+  {
+    "ring": "D",
+    "time": "2:30",
+    "key": "Dick@2:30",
+    "latitude": 40.78178178149665,
+    "longitude": -119.19120136948294
+  },
+  {
+    "ring": "D",
+    "time": "6:30",
+    "key": "Dick@6:30",
+    "latitude": 40.781782116670115,
+    "longitude": -119.21481205301967
+  },
+  {
+    "ring": "G",
+    "time": "6:45",
+    "key": "Gibson@6:45",
+    "latitude": 40.781893993685514,
+    "longitude": -119.2191044482035
+  },
+  {
+    "ring": "G",
+    "time": "2:15",
+    "key": "Gibson@2:15",
+    "latitude": 40.78189416795675,
+    "longitude": -119.18691028703284
+  },
+  {
+    "ring": "Esplanade",
+    "time": "3:00",
+    "key": "Esplanade@3:00",
+    "latitude": 40.78211124152352,
+    "longitude": -119.19662388990349
+  },
+  {
+    "ring": "C",
+    "time": "6:30",
+    "key": "Cherryh@6:30",
+    "latitude": 40.782166164705984,
+    "longitude": -119.21393720981467
+  },
+  {
+    "ring": "C",
+    "time": "2:30",
+    "key": "Cherryh@2:30",
+    "latitude": 40.78216650361213,
+    "longitude": -119.19207774867374
+  },
+  {
+    "ring": "F",
+    "time": "6:45",
+    "key": "Farmer@6:45",
+    "latitude": 40.782188216118584,
+    "longitude": -119.21817044781659
+  },
+  {
+    "ring": "F",
+    "time": "2:15",
+    "key": "Farmer@2:15",
+    "latitude": 40.7821884429361,
+    "longitude": -119.18784445481657
+  },
+  {
+    "ring": "B",
+    "time": "2:30",
+    "key": "Bradbury@2:30",
+    "latitude": 40.78255071248856,
+    "longitude": -119.19295298399476
+  },
+  {
+    "ring": "B",
+    "time": "6:30",
+    "key": "Bradbury@6:30",
+    "latitude": 40.78255082278366,
+    "longitude": -119.2130609516401
+  },
+  {
+    "ring": "Esplanade",
+    "time": "6:00",
+    "key": "Esplanade@6:00",
+    "latitude": 40.782648416138386,
+    "longitude": -119.20868363230625
+  },
+  {
+    "ring": "K",
+    "time": "2:00",
+    "key": "Kilgore@2:00",
+    "latitude": 40.782873031416216,
+    "longitude": -119.18293234538339
+  },
+  {
+    "ring": "K",
+    "time": "7:00",
+    "key": "Kilgore@7:00",
+    "latitude": 40.78287312924391,
+    "longitude": -119.22308134914857
+  },
+  {
+    "ring": "A",
+    "time": "2:30",
+    "key": "Atwood@2:30",
+    "latitude": 40.78293508207702,
+    "longitude": -119.19382861071341
+  },
+  {
+    "ring": "A",
+    "time": "6:30",
+    "key": "Atwood@6:30",
+    "latitude": 40.782935197239794,
+    "longitude": -119.2121853311964
+  },
+  {
+    "ring": "J",
+    "time": "2:00",
+    "key": "Jemison@2:00",
+    "latitude": 40.783008131393444,
+    "longitude": -119.18359506931506
+  },
+  {
+    "ring": "J",
+    "time": "7:00",
+    "key": "Jemison@7:00",
+    "latitude": 40.783008346561246,
+    "longitude": -119.22241805015994
+  },
+  {
+    "ring": "I",
+    "time": "2:00",
+    "key": "Ishiguro@2:00",
+    "latitude": 40.78313611733262,
+    "longitude": -119.18422291551843
+  },
+  {
+    "ring": "I",
+    "time": "7:00",
+    "key": "Ishiguro@7:00",
+    "latitude": 40.783136288651406,
+    "longitude": -119.22179041957696
+  },
+  {
+    "ring": "Esplanade",
+    "time": "6:30",
+    "key": "Esplanade@6:30",
+    "latitude": 40.78327359663206,
+    "longitude": -119.2106184122872
+  },
+  {
+    "ring": "H",
+    "time": "2:00",
+    "key": "Herbert@2:00",
+    "latitude": 40.78333519977684,
+    "longitude": -119.18519956996147
+  },
+  {
+    "ring": "H",
+    "time": "7:00",
+    "key": "Herbert@7:00",
+    "latitude": 40.78333541484591,
+    "longitude": -119.22081355130837
+  },
+  {
+    "ring": "Esplanade",
+    "time": "6:30",
+    "key": "Esplanade@6:30",
+    "latitude": 40.78353214035735,
+    "longitude": -119.21082537747503
+  },
+  {
+    "ring": "Esplanade",
+    "time": "2:30",
+    "key": "Esplanade@2:30",
+    "latitude": 40.78353214188303,
+    "longitude": -119.19518881402644
+  },
+  {
+    "ring": "G",
+    "time": "2:00",
+    "key": "Gibson@2:00",
+    "latitude": 40.78353427394967,
+    "longitude": -119.1861762302396
+  },
+  {
+    "ring": "G",
+    "time": "7:00",
+    "key": "Gibson@7:00",
+    "latitude": 40.78353450333293,
+    "longitude": -119.21983682160442
+  },
+  {
+    "ring": "F",
+    "time": "2:00",
+    "key": "Farmer@2:00",
+    "latitude": 40.78373333985081,
+    "longitude": -119.18715289635259
+  },
+  {
+    "ring": "F",
+    "time": "7:00",
+    "key": "Farmer@7:00",
+    "latitude": 40.78373355412708,
+    "longitude": -119.21886023039605
+  },
+  {
+    "ring": "E",
+    "time": "2:00",
+    "key": "Ellison@2:00",
+    "latitude": 40.78407813085653,
+    "longitude": -119.18884463538944
+  },
+  {
+    "ring": "E",
+    "time": "7:00",
+    "key": "Ellison@7:00",
+    "latitude": 40.78407823021655,
+    "longitude": -119.21716905664914
+  },
+  {
+    "ring": "D",
+    "time": "2:00",
+    "key": "Dick@2:00",
+    "latitude": 40.78428072842689,
+    "longitude": -119.1898387582462
+  },
+  {
+    "ring": "D",
+    "time": "7:00",
+    "key": "Dick@7:00",
+    "latitude": 40.78428094446656,
+    "longitude": -119.2161743620781
+  },
+  {
+    "ring": "C",
+    "time": "2:00",
+    "key": "Cherryh@2:00",
+    "latitude": 40.78447976330773,
+    "longitude": -119.19081544623668
+  },
+  {
+    "ring": "C",
+    "time": "7:00",
+    "key": "Cherryh@7:00",
+    "latitude": 40.78447997947205,
+    "longitude": -119.21519767427912
+  },
+  {
+    "ring": "B",
+    "time": "2:00",
+    "key": "Bradbury@2:00",
+    "latitude": 40.784678789916256,
+    "longitude": -119.1917921400605
+  },
+  {
+    "ring": "B",
+    "time": "7:00",
+    "key": "Bradbury@7:00",
+    "latitude": 40.78467888951889,
+    "longitude": -119.21422155329452
+  },
+  {
+    "ring": "A",
+    "time": "2:00",
+    "key": "Atwood@2:00",
+    "latitude": 40.78487780825196,
+    "longitude": -119.1927688397173
+  },
+  {
+    "ring": "A",
+    "time": "7:00",
+    "key": "Atwood@7:00",
+    "latitude": 40.784877907227155,
+    "longitude": -119.21324485754161
+  },
+  {
+    "ring": "K",
+    "time": "7:15",
+    "key": "Kilgore@7:15",
+    "latitude": 40.784899725245,
+    "longitude": -119.22361189032841
+  },
+  {
+    "ring": "J",
+    "time": "7:15",
+    "key": "Jemison@7:15",
+    "latitude": 40.78496793219051,
+    "longitude": -119.22293150006777
+  },
+  {
+    "ring": "I",
+    "time": "7:15",
+    "key": "Ishiguro@7:15",
+    "latitude": 40.785032529273565,
+    "longitude": -119.22228708135731
+  },
+  {
+    "ring": "H",
+    "time": "7:15",
+    "key": "Herbert@7:15",
+    "latitude": 40.785133026949495,
+    "longitude": -119.2212844454694
+  },
+  {
+    "ring": "Esplanade",
+    "time": "2:00",
+    "key": "Esplanade@2:00",
+    "latitude": 40.78518698104244,
+    "longitude": -119.19428622396777
+  },
+  {
+    "ring": "Esplanade",
+    "time": "7:00",
+    "key": "Esplanade@7:00",
+    "latitude": 40.78518715263084,
+    "longitude": -119.21172711821072
+  },
+  {
+    "ring": "G",
+    "time": "7:15",
+    "key": "Gibson@7:15",
+    "latitude": 40.78523344156088,
+    "longitude": -119.22028254847794
+  },
+  {
+    "ring": "F",
+    "time": "7:15",
+    "key": "Farmer@7:15",
+    "latitude": 40.785333919716834,
+    "longitude": -119.21927992753729
+  },
+  {
+    "ring": "K",
+    "time": "7:30",
+    "key": "Kilgore@7:30",
+    "latitude": 40.78696157573796,
+    "longitude": -119.22379012482833
+  },
+  {
+    "ring": "J",
+    "time": "7:30",
+    "key": "Jemison@7:30",
+    "latitude": 40.786961697314325,
+    "longitude": -119.22310407905081
+  },
+  {
+    "ring": "I",
+    "time": "7:30",
+    "key": "Ishiguro@7:30",
+    "latitude": 40.786961808764374,
+    "longitude": -119.22245391827312
+  },
+  {
+    "ring": "H",
+    "time": "7:30",
+    "key": "Herbert@7:30",
+    "latitude": 40.786961974770634,
+    "longitude": -119.22144308591754
+  },
+  {
+    "ring": "G",
+    "time": "7:30",
+    "key": "Gibson@7:30",
+    "latitude": 40.786962132003396,
+    "longitude": -119.22043170112164
+  },
+  {
+    "ring": "F",
+    "time": "7:30",
+    "key": "Farmer@7:30",
+    "latitude": 40.78696228036313,
+    "longitude": -119.21942035549614
+  },
+  {
+    "ring": "E",
+    "time": "7:30",
+    "key": "Ellison@7:30",
+    "latitude": 40.78696251637115,
+    "longitude": -119.21766862527795
+  },
+  {
+    "ring": "D",
+    "time": "7:30",
+    "key": "Dick@7:30",
+    "latitude": 40.786962642623735,
+    "longitude": -119.21663949398504
+  },
+  {
+    "ring": "C",
+    "time": "7:30",
+    "key": "Cherryh@7:30",
+    "latitude": 40.78696275770716,
+    "longitude": -119.2156285696384
+  },
+  {
+    "ring": "B",
+    "time": "7:30",
+    "key": "Bradbury@7:30",
+    "latitude": 40.78696286392017,
+    "longitude": -119.21461779395571
+  },
+  {
+    "ring": "A",
+    "time": "7:30",
+    "key": "Atwood@7:30",
+    "latitude": 40.78696296131761,
+    "longitude": -119.2136065759658
+  },
+  {
+    "ring": "Esplanade",
+    "time": "7:30",
+    "key": "Esplanade@7:30",
+    "latitude": 40.786963095122076,
+    "longitude": -119.21203474895566
+  },
+  {
+    "ring": "F",
+    "time": "7:45",
+    "key": "Farmer@7:45",
+    "latitude": 40.78859066200704,
+    "longitude": -119.21928054040615
+  },
+  {
+    "ring": "G",
+    "time": "7:45",
+    "key": "Gibson@7:45",
+    "latitude": 40.78869080823705,
+    "longitude": -119.22028286011437
+  },
+  {
+    "ring": "Esplanade",
+    "time": "8:00",
+    "key": "Esplanade@8:00",
+    "latitude": 40.788739026969324,
+    "longitude": -119.21172730125744
+  },
+  {
+    "ring": "H",
+    "time": "7:45",
+    "key": "Herbert@7:45",
+    "latitude": 40.78879107108361,
+    "longitude": -119.22128643723204
+  },
+  {
+    "ring": "I",
+    "time": "7:45",
+    "key": "Ishiguro@7:45",
+    "latitude": 40.78889112879966,
+    "longitude": -119.22228805132914
+  },
+  {
+    "ring": "J",
+    "time": "7:45",
+    "key": "Jemison@7:45",
+    "latitude": 40.788955532397836,
+    "longitude": -119.2229328023401
+  },
+  {
+    "ring": "K",
+    "time": "7:45",
+    "key": "Kilgore@7:45",
+    "latitude": 40.789023471032635,
+    "longitude": -119.2236129834481
+  },
+  {
+    "ring": "A",
+    "time": "8:00",
+    "key": "Atwood@8:00",
+    "latitude": 40.789048008097495,
+    "longitude": -119.2132451455214
+  },
+  {
+    "ring": "B",
+    "time": "8:00",
+    "key": "Bradbury@8:00",
+    "latitude": 40.78924684334851,
+    "longitude": -119.2142219665891
+  },
+  {
+    "ring": "C",
+    "time": "8:00",
+    "key": "Cherryh@8:00",
+    "latitude": 40.78944567105941,
+    "longitude": -119.21519879711116
+  },
+  {
+    "ring": "D",
+    "time": "8:00",
+    "key": "Dick@8:00",
+    "latitude": 40.78964449107764,
+    "longitude": -119.21617563632742
+  },
+  {
+    "ring": "E",
+    "time": "8:00",
+    "key": "Ellison@8:00",
+    "latitude": 40.78984685320472,
+    "longitude": -119.21716992631974
+  },
+  {
+    "ring": "F",
+    "time": "8:00",
+    "key": "Farmer@8:00",
+    "latitude": 40.790191204578946,
+    "longitude": -119.21886197977466
+  },
+  {
+    "ring": "G",
+    "time": "8:00",
+    "key": "Gibson@8:00",
+    "latitude": 40.79039016691945,
+    "longitude": -119.21983969272952
+  },
+  {
+    "ring": "Esplanade",
+    "time": "8:30",
+    "key": "Esplanade@8:30",
+    "latitude": 40.79039400182762,
+    "longitude": -119.21082567563343
+  },
+  {
+    "ring": "H",
+    "time": "8:00",
+    "key": "Herbert@8:00",
+    "latitude": 40.79058877343198,
+    "longitude": -119.22081570363878
+  },
+  {
+    "ring": "I",
+    "time": "8:00",
+    "key": "Ishiguro@8:00",
+    "latitude": 40.790787487800856,
+    "longitude": -119.22179229103551
+  },
+  {
+    "ring": "J",
+    "time": "8:00",
+    "key": "Jemison@8:00",
+    "latitude": 40.7909153235164,
+    "longitude": -119.22242056783205
+  },
+  {
+    "ring": "A",
+    "time": "8:30",
+    "key": "Atwood@8:30",
+    "latitude": 40.79099091627086,
+    "longitude": -119.21218631054973
+  },
+  {
+    "ring": "K",
+    "time": "8:00",
+    "key": "Kilgore@8:00",
+    "latitude": 40.79105019779013,
+    "longitude": -119.2230834580451
+  },
+  {
+    "ring": "B",
+    "time": "8:30",
+    "key": "Bradbury@8:30",
+    "latitude": 40.79137513802766,
+    "longitude": -119.21306215602505
+  },
+  {
+    "ring": "F",
+    "time": "8:15",
+    "key": "Farmer@8:15",
+    "latitude": 40.79173652227945,
+    "longitude": -119.2181721116824
+  },
+  {
+    "ring": "C",
+    "time": "8:30",
+    "key": "Cherryh@8:30",
+    "latitude": 40.791759411147325,
+    "longitude": -119.21393814390694
+  },
+  {
+    "ring": "Esplanade",
+    "time": "9:00",
+    "key": "Esplanade@9:00",
+    "latitude": 40.791815299081236,
+    "longitude": -119.20939123124185
+  },
+  {
+    "ring": "G",
+    "time": "8:15",
+    "key": "Gibson@8:15",
+    "latitude": 40.79203047975966,
+    "longitude": -119.21910635234451
+  },
+  {
+    "ring": "D",
+    "time": "8:30",
+    "key": "Dick@8:30",
+    "latitude": 40.79214373527145,
+    "longitude": -119.21481427338239
+  },
+  {
+    "ring": "H",
+    "time": "8:15",
+    "key": "Herbert@8:15",
+    "latitude": 40.79232445397372,
+    "longitude": -119.22004067850662
+  },
+  {
+    "ring": "E",
+    "time": "8:30",
+    "key": "Ellison@8:30",
+    "latitude": 40.79253496983921,
+    "longitude": -119.21570618235592
+  },
+  {
+    "ring": "I",
+    "time": "8:15",
+    "key": "Ishiguro@8:15",
+    "latitude": 40.79261844525763,
+    "longitude": -119.2209750912603
+  },
+  {
+    "ring": "A",
+    "time": "9:00",
+    "key": "Atwood@9:00",
+    "latitude": 40.79265944982251,
+    "longitude": -119.21050212000847
+  },
+  {
+    "ring": "J",
+    "time": "8:15",
+    "key": "Jemison@8:15",
+    "latitude": 40.79280753604513,
+    "longitude": -119.22157610862041
+  },
+  {
+    "ring": "Esplanade",
+    "time": "9:30",
+    "key": "Esplanade@9:30",
+    "latitude": 40.792906096126956,
+    "longitude": -119.20752161853954
+  },
+  {
+    "ring": "K",
+    "time": "8:15",
+    "key": "Kilgore@8:15",
+    "latitude": 40.79300713893099,
+    "longitude": -119.2222105527826
+  },
+  {
+    "ring": "F",
+    "time": "8:30",
+    "key": "Farmer@8:30",
+    "latitude": 40.79320028502423,
+    "longitude": -119.2172229812885
+  },
+  {
+    "ring": "B",
+    "time": "9:00",
+    "key": "Bradbury@9:00",
+    "latitude": 40.793202876111025,
+    "longitude": -119.21121728269532
+  },
+  {
+    "ring": "G",
+    "time": "8:30",
+    "key": "Gibson@8:30",
+    "latitude": 40.79358440784205,
+    "longitude": -119.21809874676961
+  },
+  {
+    "ring": "Esplanade",
+    "time": "10:00",
+    "key": "Esplanade@10:00",
+    "latitude": 40.79359206184728,
+    "longitude": -119.20534414215109
+  },
+  {
+    "ring": "C",
+    "time": "9:00",
+    "key": "Cherryh@9:00",
+    "latitude": 40.793746618230784,
+    "longitude": -119.21193287860399
+  },
+  {
+    "ring": "A",
+    "time": "9:30",
+    "key": "Atwood@9:30",
+    "latitude": 40.7939400253174,
+    "longitude": -119.2083071724291
+  },
+  {
+    "ring": "H",
+    "time": "8:30",
+    "key": "Herbert@8:30",
+    "latitude": 40.79396853830639,
+    "longitude": -119.21897455500141
+  },
+  {
+    "ring": "D",
+    "time": "9:00",
+    "key": "Dick@9:00",
+    "latitude": 40.79429004011041,
+    "longitude": -119.21264807063363
+  },
+  {
+    "ring": "I",
+    "time": "8:30",
+    "key": "Ishiguro@8:30",
+    "latitude": 40.79435267664064,
+    "longitude": -119.2198504064906
+  },
+  {
+    "ring": "F",
+    "time": "8:45",
+    "key": "Farmer@8:45",
+    "latitude": 40.79455711090469,
+    "longitude": -119.21603005509849
+  },
+  {
+    "ring": "J",
+    "time": "8:30",
+    "key": "Jemison@8:30",
+    "latitude": 40.79459978864139,
+    "longitude": -119.22041384557207
+  },
+  {
+    "ring": "B",
+    "time": "9:30",
+    "key": "Bradbury@9:30",
+    "latitude": 40.794605620995924,
+    "longitude": -119.20881289071878
+  },
+  {
+    "ring": "A",
+    "time": "10:00",
+    "key": "Atwood@10:00",
+    "latitude": 40.79474543486697,
+    "longitude": -119.20575083566473
+  },
+  {
+    "ring": "E",
+    "time": "9:00",
+    "key": "Ellison@9:00",
+    "latitude": 40.79484284431226,
+    "longitude": -119.21337562867211
+  },
+  {
+    "ring": "K",
+    "time": "8:30",
+    "key": "Kilgore@8:30",
+    "latitude": 40.79486064044539,
+    "longitude": -119.2210086240965
+  },
+  {
+    "ring": "G",
+    "time": "8:45",
+    "key": "Gibson@8:45",
+    "latitude": 40.7950251609567,
+    "longitude": -119.21683293055787
+  },
+  {
+    "ring": "C",
+    "time": "9:30",
+    "key": "Cherryh@9:30",
+    "latitude": 40.79527092445642,
+    "longitude": -119.20931839882354
+  },
+  {
+    "ring": "B",
+    "time": "10:00",
+    "key": "Bradbury@10:00",
+    "latitude": 40.795487835010306,
+    "longitude": -119.20601262284458
+  },
+  {
+    "ring": "H",
+    "time": "8:45",
+    "key": "Herbert@8:45",
+    "latitude": 40.79549300651047,
+    "longitude": -119.21763547613665
+  },
+  {
+    "ring": "F",
+    "time": "9:00",
+    "key": "Farmer@9:00",
+    "latitude": 40.79578442895399,
+    "longitude": -119.21461491123051
+  },
+  {
+    "ring": "D",
+    "time": "9:30",
+    "key": "Dick@9:30",
+    "latitude": 40.795937103060794,
+    "longitude": -119.20982458372742
+  },
+  {
+    "ring": "I",
+    "time": "8:45",
+    "key": "Ishiguro@8:45",
+    "latitude": 40.79596050940785,
+    "longitude": -119.21843745481556
+  },
+  {
+    "ring": "C",
+    "time": "10:00",
+    "key": "Cherryh@10:00",
+    "latitude": 40.79623023446368,
+    "longitude": -119.20627441585737
+  },
+  {
+    "ring": "J",
+    "time": "8:45",
+    "key": "Jemison@8:45",
+    "latitude": 40.79626140768357,
+    "longitude": -119.21895364233399
+  },
+  {
+    "ring": "G",
+    "time": "9:00",
+    "key": "Gibson@9:00",
+    "latitude": 40.79632747647844,
+    "longitude": -119.2153296764053
+  },
+  {
+    "ring": "K",
+    "time": "8:45",
+    "key": "Kilgore@8:45",
+    "latitude": 40.79657874610439,
+    "longitude": -119.2194980421122
+  },
+  {
+    "ring": "E",
+    "time": "9:30",
+    "key": "Ellison@9:30",
+    "latitude": 40.79661409530365,
+    "longitude": -119.21033899736454
+  },
+  {
+    "ring": "F",
+    "time": "9:15",
+    "key": "Farmer@9:15",
+    "latitude": 40.79686018158907,
+    "longitude": -119.21300026561084
+  },
+  {
+    "ring": "H",
+    "time": "9:00",
+    "key": "Herbert@9:00",
+    "latitude": 40.796871233259594,
+    "longitude": -119.21604539268355
+  },
+  {
+    "ring": "D",
+    "time": "10:00",
+    "key": "Dick@10:00",
+    "latitude": 40.796972633227085,
+    "longitude": -119.20653621470348
+  },
+  {
+    "ring": "I",
+    "time": "9:00",
+    "key": "Ishiguro@9:00",
+    "latitude": 40.79741443090643,
+    "longitude": -119.21676039058025
+  },
+  {
+    "ring": "G",
+    "time": "9:15",
+    "key": "Gibson@9:15",
+    "latitude": 40.79747026666166,
+    "longitude": -119.21361642185275
+  },
+  {
+    "ring": "E",
+    "time": "10:00",
+    "key": "Ellison@10:00",
+    "latitude": 40.79772828840254,
+    "longitude": -119.20680269451975
+  },
+  {
+    "ring": "J",
+    "time": "9:00",
+    "key": "Jemison@9:00",
+    "latitude": 40.7977639526444,
+    "longitude": -119.21722046684954
+  },
+  {
+    "ring": "F",
+    "time": "9:30",
+    "key": "Farmer@9:30",
+    "latitude": 40.79776747791675,
+    "longitude": -119.21121542520223
+  },
+  {
+    "ring": "H",
+    "time": "9:15",
+    "key": "Herbert@9:15",
+    "latitude": 40.798079644525046,
+    "longitude": -119.21423187849467
+  },
+  {
+    "ring": "K",
+    "time": "9:00",
+    "key": "Kilgore@9:00",
+    "latitude": 40.7981323676197,
+    "longitude": -119.21770542020869
+  },
+  {
+    "ring": "G",
+    "time": "9:30",
+    "key": "Gibson@9:30",
+    "latitude": 40.798432663025494,
+    "longitude": -119.21172089962312
+  },
+  {
+    "ring": "F",
+    "time": "9:45",
+    "key": "Farmer@9:45",
+    "latitude": 40.79848874369486,
+    "longitude": -119.20928920502683
+  },
+  {
+    "ring": "I",
+    "time": "9:15",
+    "key": "Ishiguro@9:15",
+    "latitude": 40.798689559459376,
+    "longitude": -119.21484789221694
+  },
+  {
+    "ring": "F",
+    "time": "10:00",
+    "key": "Farmer@10:00",
+    "latitude": 40.79901422626784,
+    "longitude": -119.20725619161072
+  },
+  {
+    "ring": "J",
+    "time": "9:15",
+    "key": "Jemison@9:15",
+    "latitude": 40.79908170337444,
+    "longitude": -119.21524396508272
+  },
+  {
+    "ring": "H",
+    "time": "9:30",
+    "key": "Herbert@9:30",
+    "latitude": 40.79909806364083,
+    "longitude": -119.21222654964646
+  },
+  {
+    "ring": "G",
+    "time": "9:45",
+    "key": "Gibson@9:45",
+    "latitude": 40.799198856956195,
+    "longitude": -119.20967634507485
+  },
+  {
+    "ring": "K",
+    "time": "9:15",
+    "key": "Kilgore@9:15",
+    "latitude": 40.79949496615609,
+    "longitude": -119.21566137497729
+  },
+  {
+    "ring": "G",
+    "time": "10:00",
+    "key": "Gibson@10:00",
+    "latitude": 40.79975662244334,
+    "longitude": -119.2075180123345
+  },
+  {
+    "ring": "I",
+    "time": "9:30",
+    "key": "Ishiguro@9:30",
+    "latitude": 40.79976407053738,
+    "longitude": -119.21273267224763
+  },
+  {
+    "ring": "H",
+    "time": "9:45",
+    "key": "Herbert@9:45",
+    "latitude": 40.79990913284814,
+    "longitude": -119.21006358279107
+  },
+  {
+    "ring": "J",
+    "time": "9:30",
+    "key": "Jemison@9:30",
+    "latitude": 40.80019210090995,
+    "longitude": -119.21305795418999
+  },
+  {
+    "ring": "H",
+    "time": "10:00",
+    "key": "Herbert@10:00",
+    "latitude": 40.80049901792853,
+    "longitude": -119.20777983889309
+  },
+  {
+    "ring": "I",
+    "time": "9:45",
+    "key": "Ishiguro@9:45",
+    "latitude": 40.80061957067903,
+    "longitude": -119.21045091781059
+  },
+  {
+    "ring": "K",
+    "time": "9:30",
+    "key": "Kilgore@9:30",
+    "latitude": 40.8006432612745,
+    "longitude": -119.21340081909409
+  },
+  {
+    "ring": "J",
+    "time": "9:45",
+    "key": "Jemison@9:45",
+    "latitude": 40.801076134210405,
+    "longitude": -119.21069984378084
+  },
+  {
+    "ring": "I",
+    "time": "10:00",
+    "key": "Ishiguro@10:00",
+    "latitude": 40.801241412723414,
+    "longitude": -119.20804167128671
+  },
+  {
+    "ring": "K",
+    "time": "9:45",
+    "key": "Kilgore@9:45",
+    "latitude": 40.80155762828434,
+    "longitude": -119.21096236633156
+  },
+  {
+    "ring": "J",
+    "time": "10:00",
+    "key": "Jemison@10:00",
+    "latitude": 40.80171866615552,
+    "longitude": -119.2082099951927
+  },
+  {
+    "ring": "K",
+    "time": "10:00",
+    "key": "Kilgore@10:00",
+    "latitude": 40.80222243335771,
+    "longitude": -119.20838767304309
+  }
+]

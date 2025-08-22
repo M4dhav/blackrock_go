@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:blackrock_go/controllers/timeline_post_controller.dart';
 import 'package:blackrock_go/models/const_model.dart';
+import 'package:blackrock_go/views/screens/chats_page.dart';
 import 'package:blackrock_go/views/screens/home_screen.dart';
 import 'package:blackrock_go/views/screens/profile_screen.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:blackrock_go/views/screens/rooms.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
@@ -22,7 +22,7 @@ class _NavBarState extends State<NavBar> {
   TimelinePostController controller = Get.find();
   int _selectedIndex = 2;
   static final List<Widget> _widgetOptions = <Widget>[
-    const RoomsPage(),
+    const ChatsPage(),
     const ProfilePage(),
     const MapHomePage(),
   ];

@@ -3,9 +3,13 @@ import 'package:blackrock_go/controllers/meshtastic_node_controller.dart';
 import 'package:blackrock_go/controllers/timeline_post_controller.dart';
 import 'package:blackrock_go/models/const_model.dart';
 import 'package:blackrock_go/views/screens/base_view.dart';
+import 'package:blackrock_go/views/screens/channels.dart';
 import 'package:blackrock_go/views/screens/chat.dart';
+import 'package:blackrock_go/views/screens/chats_page.dart';
 import 'package:blackrock_go/views/screens/connect_node_screen.dart';
+import 'package:blackrock_go/views/screens/direct_messages.dart';
 import 'package:blackrock_go/views/screens/event_details_screen.dart';
+import 'package:blackrock_go/views/screens/events.dart';
 import 'package:blackrock_go/views/screens/search_screen.dart';
 import 'package:blackrock_go/views/screens/users.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -23,7 +27,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  final database = Get.put(await openDatabase(
+  Get.put(await openDatabase(
       // Set the path to the database. Note: Using the `join` function from the
       // `path` package is best practice to ensure the path is correctly
       // constructed for each platform.
@@ -36,20 +40,6 @@ void main() async {
         'id INTEGER PRIMARY KEY AUTOINCREMENT, '
         'imageUrl TEXT NOT NULL, '
         'timestamp INTEGER NOT NULL'
-        ')',
-      ),
-      db.execute(
-        'CREATE TABLE events ('
-        'id INTEGER PRIMARY KEY AUTOINCREMENT, '
-        'imageUrl TEXT NOT NULL, '
-        'eventName TEXT NOT NULL, '
-        'description TEXT NOT NULL, '
-        'latitude REAL NOT NULL, '
-        'longitude REAL NOT NULL, '
-        'startTime TEXT NOT NULL, '
-        'endTime TEXT NOT NULL, '
-        'hostName TEXT NOT NULL, '
-        'locationName TEXT NOT NULL'
         ')',
       ),
     ]);
@@ -117,22 +107,22 @@ class MyApp extends StatelessWidget {
                         child: child,
                       );
                     })),
-            GoRoute(
-              path: 'event',
-              builder: (context, state) {
-                final eventName = state.uri.queryParameters['event'];
-                final EventController eventController =
-                    Get.find<EventController>();
-                final event = eventController.events.firstWhere(
-                  (element) {
-                    return element.eventName == eventName?.replaceAll('-', ' ');
-                  },
-                );
-                return EventDetailsScreen(
-                  event: event,
-                );
-              },
-            ),
+            // GoRoute(
+            //   path: 'event',
+            //   builder: (context, state) {
+            //     final eventName = state.uri.queryParameters['event'];
+            //     final EventController eventController =
+            //         Get.find<EventController>();
+            //     final event = eventController.events.firstWhere(
+            //       (element) {
+            //         return element.eventName == eventName?.replaceAll('-', ' ');
+            //       },
+            //     );
+            //     return EventDetailsScreen(
+            //       event: event,
+            //     );
+            //   },
+            // ),
             GoRoute(
                 path: 'storyDesigner',
                 builder: (context, state) => VSStoryDesigner(
@@ -155,7 +145,7 @@ class MyApp extends StatelessWidget {
                 builder: (context, state) => const ConnectNodeScreen()),
             GoRoute(
                 path: 'allChat',
-                builder: (context, state) => const ChatPage(title: 'All Chat')),
+                builder: (context, state) => const ChatPage(title: 'Everyone')),
             GoRoute(
                 path: 'users', builder: (context, state) => const UsersPage()),
             GoRoute(
@@ -167,6 +157,22 @@ class MyApp extends StatelessWidget {
                     user: args['user'],
                   );
                 }),
+            GoRoute(
+              path: 'chatsPage',
+              builder: (context, state) => const ChatsPage(),
+            ),
+            GoRoute(
+              path: 'channelsPage',
+              builder: (context, state) => const ChannelsPage(),
+            ),
+            GoRoute(
+              path: 'directMessagesPage',
+              builder: (context, state) => const DirectMessagesPage(),
+            ),
+            GoRoute(
+              path: 'eventsList',
+              builder: (context, state) => const EventsScreen(),
+            ),
           ],
         ),
       ],

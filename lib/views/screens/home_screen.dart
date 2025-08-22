@@ -4,8 +4,8 @@ import 'package:blackrock_go/controllers/event_controller.dart';
 import 'package:blackrock_go/models/const_model.dart';
 import 'package:blackrock_go/models/event_model.dart';
 import 'package:blackrock_go/views/widgets/drawer_widget.dart';
-import 'package:blackrock_go/views/widgets/event_widget.dart';
 import 'package:blackrock_go/views/widgets/appbar_widget.dart';
+import 'package:blackrock_go/views/widgets/event_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
@@ -27,7 +27,15 @@ class _MapHomePageState extends State<MapHomePage> {
 
   Future<void> addModelLayer(List<EventModel> events) async {
     List<Feature> features = [];
-
+    features.add(Feature(
+        id: 0,
+        geometry: Point(
+            coordinates: mb.Position(-119.20309919712876, 40.786984204692935)),
+        properties: {
+          'name': 'Burning Man',
+          'location': 'Centrepoint',
+          'index': 0
+        }));
     for (EventModel event in events) {
       features.add(Feature(
           id: events.indexOf(event),
@@ -39,6 +47,7 @@ class _MapHomePageState extends State<MapHomePage> {
             'index': events.indexOf(event)
           }));
     }
+
     FeatureCollection featureCollection = FeatureCollection(features: features);
     if (mapboxMap == null) {
       throw Exception("MapboxMap is not ready yet");
@@ -54,6 +63,25 @@ class _MapHomePageState extends State<MapHomePage> {
     modelLayer.modelScale = [10, 10, 10];
     modelLayer.modelType = ModelType.COMMON_3D;
     await mapboxMap?.style.addLayer(modelLayer);
+    // await mapboxMap?.style.addLayer(
+    //   SymbolLayer(
+    //     id: 'event-labels',
+    //     sourceId: 'eventsLayer',
+    //     textFieldExpression: [
+    //       'get',
+    //       'name'
+    //     ], // This will use the 'name' property for the label
+    //     textSize: 14,
+    //     textHaloColorExpression: [0xFFFFFFFF], // White halo
+    //     textHaloWidthExpression: [2.0],
+    //     symbolZOffset: 10.0,
+    //     textOcclusionOpacity: 1.0,
+
+    //     // textColor: Colors.red.hashCode,
+    //     // textColorExpression: [Colors.red.hashCode, Colors.red.hashCode]
+    //     // You can add more styling properties as needed
+    //   ),
+    // );
 
     log('added modelLayer');
   }
@@ -76,12 +104,14 @@ class _MapHomePageState extends State<MapHomePage> {
   Future<void> _onStyleLoaded(StyleLoadedEventData data) async {
     await addModelLayer(eventController.events);
     log('style loaded');
+
     mapboxMap!.addInteraction(
         TapInteraction(
           FeaturesetDescriptor(
             layerId: "eventsLayer",
           ),
           (feature, mapContext) async {
+            log('Feature tapped: ${feature.properties}');
             EventModel event =
                 eventController.events[feature.properties['index'] as int];
 
@@ -90,12 +120,11 @@ class _MapHomePageState extends State<MapHomePage> {
                 context: context,
                 builder: (context) => EventWidget(
                   event: event,
-                  hostName: event.hostName,
                 ),
               );
             }
           },
-          stopPropagation: false,
+          stopPropagation: true,
         ),
         interactionID: "eventTapInteraction");
 
@@ -176,13 +205,13 @@ class _MapHomePageState extends State<MapHomePage> {
           onStyleLoadedListener: _onStyleLoaded,
           styleUri: Constants.mapboxStyleUrl,
           cameraOptions: mb.CameraOptions(
-              pitch: 80,
+              bearing: 43.7,
               center: mb.Point(
                   coordinates: mb.Position(
                 -119.2113039478112,
                 40.78114827014911,
               )),
-              zoom: 18.0),
+              zoom: 13.84),
         ),
         // floatingActionButton: FloatingActionButton(
         //   onPressed: () {

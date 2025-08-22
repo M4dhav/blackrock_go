@@ -51,7 +51,10 @@ class _ConnectNodeScreenState extends State<ConnectNodeScreen> {
               itemBuilder: (context, index) {
                 final node = meshtasticNodeController.availableNodes[index];
                 return ListTile(
-                  title: Text(node.platformName),
+                  title: Text(
+                    node.platformName,
+                    style: TextStyle(color: Colors.white, fontSize: 22.px),
+                  ),
                   subtitle: Text(node.remoteId.toString()),
                   trailing: IconButton(
                       onPressed: () async {
@@ -60,13 +63,23 @@ class _ConnectNodeScreenState extends State<ConnectNodeScreen> {
                         await showDialog(
                           context: context,
                           builder: (context) => AlertDialog(
-                            title: Text('Connecting to ${node.platformName}'),
+                            backgroundColor: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15.px),
+                              side: BorderSide(
+                                  color: constants.Constants.primaryGold,
+                                  width: 2.px),
+                            ),
+                            title: Text(
+                              'Connecting to ${node.platformName}',
+                              style: TextStyle(color: Colors.white),
+                            ),
                             content: Obx(() {
                               final status = meshtasticNodeController
                                   .connectionStatus.value;
                               return Text(
-                                status.state.toString(),
-                                style: TextStyle(color: Colors.black),
+                                status.state.name,
+                                style: TextStyle(color: Colors.white),
                               );
                             }),
                             actions: [
@@ -78,8 +91,7 @@ class _ConnectNodeScreenState extends State<ConnectNodeScreen> {
                                         ? Text(
                                             'OK',
                                             style: TextStyle(
-                                              color: constants
-                                                  .Constants.primaryGold,
+                                              color: Colors.white,
                                               fontSize: 20.px,
                                             ),
                                           )
@@ -87,7 +99,7 @@ class _ConnectNodeScreenState extends State<ConnectNodeScreen> {
                                     onPressed: () => meshtasticNodeController
                                                 .connectionStatus.value.state ==
                                             MeshtasticConnectionState.connected
-                                        ? Get.back()
+                                        ? context.pop()
                                         : null),
                               )
                             ],
@@ -100,7 +112,10 @@ class _ConnectNodeScreenState extends State<ConnectNodeScreen> {
                           context.pop();
                         }
                       },
-                      icon: Icon(Icons.bluetooth_connected)),
+                      icon: Icon(
+                        Icons.bluetooth_connected,
+                        color: constants.Constants.primaryGold,
+                      )),
                 );
               }),
         ),

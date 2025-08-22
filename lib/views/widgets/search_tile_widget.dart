@@ -1,16 +1,21 @@
+import 'package:blackrock_go/models/event_model.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:intl/intl.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../models/const_model.dart';
 
-class SearchResultTile extends StatelessWidget {
-  final String title;
-  const SearchResultTile({super.key, required this.title});
+class EventListTile extends StatelessWidget {
+  final EventModel event;
+  const EventListTile({super.key, required this.event});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        context.push('/eventDetails', extra: [event]);
+      },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 1.3.h, horizontal: 2.w),
         padding: EdgeInsets.symmetric(vertical: 1.8.h, horizontal: 1.5.w),
@@ -23,29 +28,31 @@ class SearchResultTile extends StatelessWidget {
           ),
         ),
         child: ListTile(
-          leading: CircleAvatar(
-            radius: 5.7.w,
-            backgroundColor: Constants.primaryGold,
-            child: CircleAvatar(
-              backgroundImage: const AssetImage('assets/profile.jpg'),
-              radius: 5.w,
-            ),
-          ),
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                event.eventName,
                 style: TextStyle(color: Colors.white, fontSize: 16.sp),
               ),
               Text(
-                overflow: TextOverflow.clip,
-                'randm description here ...',
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                event.description,
                 style: TextStyle(color: Colors.grey, fontSize: 14.sp),
+              ),
+              Text(
+                '${DateFormat('EEE').format(event.startTime)} ${DateFormat('h:mm a').format(event.startTime)} : ${DateFormat('h:mm a').format(event.endTime)}', // Day (e.g., "Mon")
+                style: TextStyle(
+                  color: Constants.primaryGold,
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),
-          trailing: Icon(Icons.more_vert, color: Constants.primaryGold),
         ),
       ),
     );

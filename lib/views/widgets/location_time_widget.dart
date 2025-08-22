@@ -10,20 +10,57 @@ class EventLocationTimeWidget extends StatelessWidget {
     required this.endTime,
     required this.location,
     required this.locationName,
+    required this.campName,
   });
 
   final DateTime startTime;
   final DateTime endTime;
   final LatLng location;
   final String locationName;
+  final String campName;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 12.h,
+      height: 18.h,
       width: 90.w,
       child: Column(
         children: [
+          SizedBox(
+            height: 6.h,
+            child: Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(right: 5.w),
+                  child: Container(
+                    height: 5.h,
+                    width: 5.h,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.grey.withValues(alpha: 0.5),
+                      ),
+                    ),
+                    child: const Icon(
+                      Icons.festival,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Text(
+                    campName,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12.px,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           SizedBox(
             height: 6.h,
             child: Row(
@@ -104,7 +141,6 @@ class EventLocationTimeWidget extends StatelessWidget {
               ],
             ),
           ),
-          // SizedBox(height: 0.2.h),
           SizedBox(
             height: 6.h,
             child: Row(

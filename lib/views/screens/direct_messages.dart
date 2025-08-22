@@ -8,14 +8,14 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../models/const_model.dart';
 
-class RoomsPage extends StatefulWidget {
-  const RoomsPage({super.key});
+class DirectMessagesPage extends StatefulWidget {
+  const DirectMessagesPage({super.key});
 
   @override
-  State<RoomsPage> createState() => _RoomsPageState();
+  State<DirectMessagesPage> createState() => _DirectMessagesPageState();
 }
 
-class _RoomsPageState extends State<RoomsPage> {
+class _DirectMessagesPageState extends State<DirectMessagesPage> {
   final MeshtasticNodeController meshtasticNodeController = Get.find();
 
   @override
@@ -23,7 +23,7 @@ class _RoomsPageState extends State<RoomsPage> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/bg.jpg'),
+          image: AssetImage('assets/bg.png'),
           fit: BoxFit.cover,
         ),
       ),
@@ -34,7 +34,7 @@ class _RoomsPageState extends State<RoomsPage> {
             padding: EdgeInsets.symmetric(horizontal: 2.w),
             child: Text(
               'Your Chats',
-              style: TextStyle(color: Constants.primaryGold),
+              style: TextStyle(color: Constants.primaryGold, fontSize: 22.px),
             ),
           ),
           actionWidgets: IconButton(
@@ -59,45 +59,15 @@ class _RoomsPageState extends State<RoomsPage> {
             builder: (context) {
               return Column(
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      context.push('/allChat');
-                    },
-                    child: Padding(
-                      padding: EdgeInsets.only(top: 0.5.h),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(20.sp),
-                          border: Border.all(
-                            width: 0.7,
-                            color: Constants.primaryGold,
-                          ),
-                        ),
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 2.h,
-                          vertical: 2.h,
-                        ),
-                        child: Row(
-                          children: [
-                            Text(
-                              'All Chat',
-                              style: TextStyle(fontSize: 17.sp),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
                   Expanded(
                     child: Obx(() {
-                      return meshtasticNodeController.activeRooms.isNotEmpty
+                      return meshtasticNodeController.activeUserChats.isNotEmpty
                           ? ListView.builder(
-                              itemCount:
-                                  meshtasticNodeController.activeRooms.length,
+                              itemCount: meshtasticNodeController
+                                  .activeUserChats.length,
                               itemBuilder: (context, index) {
-                                final room =
-                                    meshtasticNodeController.activeRooms[index];
+                                final room = meshtasticNodeController
+                                    .activeUserChats[index];
 
                                 return GestureDetector(
                                   onTap: () {
@@ -150,7 +120,7 @@ class _RoomsPageState extends State<RoomsPage> {
                                 );
                               },
                             )
-                          : SizedBox.shrink();
+                          : Center(child: Text('No Chats Available'));
                     }),
                   ),
                 ],
