@@ -83,6 +83,7 @@ class _NavBarState extends State<NavBar> {
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           bottomNavigationBar: AnimatedBottomNavigationBar.builder(
+            height: 8.h,
             borderColor: Constants.primaryGold,
             backgroundColor: Colors.black,
             itemCount: _widgetOptions.length - 1,

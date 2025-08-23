@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:blackrock_go/controllers/meshtastic_node_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -128,7 +130,9 @@ class CustomDrawer extends StatelessWidget {
           SizedBox(height: 1.h),
           InkWell(
             onTap: () {
-              meshtasticNodeController.client.debugPositionInfo();
+              for (var node in meshtasticNodeController.client.nodes.values) {
+                log('Node ${node.userId} location: ${node.latitude}, ${node.longitude}');
+              }
             },
             child: ListTile(
               leading: Icon(Icons.settings,

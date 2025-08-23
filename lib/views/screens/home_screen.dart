@@ -115,24 +115,33 @@ class _MapHomePageState extends State<MapHomePage> {
               )),
               zoom: 13.84),
         ),
-        // floatingActionButton: FloatingActionButton(
-        //   onPressed: () {
-        //     determinePosition().then((value) {
-        //       setState(() async {
-        //         await mapboxMap?.flyTo(
-        //             mb.CameraOptions(
-        //                 pitch: 90,
-        //                 center: mb.Point(
-        //                     coordinates:
-        //                         mb.Position(value.longitude, value.latitude)),
-        //                 zoom: 12.0),
-        //             mb.MapAnimationOptions());
-        //       });
-        //     });
-        //   },
-        //   child: const Icon(Icons.my_location),
-        // ),
-        // floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
+        floatingActionButton: Padding(
+          padding: EdgeInsets.only(bottom: 10.h),
+          child: FloatingActionButton(
+            onPressed: () {
+              mapboxMapController
+                  .determinePosition(context)
+                  .then((value) async {
+                if (value != null) {
+                  await mapboxMapController.mapboxMap?.flyTo(
+                      mb.CameraOptions(
+                          // pitch: 90,
+                          center: mb.Point(
+                              coordinates:
+                                  mb.Position(value.longitude, value.latitude)),
+                          zoom: 12.0),
+                      mb.MapAnimationOptions());
+                }
+              });
+            },
+            child: Icon(
+              Icons.my_location,
+              color: Constants.primaryGold,
+            ),
+            backgroundColor: Colors.black,
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       ),
     );
   }

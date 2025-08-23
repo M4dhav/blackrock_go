@@ -6,6 +6,7 @@ import 'package:blackrock_go/controllers/meshtastic_node_controller.dart';
 import 'package:blackrock_go/models/event_model.dart';
 import 'package:blackrock_go/views/widgets/event_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart' as geo;
 import 'package:get/get.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 import 'package:meshtastic_flutter/meshtastic_flutter.dart' hide Position;
@@ -154,5 +155,67 @@ class MapboxMapController {
     await mapboxMap?.style.addLayer(modelLayer);
 
     log('added nodesLayer');
+  }
+
+  Future<geo.Position?> determinePosition(BuildContext context) async {
+    final meshtasticNodeController = Get.find<MeshtasticNodeController>();
+    if (meshtasticNodeController.connectionStatus.value.state !=
+        MeshtasticConnectionState.connected) {
+      bool serviceEnabled;
+      geo.LocationPermission permission;
+
+      serviceEnabled = await geo.Geolocator.isLocationServiceEnabled();
+      if (!serviceEnabled) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Location services are disabled.')),
+        );
+        return null;
+      }
+
+      permission = await geo.Geolocator.checkPermission();
+      if (permission == geo.LocationPermission.denied) {
+        permission = await geo.Geolocator.requestPermission();
+        if (permission == geo.LocationPermission.denied) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Location permissions are denied.')),
+          );
+          return null;
+        }
+      }
+
+      if (permission == geo.LocationPermission.deniedForever) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+              content: Text('Location permissions are permanently denied.')),
+        );
+        return null;
+      }
+
+      // When we reach here, permissions are granted and we can
+      // continue accessing the position of the device.
+      return await geo.Geolocator.getCurrentPosition(
+          locationSettings:
+              geo.LocationSettings(accuracy: geo.LocationAccuracy.best));
+    } else {
+      return geo.Position(
+          longitude: meshtasticNodeController
+                  .client
+                  .nodes[meshtasticNodeController.client.myNodeInfo?.myNodeNum]
+                  ?.longitude ??
+              0,
+          latitude: meshtasticNodeController
+                  .client
+                  .nodes[meshtasticNodeController.client.myNodeInfo?.myNodeNum]
+                  ?.latitude ??
+              0,
+          timestamp: DateTime.now(),
+          accuracy: 0.0,
+          altitude: 0.0,
+          altitudeAccuracy: 0.0,
+          heading: 0.0,
+          headingAccuracy: 0.0,
+          speed: 0.0,
+          speedAccuracy: 0.0);
+    }
   }
 }
