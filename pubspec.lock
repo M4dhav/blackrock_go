@@ -580,8 +580,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "833af2b"
-      resolved-ref: "833af2b713223b7c678a24ab65f1473385b0753f"
+      ref: "488da52607"
+      resolved-ref: "488da52607ac084be6f4bd2b2d53b4ce92374d92"
       url: "https://github.com/M4dhav/meshtastic_flutter.git"
     source: git
     version: "0.1.0"

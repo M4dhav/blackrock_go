@@ -128,7 +128,7 @@ class CustomDrawer extends StatelessWidget {
           SizedBox(height: 1.h),
           InkWell(
             onTap: () {
-              meshtasticNodeController.getNodeLocations();
+              meshtasticNodeController.client.debugPositionInfo();
             },
             child: ListTile(
               leading: Icon(Icons.settings,
