@@ -1,4 +1,5 @@
 import 'package:blackrock_go/controllers/event_controller.dart';
+import 'package:blackrock_go/controllers/mapbox_map_controller.dart';
 import 'package:blackrock_go/controllers/meshtastic_node_controller.dart';
 import 'package:blackrock_go/controllers/timeline_post_controller.dart';
 import 'package:blackrock_go/models/const_model.dart';
@@ -47,15 +48,16 @@ void main() async {
   // Load environment variables
   await dotenv.load(fileName: ".env");
 
+  Get.put(MapboxMapController(), permanent: true);
   final SharedPreferencesWithCache prefs =
       Get.put(await SharedPreferencesWithCache.create(
     cacheOptions: const SharedPreferencesWithCacheOptions(),
   ));
-
   final TimelinePostController timelineController =
       Get.put(TimelinePostController());
   final EventController eventController = Get.put(EventController());
   Get.put(MeshtasticNodeController(), permanent: true);
+
   await eventController.getEvents();
   await timelineController.getPosts();
   MapboxOptions.setAccessToken(Constants.mapboxToken);
@@ -107,22 +109,6 @@ class MyApp extends StatelessWidget {
                         child: child,
                       );
                     })),
-            // GoRoute(
-            //   path: 'event',
-            //   builder: (context, state) {
-            //     final eventName = state.uri.queryParameters['event'];
-            //     final EventController eventController =
-            //         Get.find<EventController>();
-            //     final event = eventController.events.firstWhere(
-            //       (element) {
-            //         return element.eventName == eventName?.replaceAll('-', ' ');
-            //       },
-            //     );
-            //     return EventDetailsScreen(
-            //       event: event,
-            //     );
-            //   },
-            // ),
             GoRoute(
                 path: 'storyDesigner',
                 builder: (context, state) => VSStoryDesigner(

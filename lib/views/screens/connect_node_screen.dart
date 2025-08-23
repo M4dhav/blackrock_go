@@ -58,7 +58,7 @@ class _ConnectNodeScreenState extends State<ConnectNodeScreen> {
                   subtitle: Text(node.remoteId.toString()),
                   trailing: IconButton(
                       onPressed: () async {
-                        meshtasticNodeController.client.connectToDevice(node);
+                        meshtasticNodeController.connectToNode(node);
                         meshtasticNodeController.listenToConnectionStream();
                         await showDialog(
                           context: context,

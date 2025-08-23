@@ -27,11 +27,9 @@ class EventController extends GetxController {
             .toList()
             .first;
       } catch (e) {
-        log(eventJson['camp_location']);
         continue;
       }
       EventModel event = EventModel.fromMap(eventJson as Map<String, dynamic>);
-      log('The time is ${event.campTime} and block is ${event.campBlock}');
       try {
         event.latitude = campCoordsJson.firstWhere((c) =>
             c['ring'] == event.campBlock &&
@@ -40,7 +38,6 @@ class EventController extends GetxController {
             c['ring'] == event.campBlock &&
             c['time'] == event.campTime)['longitude'];
       } catch (e) {
-        log("Error occurred while fetching coordinates for event: ${event.id}");
         continue;
       }
 

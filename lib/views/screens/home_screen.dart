@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:blackrock_go/controllers/event_controller.dart';
+import 'package:blackrock_go/controllers/mapbox_map_controller.dart';
 import 'package:blackrock_go/models/const_model.dart';
 import 'package:blackrock_go/models/event_model.dart';
 import 'package:blackrock_go/views/widgets/drawer_widget.dart';
@@ -21,114 +22,15 @@ class MapHomePage extends StatefulWidget {
 }
 
 class _MapHomePageState extends State<MapHomePage> {
-  mb.MapboxMap? mapboxMap;
   final EventController eventController = Get.find();
+  final MapboxMapController mapboxMapController = Get.find();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  Future<void> addModelLayer(List<EventModel> events) async {
-    List<Feature> features = [];
-    features.add(Feature(
-        id: 0,
-        geometry: Point(
-            coordinates: mb.Position(-119.20309919712876, 40.786984204692935)),
-        properties: {
-          'name': 'Burning Man',
-          'location': 'Centrepoint',
-          'index': 0
-        }));
-    for (EventModel event in events) {
-      features.add(Feature(
-          id: events.indexOf(event),
-          geometry:
-              Point(coordinates: mb.Position(event.longitude, event.latitude)),
-          properties: {
-            'name': event.eventName,
-            'location': event.locationName,
-            'index': events.indexOf(event)
-          }));
-    }
-
-    FeatureCollection featureCollection = FeatureCollection(features: features);
-    if (mapboxMap == null) {
-      throw Exception("MapboxMap is not ready yet");
-    }
-    await mapboxMap?.style.addSource(
-        GeoJsonSource(id: "events", data: json.encode(featureCollection)));
-
-    await mapboxMap?.style.addStyleModel("eventsModel",
-        "https://github.com/M4dhav/alpha-go/raw/demo-v1.3.1/assets/bitcoin/main.glb");
-
-    var modelLayer = ModelLayer(id: "eventsLayer", sourceId: "events");
-    modelLayer.modelId = "eventsModel";
-    modelLayer.modelScale = [10, 10, 10];
-    modelLayer.modelType = ModelType.COMMON_3D;
-    await mapboxMap?.style.addLayer(modelLayer);
-    // await mapboxMap?.style.addLayer(
-    //   SymbolLayer(
-    //     id: 'event-labels',
-    //     sourceId: 'eventsLayer',
-    //     textFieldExpression: [
-    //       'get',
-    //       'name'
-    //     ], // This will use the 'name' property for the label
-    //     textSize: 14,
-    //     textHaloColorExpression: [0xFFFFFFFF], // White halo
-    //     textHaloWidthExpression: [2.0],
-    //     symbolZOffset: 10.0,
-    //     textOcclusionOpacity: 1.0,
-
-    //     // textColor: Colors.red.hashCode,
-    //     // textColorExpression: [Colors.red.hashCode, Colors.red.hashCode]
-    //     // You can add more styling properties as needed
-    //   ),
-    // );
-
-    log('added modelLayer');
-  }
-
-  void _onMapCreated(mb.MapboxMap mapboxMap) {
-    this.mapboxMap = mapboxMap;
-    mapboxMap.location.updateSettings(mb.LocationComponentSettings(
-        enabled: true,
-        puckBearing: mb.PuckBearing.HEADING,
-        puckBearingEnabled: true,
-        locationPuck: mb.LocationPuck(
-            locationPuck3D: mb.LocationPuck3D(
-          modelUri:
-              "https://github.com/M4dhav/alpha-go/raw/dev/assets/pointer.glb",
-          modelScale: [2, 2, 2],
-        ))));
-    log('puck added');
-  }
-
-  Future<void> _onStyleLoaded(StyleLoadedEventData data) async {
-    await addModelLayer(eventController.events);
+  Future<void> onStyleLoaded(StyleLoadedEventData data) async {
+    await mapboxMapController.addEventsModelLayer(eventController.events);
+    mapboxMapController.addEventsModelLayerInteractions(
+        eventController, context);
     log('style loaded');
-
-    mapboxMap!.addInteraction(
-        TapInteraction(
-          FeaturesetDescriptor(
-            layerId: "eventsLayer",
-          ),
-          (feature, mapContext) async {
-            log('Feature tapped: ${feature.properties}');
-            EventModel event =
-                eventController.events[feature.properties['index'] as int];
-
-            if (mounted) {
-              showDialog(
-                context: context,
-                builder: (context) => EventWidget(
-                  event: event,
-                ),
-              );
-            }
-          },
-          stopPropagation: true,
-        ),
-        interactionID: "eventTapInteraction");
-
-    log('loaded interactions');
   }
 
   @override
@@ -201,8 +103,8 @@ class _MapHomePageState extends State<MapHomePage> {
             orientation: mb.NorthOrientation.UPWARDS,
           ),
           key: const ValueKey("mapWidget"),
-          onMapCreated: _onMapCreated,
-          onStyleLoadedListener: _onStyleLoaded,
+          onMapCreated: mapboxMapController.onMapCreated,
+          onStyleLoadedListener: onStyleLoaded,
           styleUri: Constants.mapboxStyleUrl,
           cameraOptions: mb.CameraOptions(
               bearing: 43.7,

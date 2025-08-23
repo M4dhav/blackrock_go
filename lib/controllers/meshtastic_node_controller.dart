@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:blackrock_go/controllers/mapbox_map_controller.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:get/get.dart';
 import 'package:meshtastic_flutter/meshtastic_flutter.dart';
@@ -15,6 +16,7 @@ class MeshtasticNodeController extends GetxController {
   RxMap<int, NodeInfoWrapper> nodes = <int, NodeInfoWrapper>{}.obs;
   RxList<NodeInfoWrapper> activeUserChats = <NodeInfoWrapper>[].obs;
   RxList<Channel> activeChannels = <Channel>[].obs;
+  final MapboxMapController mapboxMapController = Get.find();
 
   @override
   void onInit() async {
@@ -59,6 +61,9 @@ class MeshtasticNodeController extends GetxController {
     try {
       await client.connectToDevice(device);
       activeChannels.value = client.config?.channels ?? [];
+      mapboxMapController.addNodesModelLayer(nodes.values.where((node) {
+        return node.userId != client.localUser?.id;
+      }).toList());
     } catch (e) {
       Get.snackbar('Error', 'Failed to connect to node: $e');
     }
