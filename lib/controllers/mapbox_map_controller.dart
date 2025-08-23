@@ -2,9 +2,11 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:blackrock_go/controllers/event_controller.dart';
+import 'package:blackrock_go/controllers/meshtastic_node_controller.dart';
 import 'package:blackrock_go/models/event_model.dart';
 import 'package:blackrock_go/views/widgets/event_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 import 'package:meshtastic_flutter/meshtastic_flutter.dart' hide Position;
 
@@ -83,6 +85,16 @@ class MapboxMapController {
     // );
 
     log('added modelLayer');
+
+    final meshtasticNodeController = Get.find<MeshtasticNodeController>();
+
+    if (meshtasticNodeController.connectionStatus.value.state ==
+        MeshtasticConnectionState.connected) {
+      addNodesModelLayer(
+          meshtasticNodeController.client.nodes.values.where((node) {
+        return node.userId != meshtasticNodeController.client.localUser?.id;
+      }).toList());
+    }
   }
 
   void addEventsModelLayerInteractions(
@@ -115,11 +127,11 @@ class MapboxMapController {
     List<Feature> features = [];
 
     for (NodeInfoWrapper node in nodes) {
+      log('Adding node: ${node.displayName} at (${node.latitude}, ${node.longitude})');
       features.add(Feature(
           id: nodes.indexOf(node),
           geometry: Point(
-              coordinates: Position(
-                  node.longitude?.toInt() ?? 0, node.latitude?.toInt() ?? 0)),
+              coordinates: Position(node.longitude ?? 0, node.latitude ?? 0)),
           properties: {
             'name': node.displayName,
             'longName': node.longName,
