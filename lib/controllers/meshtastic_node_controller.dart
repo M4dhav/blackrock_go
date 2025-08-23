@@ -1,3 +1,4 @@
+import 'dart:developer';
 
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 import 'package:get/get.dart';
@@ -60,6 +61,12 @@ class MeshtasticNodeController extends GetxController {
       activeChannels.value = client.config?.channels ?? [];
     } catch (e) {
       Get.snackbar('Error', 'Failed to connect to node: $e');
+    }
+  }
+
+  void getNodeLocations() {
+    for (var node in nodes.values) {
+      log('Node with id ${node.userId} is at location ${node.longitude}, ${node.latitude}');
     }
   }
 }

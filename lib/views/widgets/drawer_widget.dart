@@ -125,6 +125,23 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(height: 1.h),
+          InkWell(
+            onTap: () {
+              meshtasticNodeController.getNodeLocations();
+            },
+            child: ListTile(
+              leading: Icon(Icons.settings,
+                  color: constants.Constants.primaryGold, size: 24.px),
+              title: Text(
+                'Check Locations',
+                style: TextStyle(
+                  color: constants.Constants.primaryGold,
+                  fontSize: 24.px,
+                ),
+              ),
+            ),
+          ),
           SizedBox(height: 6.h),
           InkWell(
             onTap: () {
