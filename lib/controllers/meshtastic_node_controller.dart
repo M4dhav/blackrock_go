@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:blackrock_go/controllers/mapbox_map_controller.dart';
@@ -72,6 +73,53 @@ class MeshtasticNodeController extends GetxController {
   void getNodeLocations() {
     for (var node in nodes.values) {
       log('Node with id ${node.userId} is at location ${node.longitude}, ${node.latitude}');
+    }
+  }
+
+  Future<void> configureChannels(String qrUrl) async {
+    try {
+      final channelSet = ChannelConfigHelper.parseChannelSetFromUrl(qrUrl);
+      if (ChannelConfigHelper.sessionKey == null) {
+        final sessionKeyRequest = AdminMessage(
+          getConfigRequest: AdminMessage_ConfigType.SESSIONKEY_CONFIG,
+        );
+
+        final sessionKeyPacket = MeshPacket(
+          to: 0xffffffff, // Broadcast to get our own session key
+          decoded: Data(
+            portnum: PortNum.ADMIN_APP,
+            payload: sessionKeyRequest.writeToBuffer(),
+          ),
+          wantAck: true,
+          priority: MeshPacket_Priority.RELIABLE,
+        );
+
+        await client.sendPacket(sessionKeyPacket);
+
+        // Wait for session key response
+        await Future.delayed(const Duration(seconds: 3));
+      }
+      final configPackets = ChannelConfigHelper.createChannelConfigPackets(
+        channelSet!,
+        requestSessionKey: false, // We already have the session key
+      );
+
+      log('📦 Generated ${configPackets.length} configuration packets');
+
+      // Step 3: Send each packet to the device
+      for (int i = 0; i < configPackets.length; i++) {
+        final packet = configPackets[i];
+        log('   Sending packet ${i + 1}/${configPackets.length}...');
+
+        await client.sendPacket(packet);
+
+        // Add delay between packets to avoid overwhelming the device
+        await Future.delayed(const Duration(milliseconds: 500));
+      }
+
+      print('✅ Channel configuration applied successfully');
+    } catch (e) {
+      log(e.toString());
     }
   }
 }

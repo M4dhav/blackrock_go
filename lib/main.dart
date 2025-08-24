@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:blackrock_go/controllers/event_controller.dart';
 import 'package:blackrock_go/controllers/mapbox_map_controller.dart';
 import 'package:blackrock_go/controllers/meshtastic_node_controller.dart';
@@ -13,9 +15,11 @@ import 'package:blackrock_go/views/screens/event_details_screen.dart';
 import 'package:blackrock_go/views/screens/events.dart';
 import 'package:blackrock_go/views/screens/search_screen.dart';
 import 'package:blackrock_go/views/screens/users.dart';
+import 'package:blackrock_go/views/widgets/qr_scanner_widget.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:vs_story_designer/vs_story_designer.dart';
@@ -158,6 +162,10 @@ class MyApp extends StatelessWidget {
             GoRoute(
               path: 'eventsList',
               builder: (context, state) => const EventsScreen(),
+            ),
+            GoRoute(
+              path: 'qrScanner',
+              builder: (context, state) => QRScannerWidget(),
             ),
           ],
         ),

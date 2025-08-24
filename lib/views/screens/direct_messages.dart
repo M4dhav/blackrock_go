@@ -23,7 +23,7 @@ class _DirectMessagesPageState extends State<DirectMessagesPage> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/bg.png'),
+          image: AssetImage('assets/bg.jpg'),
           fit: BoxFit.cover,
         ),
       ),

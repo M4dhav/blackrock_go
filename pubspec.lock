@@ -652,8 +652,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "35b2a4e"
-      resolved-ref: "35b2a4e912fbb211a2bce461c01375837e591674"
+      ref: "506635be60f3cb"
+      resolved-ref: "506635be60f3cb600bea98ff468bf1434e5d518d"
       url: "https://github.com/M4dhav/meshtastic_flutter.git"
     source: git
     version: "0.1.0"
@@ -673,6 +673,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  mobile_scanner:
+    dependency: "direct main"
+    description:
+      name: mobile_scanner
+      sha256: "54005bdea7052d792d35b4fef0f84ec5ddc3a844b250ecd48dc192fb9b4ebc95"
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.0.1"
   nested:
     dependency: transitive
     description:

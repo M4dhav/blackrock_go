@@ -30,10 +30,22 @@ class _ChannelsPageState extends State<ChannelsPage> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: CustomAppBar(
-          leadingWidget: Text(
+          leadingWidget: IconButton(
+              onPressed: () => context.pop(),
+              icon: Icon(
+                Icons.arrow_back,
+                color: Constants.primaryGold,
+              )),
+          titleWidget: Text(
             'Your Chats',
             style: TextStyle(color: Constants.primaryGold, fontSize: 22.px),
           ),
+          actionWidgets: IconButton(
+              onPressed: () => context.push('/qrScanner'),
+              icon: Icon(
+                Icons.qr_code_scanner,
+                color: Constants.primaryGold,
+              )),
         ),
         body: Padding(
           padding: EdgeInsets.only(

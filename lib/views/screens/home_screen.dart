@@ -1,17 +1,13 @@
-import 'dart:convert';
 import 'dart:developer';
 import 'package:blackrock_go/controllers/event_controller.dart';
 import 'package:blackrock_go/controllers/mapbox_map_controller.dart';
 import 'package:blackrock_go/models/const_model.dart';
-import 'package:blackrock_go/models/event_model.dart';
 import 'package:blackrock_go/views/widgets/drawer_widget.dart';
 import 'package:blackrock_go/views/widgets/appbar_widget.dart';
-import 'package:blackrock_go/views/widgets/event_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart' as mb;
-import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MapHomePage extends StatefulWidget {
@@ -26,7 +22,7 @@ class _MapHomePageState extends State<MapHomePage> {
   final MapboxMapController mapboxMapController = Get.find();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  Future<void> onStyleLoaded(StyleLoadedEventData data) async {
+  Future<void> onStyleLoaded(mb.StyleLoadedEventData data) async {
     await mapboxMapController.addEventsModelLayer(eventController.events);
     mapboxMapController.addEventsModelLayerInteractions(
         eventController, context);
@@ -134,11 +130,11 @@ class _MapHomePageState extends State<MapHomePage> {
                 }
               });
             },
+            backgroundColor: Colors.black,
             child: Icon(
               Icons.my_location,
               color: Constants.primaryGold,
             ),
-            backgroundColor: Colors.black,
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,

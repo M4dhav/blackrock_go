@@ -158,6 +158,7 @@ class MapboxMapController {
   }
 
   Future<geo.Position?> determinePosition(BuildContext context) async {
+    final messenger = ScaffoldMessenger.of(context);
     final meshtasticNodeController = Get.find<MeshtasticNodeController>();
     if (meshtasticNodeController.connectionStatus.value.state !=
         MeshtasticConnectionState.connected) {
@@ -166,7 +167,7 @@ class MapboxMapController {
 
       serviceEnabled = await geo.Geolocator.isLocationServiceEnabled();
       if (!serviceEnabled) {
-        ScaffoldMessenger.of(context).showSnackBar(
+        messenger.showSnackBar(
           SnackBar(content: Text('Location services are disabled.')),
         );
         return null;
@@ -176,7 +177,7 @@ class MapboxMapController {
       if (permission == geo.LocationPermission.denied) {
         permission = await geo.Geolocator.requestPermission();
         if (permission == geo.LocationPermission.denied) {
-          ScaffoldMessenger.of(context).showSnackBar(
+          messenger.showSnackBar(
             SnackBar(content: Text('Location permissions are denied.')),
           );
           return null;
@@ -184,7 +185,7 @@ class MapboxMapController {
       }
 
       if (permission == geo.LocationPermission.deniedForever) {
-        ScaffoldMessenger.of(context).showSnackBar(
+        messenger.showSnackBar(
           SnackBar(
               content: Text('Location permissions are permanently denied.')),
         );

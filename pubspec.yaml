@@ -60,11 +60,12 @@ dependencies:
   meshtastic_flutter: 
     git:
       url: https://github.com/M4dhav/meshtastic_flutter.git
-      branch: location
-      ref: 35b2a4e
+      branch: channelSet
+      ref: 506635be60f3cb
   flutter_blue_plus: ^1.35.5
   url_launcher: ^6.3.2
   geolocator: ^14.0.2
+  mobile_scanner: ^7.0.1
 
 
 dev_dependencies:
