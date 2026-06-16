@@ -315,7 +315,7 @@ Future<void> _addCampSchema(Database db) async {
 }
 
 List<String> _campSchemaSql() => [
-  '''CREATE TABLE IF NOT EXISTS camps (
+      '''CREATE TABLE IF NOT EXISTS camps (
     id TEXT PRIMARY KEY,
     name TEXT NOT NULL,
     latitude REAL,
@@ -326,7 +326,7 @@ List<String> _campSchemaSql() => [
     role TEXT NOT NULL DEFAULT 'member',
     joined_at INTEGER NOT NULL
   )''',
-  '''CREATE TABLE IF NOT EXISTS camp_members (
+      '''CREATE TABLE IF NOT EXISTS camp_members (
     id TEXT PRIMARY KEY,
     camp_id TEXT NOT NULL,
     node_id TEXT NOT NULL,
@@ -339,7 +339,7 @@ List<String> _campSchemaSql() => [
     last_lon REAL,
     FOREIGN KEY(camp_id) REFERENCES camps(id) ON DELETE CASCADE
   )''',
-  '''CREATE TABLE IF NOT EXISTS location_links (
+      '''CREATE TABLE IF NOT EXISTS location_links (
     id TEXT PRIMARY KEY,
     peer_node_id TEXT NOT NULL,
     peer_display_name TEXT,
@@ -349,4 +349,4 @@ List<String> _campSchemaSql() => [
     am_sharing INTEGER NOT NULL DEFAULT 1,
     they_sharing INTEGER NOT NULL DEFAULT 1
   )''',
-];
+    ];
