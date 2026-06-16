@@ -108,6 +108,59 @@ class CustomDrawer extends StatelessWidget {
               ),
             ),
           ),
+          const Divider(color: Color(0xFF222222)),
+          InkWell(
+            onTap: () {
+              Navigator.pop(context);
+              context.push('/oracle');
+            },
+            child: ListTile(
+              leading: Icon(Icons.auto_awesome,
+                  color: constants.Constants.primaryGold, size: 24.px),
+              title: Text(
+                'Pythia Oracle',
+                style: TextStyle(
+                  color: constants.Constants.primaryGold,
+                  fontSize: 20.px,
+                ),
+              ),
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.pop(context);
+              context.push('/camp');
+            },
+            child: ListTile(
+              leading: Icon(Icons.fireplace_outlined,
+                  color: constants.Constants.primaryGold, size: 24.px),
+              title: Text(
+                'My Camp',
+                style: TextStyle(
+                  color: constants.Constants.primaryGold,
+                  fontSize: 20.px,
+                ),
+              ),
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.pop(context);
+              context.push('/playaLinks');
+            },
+            child: ListTile(
+              leading: Icon(Icons.people_outline,
+                  color: constants.Constants.primaryGold, size: 24.px),
+              title: Text(
+                'Playa Links',
+                style: TextStyle(
+                  color: constants.Constants.primaryGold,
+                  fontSize: 20.px,
+                ),
+              ),
+            ),
+          ),
+          const Divider(color: Color(0xFF222222)),
           SizedBox(height: 1.h),
           InkWell(
             onTap: () {

@@ -2,7 +2,14 @@ import 'package:blackrock_go/controllers/event_controller.dart';
 import 'package:blackrock_go/controllers/meshtastic_node_controller.dart';
 import 'package:blackrock_go/controllers/timeline_post_controller.dart';
 import 'package:blackrock_go/models/const_model.dart';
+import 'package:blackrock_go/services/camp_network_service.dart';
+import 'package:blackrock_go/services/camp_service.dart';
+import 'package:blackrock_go/services/crypto_service.dart';
+import 'package:blackrock_go/services/location_link_service.dart';
+import 'package:blackrock_go/services/mesh_message_service.dart';
+import 'package:blackrock_go/services/pythia_service.dart';
 import 'package:blackrock_go/views/screens/base_view.dart';
+import 'package:blackrock_go/views/screens/camp_screen.dart';
 import 'package:blackrock_go/views/screens/channels.dart';
 import 'package:blackrock_go/views/screens/chat.dart';
 import 'package:blackrock_go/views/screens/chats_page.dart';
@@ -10,6 +17,8 @@ import 'package:blackrock_go/views/screens/connect_node_screen.dart';
 import 'package:blackrock_go/views/screens/direct_messages.dart';
 import 'package:blackrock_go/views/screens/event_details_screen.dart';
 import 'package:blackrock_go/views/screens/events.dart';
+import 'package:blackrock_go/views/screens/location_share_screen.dart';
+import 'package:blackrock_go/views/screens/oracle_screen.dart';
 import 'package:blackrock_go/views/screens/search_screen.dart';
 import 'package:blackrock_go/views/screens/users.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -27,23 +36,18 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Database — version 2 adds camp, member, and location_link tables
   Get.put(await openDatabase(
-      // Set the path to the database. Note: Using the `join` function from the
-      // `path` package is best practice to ensure the path is correctly
-      // constructed for each platform.
-      join(await getDatabasesPath(), 'blackrock_database.db'),
-      onCreate: (db, version) async {
-    // Run the CREATE TABLE statement on the database.
-    await Future.wait([
-      db.execute(
-        'CREATE TABLE timeline_posts ('
-        'id INTEGER PRIMARY KEY AUTOINCREMENT, '
-        'imageUrl TEXT NOT NULL, '
-        'timestamp INTEGER NOT NULL'
-        ')',
-      ),
-    ]);
-  }, version: 1));
+    join(await getDatabasesPath(), 'blackrock_database.db'),
+    onCreate: (db, version) async {
+      await _createSchema(db);
+    },
+    onUpgrade: (db, oldVersion, newVersion) async {
+      if (oldVersion < 2) await _addCampSchema(db);
+    },
+    version: 2,
+  ));
+
   // Load environment variables
   await dotenv.load(fileName: ".env");
 
@@ -52,10 +56,24 @@ void main() async {
     cacheOptions: const SharedPreferencesWithCacheOptions(),
   ));
 
+  // Crypto — must init before any service that encrypts/decrypts
+  final crypto = Get.put(CryptoService());
+  await crypto.initialize();
+
+  // Network detection — probes for camp.local on a 30s interval
+  Get.put(CampNetworkService(), permanent: true);
+
   final TimelinePostController timelineController =
       Get.put(TimelinePostController());
   final EventController eventController = Get.put(EventController());
   Get.put(MeshtasticNodeController(), permanent: true);
+
+  // Services that depend on mesh + crypto
+  Get.put(MeshMessageService(), permanent: true);
+  Get.put(CampService(), permanent: true);
+  Get.put(LocationLinkService(), permanent: true);
+  Get.put(PythiaService(), permanent: true);
+
   await eventController.getEvents();
   await timelineController.getPosts();
   MapboxOptions.setAccessToken(Constants.mapboxToken);
@@ -173,6 +191,18 @@ class MyApp extends StatelessWidget {
               path: 'eventsList',
               builder: (context, state) => const EventsScreen(),
             ),
+            GoRoute(
+              path: 'oracle',
+              builder: (context, state) => const OracleScreen(),
+            ),
+            GoRoute(
+              path: 'camp',
+              builder: (context, state) => const CampScreen(),
+            ),
+            GoRoute(
+              path: 'playaLinks',
+              builder: (context, state) => const LocationShareScreen(),
+            ),
           ],
         ),
       ],
@@ -262,3 +292,61 @@ class MyApp extends StatelessWidget {
     });
   }
 }
+
+// ── Database schema ────────────────────────────────────────────────────────
+
+Future<void> _createSchema(Database db) async {
+  await Future.wait([
+    db.execute(
+      'CREATE TABLE timeline_posts ('
+      'id INTEGER PRIMARY KEY AUTOINCREMENT, '
+      'imageUrl TEXT NOT NULL, '
+      'timestamp INTEGER NOT NULL'
+      ')',
+    ),
+    ..._campSchemaSql().map(db.execute),
+  ]);
+}
+
+Future<void> _addCampSchema(Database db) async {
+  for (final sql in _campSchemaSql()) {
+    await db.execute(sql);
+  }
+}
+
+List<String> _campSchemaSql() => [
+  '''CREATE TABLE IF NOT EXISTS camps (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    latitude REAL,
+    longitude REAL,
+    meshtastic_slot INTEGER NOT NULL DEFAULT 1,
+    channel_psk TEXT NOT NULL,
+    gateway_node_id TEXT,
+    role TEXT NOT NULL DEFAULT 'member',
+    joined_at INTEGER NOT NULL
+  )''',
+  '''CREATE TABLE IF NOT EXISTS camp_members (
+    id TEXT PRIMARY KEY,
+    camp_id TEXT NOT NULL,
+    node_id TEXT NOT NULL,
+    display_name TEXT,
+    public_key TEXT,
+    role TEXT NOT NULL DEFAULT 'member',
+    location_opt_in INTEGER NOT NULL DEFAULT 0,
+    last_seen INTEGER,
+    last_lat REAL,
+    last_lon REAL,
+    FOREIGN KEY(camp_id) REFERENCES camps(id) ON DELETE CASCADE
+  )''',
+  '''CREATE TABLE IF NOT EXISTS location_links (
+    id TEXT PRIMARY KEY,
+    peer_node_id TEXT NOT NULL,
+    peer_display_name TEXT,
+    expires_at INTEGER NOT NULL,
+    bidirectional INTEGER NOT NULL DEFAULT 1,
+    status TEXT NOT NULL DEFAULT 'pending',
+    am_sharing INTEGER NOT NULL DEFAULT 1,
+    they_sharing INTEGER NOT NULL DEFAULT 1
+  )''',
+];
