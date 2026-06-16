@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - vision_gallery_saver (1.0.0):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - vision_gallery_saver (from `.symlinks/plugins/vision_gallery_saver/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  vision_gallery_saver:
+    :path: ".symlinks/plugins/vision_gallery_saver/ios"
+
+SPEC CHECKSUMS:
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  vision_gallery_saver: 551b2c7db4ea7eb6e674120f042ed29265617292
+
+PODFILE CHECKSUM: 251cb053df7158f337c0712f2ab29f4e0fa474ce
+
+COCOAPODS: 1.16.2
